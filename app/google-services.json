@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "367876055503",
+    "firebase_url": "https://hitema-9df3a.firebaseio.com",
+    "project_id": "hitema-9df3a",
+    "storage_bucket": "hitema-9df3a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367876055503:android:5da292ec0fcf7865",
+        "android_client_info": {
+          "package_name": "com.rpifinal.hitema"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "367876055503-mmv4g1oanjimi22bu2k5h754h2v50k9e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rpifinal.hitema",
+            "certificate_hash": "d4c5450326df5891e398573637fbb87262ab7c82"
+          }
+        },
+        {
+          "client_id": "367876055503-ldemc292dfoqvedp87c4052lojm6huhv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfB_g3ilgoKFO9Qik5FqsFm8_3WT4ijzI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "367876055503-ldemc292dfoqvedp87c4052lojm6huhv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
