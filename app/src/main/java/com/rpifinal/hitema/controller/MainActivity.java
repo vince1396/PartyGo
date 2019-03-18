@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     // 2 - Launch Sign-In Activity
     public void startSignInActivity(){
+
         startActivityForResult(
                 AuthUI.getInstance()
                         .createSignInIntentBuilder()
