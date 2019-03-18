@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                         .createSignInIntentBuilder()
                         .setTheme(R.style.LoginTheme)
                         .setAvailableProviders(
-                                Arrays.asList(new AuthUI.IdpConfig.Builder(AuthUI.EMAIL_PROVIDER).build()))
+                                Arrays.asList(new AuthUI.IdpConfig.EmailBuilder().build()))
                         .setIsSmartLockEnabled(false, true)
                         .setLogo(R.drawable.ic_logo_auth)
                         .build(),
