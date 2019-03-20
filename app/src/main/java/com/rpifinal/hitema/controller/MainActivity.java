@@ -75,7 +75,6 @@ public class MainActivity extends BaseActivity {
                                 Arrays.asList(new AuthUI.IdpConfig.EmailBuilder().build(),
                                               new AuthUI.IdpConfig.GoogleBuilder().build()
                                 ))
-                        .setIsSmartLockEnabled(false, true)
                         .setLogo(R.drawable.ic_logo_auth)
                         .build(),
                 RC_SIGN_IN);
@@ -90,6 +89,8 @@ public class MainActivity extends BaseActivity {
             if(resultCode == RESULT_OK) //SUCCESS
             {
                 showSnackBar(this.coordinatorLayout, getString(R.string.connection_succeed));
+                Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(profile);
             }
             else //ERROR
             {

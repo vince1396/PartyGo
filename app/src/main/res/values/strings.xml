@@ -36,4 +36,13 @@
     <!-- FACEBOOK PURPOSE -->
     <string name="facebook_application_id" translatable="false">420763051691337</string>
     <string name="facebook_login_protocol_scheme" translatable="false" tools:ignore="UnusedResources">fb420763051691337</string>
+
+    <!-- PROFILE ACTIVITY -->
+    <string name="user_name" translatable="false">Nom Prénom</string>
+    <string name="user_email" translatable="false">Email</string>
+    <string name="desc_user_name" translatable="false">User name</string>
+    <string name="desc_user_email" translatable="false">User email</string>
+    <string name="desc_user_picture" translatable="false">User picture</string>
+    <string name="logout_text" translatable="false">Déconnexion</string>
+    <string name="delete_account_text" translatable="false">Supprimer compte</string>
 </resources>
