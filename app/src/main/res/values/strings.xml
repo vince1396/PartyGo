@@ -4,7 +4,7 @@
     <string name="main_activity_description">Jouez partout, avec les gens autour de vous !</string>
 
     <string name="login">Connexion</string>
-    <string name="signin">Inscription</string>
+    <string name="signin">Lancer Démo</string>
 
     <!-- NOTIFICATION SERVICE -->
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>

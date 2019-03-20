@@ -72,6 +72,7 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_margin="@dimen/default_large_margin"
                 android:padding="@dimen/default_large_margin"/>
+
         </LinearLayout>
 
     </LinearLayout>
