@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.widget.Button;
 
 import com.firebase.ui.auth.AuthUI;
@@ -16,22 +14,14 @@ import com.rpifinal.hitema.R;
 import java.util.Arrays;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private static final int RC_SIGN_IN = 123;
     @BindView(R.id.main_activity_button_login) Button mLoginButton;
     @BindView(R.id.main_activity_coordinator_layout) CoordinatorLayout coordinatorLayout;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        ButterKnife.bind(this);
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -48,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
 
         Snackbar.make(coordinatorLayout, message, Snackbar.LENGTH_SHORT).show();
     }
+
+    @Override
+    public int getFragmentLayout() { return R.layout.activity_main; }
 
     // --------------------
     // ACTIONS
