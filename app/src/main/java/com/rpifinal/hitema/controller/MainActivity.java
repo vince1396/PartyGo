@@ -19,12 +19,17 @@ import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
 
+    // =============================================================================================
     private static final int RC_SIGN_IN = 123;
     @BindView(R.id.main_activity_button_login) Button mLoginButton;
     @BindView(R.id.main_activity_coordinator_layout) CoordinatorLayout coordinatorLayout;
-    @BindView(R.id.main_activity_button_signin) Button mSigninButton;
+    @BindView(R.id.main_activity_button_signin) Button mSignInButton;
+    // =============================================================================================
 
+    @Override
+    public int getFragmentLayout() { return R.layout.activity_main; }
 
+    // =============================================================================================
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
@@ -32,17 +37,11 @@ public class MainActivity extends BaseActivity {
         this.handleResponseAfterSignIn(requestCode, resultCode, data);
     }
 
-    // --------------------
-    // UI
-    // --------------------
-
+    // =============================================================================================
     private void showSnackBar(CoordinatorLayout coordinatorLayout, String message) {
 
         Snackbar.make(coordinatorLayout, message, Snackbar.LENGTH_SHORT).show();
     }
-
-    @Override
-    public int getFragmentLayout() { return R.layout.activity_main; }
 
     // --------------------
     // ACTIONS
@@ -55,7 +54,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @OnClick(R.id.main_activity_button_signin)
-    public void onClickSigninButton()
+    public void onClickSignInButton()
     {
         Intent i = new Intent(MainActivity.this, UnityPlayerActivity.class);
         startActivity(i);
@@ -81,10 +80,6 @@ public class MainActivity extends BaseActivity {
                         .build(),
                 RC_SIGN_IN);
     }
-
-    // --------------------
-    // NAVIGATION
-    // --------------------
 
     private void handleResponseAfterSignIn(int requestCode, int resultCode, Intent data) {
 
