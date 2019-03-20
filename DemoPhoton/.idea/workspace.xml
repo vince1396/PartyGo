@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8e7fe552-6962-4cd2-a739-118eee17a240" name="Default Changelist" comment="" />
+    <list default="true" id="1a456117-7834-441e-b8b7-4cf8e5dd4493" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <projects_view />
-      </state>
-    </system>
-  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-374068902">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
           <entry key="project.closed" value="1" />
-          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
@@ -29,8 +22,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="100" />
     <option name="y" value="45" />
-    <option name="width" value="1400" />
-    <option name="height" value="835" />
+    <option name="width" value="1380" />
+    <option name="height" value="849" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -38,16 +31,16 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
-    <property name="show.do.not.ask.upgrade.gradle.plugin" value="3.2.0" />
+    <property name="sync.plugin.last.upgrade.timestamp" value="1553088198386" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -127,11 +120,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8e7fe552-6962-4cd2-a739-118eee17a240" name="Default Changelist" comment="" />
-      <created>1553075996372</created>
+      <changelist id="1a456117-7834-441e-b8b7-4cf8e5dd4493" name="Default Changelist" comment="" />
+      <created>1553088194311</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1553075996372</updated>
+      <updated>1553088194311</updated>
     </task>
     <servers />
   </component>
