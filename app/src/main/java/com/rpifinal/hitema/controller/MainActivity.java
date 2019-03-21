@@ -24,6 +24,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.main_activity_button_login) Button mLoginButton;
     @BindView(R.id.main_activity_coordinator_layout) CoordinatorLayout coordinatorLayout;
     @BindView(R.id.main_activity_button_signin) Button mSignInButton;
+
     // =============================================================================================
 
     @Override
