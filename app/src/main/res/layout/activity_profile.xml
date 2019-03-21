@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -19,7 +20,7 @@
             android:id="@+id/profile_activity_view_picture"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_marginStart="175dp"
+            android:layout_gravity="center"
             android:layout_marginTop="50dp"
             tools:srcCompat="@tools:sample/avatars"
             android:contentDescription="@string/desc_user_picture" />
@@ -28,7 +29,7 @@
             android:id="@+id/profile_activity_view_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="155dp"
+            android:layout_gravity="center"
             android:layout_marginTop="30dp"
             android:contentDescription="@string/desc_user_name"
             android:text="@string/user_name"
@@ -38,7 +39,7 @@
             android:id="@+id/profile_activity_view_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="155dp"
+            android:layout_gravity="center"
             android:layout_marginTop="5dp"
             android:contentDescription="@string/desc_user_email"
             android:text="@string/user_email"
