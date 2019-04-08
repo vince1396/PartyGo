@@ -3,7 +3,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import models.User;
+import com.rpifinal.hitema.model.User;
+
+import java.sql.Timestamp;
 
 public class UserHelper {
 
@@ -17,12 +19,17 @@ public class UserHelper {
 
     // --- CREATE ---
 
-    public static Task<Void> createUser(String uid, String username, String urlPicture) {
+    public static Task<Void> createUser(String uid, String username, String urlPicture,
+                                        Timestamp birthDate, Timestamp creationDate, String email,
+                                        String firstName, String lastName, String location,
+                                        int lvl)
+    {
+
         User userToCreate = new User(uid, username, urlPicture);
         return UserHelper.getUsersCollection().document(uid).set(userToCreate);
     }
 
-    // --- GET ---
+    // --- READ ---
 
     public static Task<DocumentSnapshot> getUser(String uid){
         return UserHelper.getUsersCollection().document(uid).get();

@@ -2,6 +2,8 @@
   <dictionary name="vince">
     <words>
       <w>butterknife</w>
+      <w>firebase</w>
+      <w>firestore</w>
     </words>
   </dictionary>
 </component>

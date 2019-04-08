@@ -19,7 +19,7 @@ import com.rpifinal.hitema.R;
 import api.UserHelper;
 import butterknife.BindView;
 import butterknife.OnClick;
-import models.User;
+import com.rpifinal.hitema.model.User;
 
 public class ProfileActivity extends BaseActivity {
 
@@ -27,6 +27,7 @@ public class ProfileActivity extends BaseActivity {
     //Identify each Http Request
     private static final int SIGN_OUT_TASK = 10;
     private static final int DELETE_USER_TASK = 20;
+    private static final int UPDATE_USERNAME = 30;
 
     @BindView(R.id.profile_activity_view_picture) ImageView imageViewProfile;
     @BindView(R.id.profile_activity_view_name) TextView textViewName;
@@ -36,6 +37,7 @@ public class ProfileActivity extends BaseActivity {
     //@BindView(R.id.profile_activity_logout_button) Button ButtonLogout;
     //@BindView(R.id.profile_activity_delete_button) Button ButtonDelete;
 
+    // =============================================================================================
     @Override
     public int getFragmentLayout() { return R.layout.activity_profile; }
 
@@ -63,13 +65,13 @@ public class ProfileActivity extends BaseActivity {
         this.deleteUserFromFirebase();
     }
 
-
+    // =============================================================================================
 
     // --------------------
     // REST REQUESTS
     // --------------------
-    // 1 - Create http requests (SignOut & Delete)
 
+    // User sign out method
     private void signOutUserFromFirebase(){
 
         AuthUI.getInstance()
@@ -77,6 +79,7 @@ public class ProfileActivity extends BaseActivity {
                 .addOnSuccessListener(this, this.updateUIAfterRESTRequestsCompleted(SIGN_OUT_TASK));
     }
 
+    // User deletion method
     private void deleteUserFromFirebase(){
 
         if (this.getCurrentUser() != null) {
@@ -89,25 +92,32 @@ public class ProfileActivity extends BaseActivity {
         }
     }
 
-    // 3 - Update User Username
+    // Update User Username
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void updateUsernameInFirebase(){
 
         this.progressBar.setVisibility(View.VISIBLE);
         String username = this.textInputEditTextUsername.getText().toString();
 
-        if (this.getCurrentUser() != null){
-            if (!username.isEmpty() &&  !username.equals(getString(R.string.info_no_username_found))){
-                UserHelper.updateUsername(username, this.getCurrentUser().getUid()).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.updateUIAfterRESTRequestsCompleted(UPDATE_USERNAME));
+        if (this.getCurrentUser() != null)
+        {
+            if (!username.isEmpty() &&  !username.equals(getString(R.string.info_no_username_found)))
+            {
+                UserHelper.updateUsername(
+                        username,
+                        this.getCurrentUser().getUid()).addOnFailureListener(
+                                this.onFailureListener()).addOnSuccessListener(
+                                        this.updateUIAfterRESTRequestsCompleted(UPDATE_USERNAME));
             }
         }
     }
-    // 6 - Arranging method that updating UI with Firestore data
+    // Arranging method that updating UI with Firestore data
     private void updateUIWhenCreating(){
 
-        if (this.getCurrentUser() != null){
-
-            if (this.getCurrentUser().getPhotoUrl() != null) {
+        if (this.getCurrentUser() != null)
+        {
+            if (this.getCurrentUser().getPhotoUrl() != null)
+            {
                 Glide.with(this)
                         .load(this.getCurrentUser().getPhotoUrl())
                         .apply(RequestOptions.circleCropTransform())
@@ -118,7 +128,7 @@ public class ProfileActivity extends BaseActivity {
 
             this.textViewEmail.setText(email);
 
-            // 7 - Get additional data from Firestore (isMentor & Username)
+            // Get additional data from Firestore (isMentor & Username)
             UserHelper.getUser(this.getCurrentUser().getUid()).addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
@@ -133,13 +143,13 @@ public class ProfileActivity extends BaseActivity {
 
 
     //Create OnCompleteListener called after tasks ended
-    private OnSuccessListener<Void> updateUIAfterRESTRequestsCompleted(final int origin){
+    private OnSuccessListener<Void> updateUIAfterRESTRequestsCompleted(final int origin) {
 
         return new OnSuccessListener<Void>()
         {
             @Override
-            public void onSuccess(Void aVoid) {
-
+            public void onSuccess(Void aVoid)
+            {
                 switch (origin){
                     // 8 - Hiding Progress bar after request completed
                     case UPDATE_USERNAME:
