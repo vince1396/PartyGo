@@ -5,7 +5,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.ImageView;
 import  android.widget.TextView;
 
@@ -32,7 +31,6 @@ public class ProfileActivity extends BaseActivity {
     @BindView(R.id.profile_activity_view_picture) ImageView imageViewProfile;
     @BindView(R.id.profile_activity_view_name) TextView textViewName;
     @BindView(R.id.profile_activity_view_email) TextView textViewEmail;
-    private View progressBar;
     private Notification.MessagingStyle.Message textInputEditTextUsername;
     //@BindView(R.id.profile_activity_logout_button) Button ButtonLogout;
     //@BindView(R.id.profile_activity_delete_button) Button ButtonDelete;
@@ -53,11 +51,6 @@ public class ProfileActivity extends BaseActivity {
 
         this.signOutUserFromFirebase();
     }
-
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    @OnClick(R.id.profile_activity_button_update)
-    public void onClickUpdateButton() { this.updateUsernameInFirebase(); }
-
 
     @OnClick(R.id.profile_activity_delete_button)
     public void onClickDeleteButton() {
@@ -83,7 +76,7 @@ public class ProfileActivity extends BaseActivity {
     private void deleteUserFromFirebase(){
 
         if (this.getCurrentUser() != null) {
-            //4 - We also delete user from firestore storage
+
             UserHelper.deleteUser(this.getCurrentUser().getUid()).addOnFailureListener(this.onFailureListener());
 
             AuthUI.getInstance()
@@ -96,12 +89,11 @@ public class ProfileActivity extends BaseActivity {
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void updateUsernameInFirebase(){
 
-        this.progressBar.setVisibility(View.VISIBLE);
         String username = this.textInputEditTextUsername.getText().toString();
 
         if (this.getCurrentUser() != null)
         {
-            if (!username.isEmpty() &&  !username.equals(getString(R.string.info_no_username_found)))
+            if (!username.isEmpty() && !username.equals(getString(R.string.info_no_username_found)))
             {
                 UserHelper.updateUsername(
                         username,
@@ -111,6 +103,7 @@ public class ProfileActivity extends BaseActivity {
             }
         }
     }
+
     // Arranging method that updating UI with Firestore data
     private void updateUIWhenCreating(){
 
@@ -129,7 +122,7 @@ public class ProfileActivity extends BaseActivity {
             this.textViewEmail.setText(email);
 
             // Get additional data from Firestore (isMentor & Username)
-            UserHelper.getUser(this.getCurrentUser().getUid()).addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+            /*UserHelper.getUser(this.getCurrentUser().getUid()).addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
                 @Override
                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                     User currentUser = documentSnapshot.toObject(User.class);
@@ -137,10 +130,9 @@ public class ProfileActivity extends BaseActivity {
 
                     textViewName.setText(username);
                 }
-            });
+            });*/
         }
     }
-
 
     //Create OnCompleteListener called after tasks ended
     private OnSuccessListener<Void> updateUIAfterRESTRequestsCompleted(final int origin) {
@@ -151,9 +143,7 @@ public class ProfileActivity extends BaseActivity {
             public void onSuccess(Void aVoid)
             {
                 switch (origin){
-                    // 8 - Hiding Progress bar after request completed
                     case UPDATE_USERNAME:
-                        progressBar.setVisibility(View.INVISIBLE);
                         break;
                     case SIGN_OUT_TASK:
                         finish();

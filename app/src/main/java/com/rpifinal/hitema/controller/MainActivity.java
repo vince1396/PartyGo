@@ -21,12 +21,14 @@ public class MainActivity extends BaseActivity {
 
     // =============================================================================================
     private static final int RC_SIGN_IN = 123;
+
+    // Binding view
     @BindView(R.id.main_activity_button_login) Button mLoginButton;
     @BindView(R.id.main_activity_coordinator_layout) CoordinatorLayout coordinatorLayout;
     @BindView(R.id.main_activity_button_signin) Button mSignInButton;
 
     // =============================================================================================
-
+    // Initialize layout
     @Override
     public int getFragmentLayout() { return R.layout.activity_main; }
 
@@ -55,8 +57,7 @@ public class MainActivity extends BaseActivity {
     }
 
     @OnClick(R.id.main_activity_button_signin)
-    public void onClickSignInButton()
-    {
+    public void onClickSignInButton() {
         Intent i = new Intent(MainActivity.this, UnityPlayerActivity.class);
         startActivity(i);
     }
