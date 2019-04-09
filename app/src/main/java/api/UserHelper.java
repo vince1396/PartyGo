@@ -1,4 +1,5 @@
 package api;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -14,6 +15,7 @@ public class UserHelper {
     // --- COLLECTION REFERENCE ---
 
     public static CollectionReference getUsersCollection(){
+
         return FirebaseFirestore.getInstance().collection(COLLECTION_NAME);
     }
 

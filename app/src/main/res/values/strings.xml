@@ -45,4 +45,7 @@
     <string name="desc_user_picture" translatable="false">User picture</string>
     <string name="logout_text" translatable="false">Déconnexion</string>
     <string name="delete_account_text" translatable="false">Supprimer compte</string>
+
+    <!-- UPDATE ACTIVITY -->
+    
 </resources>

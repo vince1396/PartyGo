@@ -35,7 +35,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         return (this.getCurrentUser() != null);
     }
 
-
     protected OnFailureListener onFailureListener(){
         return new OnFailureListener() {
             @Override
