@@ -45,6 +45,7 @@
     <string name="desc_user_picture" translatable="false">User picture</string>
     <string name="logout_text" translatable="false">Déconnexion</string>
     <string name="delete_account_text" translatable="false">Supprimer compte</string>
+    <string name="update_button">Modifiez informations du compte</string>
 
     <!-- UPDATE ACTIVITY -->
     <string name="title_update">Modifiez vos informations</string>
@@ -52,5 +53,6 @@
     <string name="firstName_field">Prénom : </string>
     <string name="lastName_field">Nom : </string>
     <string name="submit_update">Valider</string>
+    <string name="title_activity_maps">Map</string>
 
 </resources>

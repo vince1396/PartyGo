@@ -1,12 +1,13 @@
 package com.rpifinal.hitema.controller;
 
 import android.app.Notification;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.widget.ImageView;
-import  android.widget.TextView;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -26,12 +27,13 @@ public class ProfileActivity extends BaseActivity {
     private static final int DELETE_USER_TASK = 20;
     private static final int UPDATE_USERNAME = 30;
 
-    @BindView(R.id.profile_activity_view_picture) ImageView imageViewProfile;
-    @BindView(R.id.profile_activity_view_name) TextView textViewName;
-    @BindView(R.id.profile_activity_view_email) TextView textViewEmail;
+    @BindView(R.id.profile_activity_view_picture) ImageView mImageViewProfile;
+    @BindView(R.id.profile_activity_view_name) TextView mTextViewName;
+    @BindView(R.id.profile_activity_view_email) TextView mTextViewEmail;
+    @BindView(R.id.profile_activity_button_update) TextView mButtonUpdate;
+
     private Notification.MessagingStyle.Message textInputEditTextUsername;
-    //@BindView(R.id.profile_activity_logout_button) Button ButtonLogout;
-    //@BindView(R.id.profile_activity_delete_button) Button ButtonDelete;
+
 
     // =============================================================================================
     @Override
@@ -54,6 +56,13 @@ public class ProfileActivity extends BaseActivity {
     public void onClickDeleteButton() {
 
         this.deleteUserFromFirebase();
+    }
+
+    @OnClick
+    public void onClickUpdateButton() {
+
+        Intent update = new Intent(ProfileActivity.this, UpdateUserActivity.class);
+        startActivity(update);
     }
 
     // =============================================================================================
@@ -112,12 +121,12 @@ public class ProfileActivity extends BaseActivity {
                 Glide.with(this)
                         .load(this.getCurrentUser().getPhotoUrl())
                         .apply(RequestOptions.circleCropTransform())
-                        .into(imageViewProfile);
+                        .into(mImageViewProfile);
             }
 
             String email = TextUtils.isEmpty(this.getCurrentUser().getEmail()) ? getString(R.string.info_no_email_found) : this.getCurrentUser().getEmail();
 
-            this.textViewEmail.setText(email);
+            this.mTextViewEmail.setText(email);
 
             // Get additional data from Firestore (isMentor & Username)
             /*UserHelper.getUser(this.getCurrentUser().getUid()).addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {

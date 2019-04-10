@@ -90,6 +90,7 @@ public class MainActivity extends BaseActivity {
         {
             if(resultCode == RESULT_OK) //SUCCESS
             {
+                this.
                 showSnackBar(this.coordinatorLayout, getString(R.string.connection_succeed));
                 Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
                 startActivity(profile);
