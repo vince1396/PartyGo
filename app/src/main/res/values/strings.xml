@@ -47,5 +47,10 @@
     <string name="delete_account_text" translatable="false">Supprimer compte</string>
 
     <!-- UPDATE ACTIVITY -->
-    
+    <string name="title_update">Modifiez vos informations</string>
+    <string name="username_field">Username : </string>
+    <string name="firstName_field">Prénom : </string>
+    <string name="lastName_field">Nom : </string>
+    <string name="submit_update">Valider</string>
+
 </resources>

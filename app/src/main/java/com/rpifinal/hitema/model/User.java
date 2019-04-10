@@ -22,11 +22,17 @@ public class User {
     public User(){}
 
     // Parameters constructor
-    public User(String uid, String username, @Nullable String urlPicture) {
-
-        this.mUid = uid;
-        this.mUsername = username;
-        this.mUrlPicture = urlPicture;
+    public User(String mUid, String mUsername, String mFirstName, String mLastName, String mEmail, String mLocation, int mLvl, Timestamp mBirthDate, Timestamp mCreationDate, @Nullable String mUrlPicture) {
+        this.mUid = mUid;
+        this.mUsername = mUsername;
+        this.mFirstName = mFirstName;
+        this.mLastName = mLastName;
+        this.mEmail = mEmail;
+        this.mLocation = mLocation;
+        this.mLvl = mLvl;
+        this.mBirthDate = mBirthDate;
+        this.mCreationDate = mCreationDate;
+        this.mUrlPicture = mUrlPicture;
     }
 
     // =============================================================================================

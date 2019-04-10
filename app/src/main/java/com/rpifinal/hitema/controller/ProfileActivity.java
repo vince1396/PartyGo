@@ -12,13 +12,11 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.rpifinal.hitema.R;
 
 import api.UserHelper;
 import butterknife.BindView;
 import butterknife.OnClick;
-import com.rpifinal.hitema.model.User;
 
 public class ProfileActivity extends BaseActivity {
 

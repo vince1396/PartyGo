@@ -27,7 +27,7 @@ public class UserHelper {
                                         int lvl)
     {
 
-        User userToCreate = new User(uid, username, urlPicture);
+        User userToCreate = new User(uid, username, firstName, lastName, email, location, lvl, birthDate, creationDate, urlPicture);
         return UserHelper.getUsersCollection().document(uid).set(userToCreate);
     }
 

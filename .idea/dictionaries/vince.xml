@@ -4,6 +4,10 @@
       <w>butterknife</w>
       <w>firebase</w>
       <w>firestore</w>
+      <w>informations</w>
+      <w>modifiez</w>
+      <w>prénom</w>
+      <w>valider</w>
     </words>
   </dictionary>
 </component>
