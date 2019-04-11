@@ -58,6 +58,7 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.main_activity_button_signin)
     public void onClickSignInButton() {
+
         Intent i = new Intent(MainActivity.this, UnityPlayerActivity.class);
         startActivity(i);
     }
@@ -92,8 +93,11 @@ public class MainActivity extends BaseActivity {
             {
                 this.
                 showSnackBar(this.coordinatorLayout, getString(R.string.connection_succeed));
-                Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
-                startActivity(profile);
+                //Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
+                Intent maps = new Intent(MainActivity.this, MapsActivity.class);
+                maps.putExtra("latitute", 48.825913);
+                maps.putExtra("longitude", 2.267375);
+                startActivity(maps);
             }
             else //ERROR
             {

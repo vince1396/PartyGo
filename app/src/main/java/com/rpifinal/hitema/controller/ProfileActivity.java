@@ -40,7 +40,7 @@ public class ProfileActivity extends BaseActivity {
     public int getFragmentLayout() { return R.layout.activity_profile; }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+        protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         this.updateUIWhenCreating();
