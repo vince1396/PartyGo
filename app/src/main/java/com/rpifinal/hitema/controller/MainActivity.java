@@ -20,19 +20,21 @@ import butterknife.OnClick;
 public class MainActivity extends BaseActivity {
 
     // =============================================================================================
+    // Code de vérification de connexion
     private static final int RC_SIGN_IN = 123;
 
-    // Binding view
+    // Récupération des éléments de la vue au sein du code Java
     @BindView(R.id.main_activity_coordinator_layout) CoordinatorLayout coordinatorLayout;
     @BindView(R.id.main_activity_button_login) Button mLoginButton;
     @BindView(R.id.main_activity_button_signin) Button mSignInButton;
 
     // =============================================================================================
-    // Initialize layout
+    // Récupération de la vue correspondante à l'acitivité
     @Override
     public int getFragmentLayout() { return R.layout.activity_main; }
 
     // =============================================================================================
+    // Traitement après l'inscription/connexion de l'utilisateur
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
@@ -41,6 +43,7 @@ public class MainActivity extends BaseActivity {
     }
 
     // =============================================================================================
+    //Affichage d'une snackBar
     private void showSnackBar(CoordinatorLayout coordinatorLayout, String message) {
 
         Snackbar.make(coordinatorLayout, message, Snackbar.LENGTH_SHORT).show();
@@ -50,12 +53,15 @@ public class MainActivity extends BaseActivity {
     // ACTIONS
     // --------------------
 
+    // Quand l'utilisateur clique sur le bouton connexion
     @OnClick(R.id.main_activity_button_login)
     public void onClickLoginButton() {
 
+        // Démarrage de l'acitivité de connexion (FirebaseAuth)
         this.startSignInActivity();
     }
 
+    // Démarrage de la démo Unity
     @OnClick(R.id.main_activity_button_signin)
     public void onClickSignInButton() {
 
@@ -67,7 +73,7 @@ public class MainActivity extends BaseActivity {
     // NAVIGATION
     // --------------------
 
-    // 2 - Launch Sign-In Activity
+    // Méthode d'inscription/connexion à l'aide de FireBaseUI
     public void startSignInActivity(){
 
         startActivityForResult(
@@ -87,28 +93,34 @@ public class MainActivity extends BaseActivity {
 
         IdpResponse response = IdpResponse.fromResultIntent(data);
 
+        // Vérification du code
         if(requestCode == RC_SIGN_IN)
         {
+            // Si la connexion s'est bien passé
             if(resultCode == RESULT_OK) //SUCCESS
             {
-                this.
-                showSnackBar(this.coordinatorLayout, getString(R.string.connection_succeed));
+                // Affichage d'une SnackBar
+                this.showSnackBar(this.coordinatorLayout, getString(R.string.connection_succeed));
                 //Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
                 Intent maps = new Intent(MainActivity.this, MapsActivity.class);
                 maps.putExtra("latitute", 48.825913);
                 maps.putExtra("longitude", 2.267375);
                 startActivity(maps);
+                // Démarrage de MapsActivity
             }
-            else //ERROR
+            else // En cas d'erreur
             {
+                // Si l'utilisateur a annulé la connexion
                 if(response == null)
                 {
                     showSnackBar(this.coordinatorLayout, getString(R.string.error_authentication_canceled));
                 }
+                // Si internet n'est pas disponible<
                 else if(response.getError().getErrorCode() == ErrorCodes.NO_NETWORK)
                 {
                     showSnackBar(this.coordinatorLayout, getString(R.string.error_no_internet));
                 }
+                // En cas d'erreur inconnue
                 else if(response.getError().getErrorCode() == ErrorCodes.UNKNOWN_ERROR)
                 {
                     showSnackBar(this.coordinatorLayout, getString(R.string.error_unknown_error));
