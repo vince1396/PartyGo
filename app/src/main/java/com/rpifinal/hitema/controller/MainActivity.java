@@ -14,6 +14,7 @@ import com.rpifinal.hitema.R;
 
 import java.util.Arrays;
 
+import api.UserHelper;
 import butterknife.BindView;
 import butterknife.OnClick;
 
@@ -73,6 +74,26 @@ public class MainActivity extends BaseActivity {
     // NAVIGATION
     // --------------------
 
+    /*
+        Création de l'utilisateur dans Firestore en récupérant
+        les informations depuis FireAuth
+     */
+    private void createUserInFirestore(){
+
+        if (this.getCurrentUser() != null){
+
+            String uid = this.getCurrentUser().getUid();
+            String email = this.getCurrentUser().getEmail();
+            String username = this.getCurrentUser().getDisplayName();
+            String urlPicture = (this.getCurrentUser().getPhotoUrl() != null) ?
+                    this.getCurrentUser().getPhotoUrl().toString() : null;
+            int lvl = 1;
+
+            UserHelper.createUser(uid, email, username, urlPicture, lvl)
+                    .addOnFailureListener(this.onFailureListener());
+        }
+    }
+
     // Méthode d'inscription/connexion à l'aide de FireBaseUI
     public void startSignInActivity(){
 
@@ -99,13 +120,13 @@ public class MainActivity extends BaseActivity {
             // Si la connexion s'est bien passé
             if(resultCode == RESULT_OK) //SUCCESS
             {
+                // Création de l'utilisateur en BDD
+                this.createUserInFirestore();
                 // Affichage d'une SnackBar
                 this.showSnackBar(this.coordinatorLayout, getString(R.string.connection_succeed));
-                //Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
-                Intent maps = new Intent(MainActivity.this, MapsActivity.class);
-                maps.putExtra("latitute", 48.825913);
-                maps.putExtra("longitude", 2.267375);
-                startActivity(maps);
+                Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
+                //Intent maps = new Intent(MainActivity.this, MapsActivity.class);
+                startActivity(profile);
                 // Démarrage de MapsActivity
             }
             else // En cas d'erreur
@@ -115,7 +136,7 @@ public class MainActivity extends BaseActivity {
                 {
                     showSnackBar(this.coordinatorLayout, getString(R.string.error_authentication_canceled));
                 }
-                // Si internet n'est pas disponible<
+                // Si internet n'est pas disponible
                 else if(response.getError().getErrorCode() == ErrorCodes.NO_NETWORK)
                 {
                     showSnackBar(this.coordinatorLayout, getString(R.string.error_no_internet));

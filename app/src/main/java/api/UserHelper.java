@@ -6,8 +6,6 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.rpifinal.hitema.model.User;
 
-import java.sql.Timestamp;
-
 public class UserHelper {
 
     private static final String COLLECTION_NAME = "users";
@@ -21,13 +19,9 @@ public class UserHelper {
 
     // =============================================================================================
     // --- CREATE ---
-    public static Task<Void> createUser(String uid, String username, String urlPicture,
-                                        Timestamp birthDate, Timestamp creationDate, String email,
-                                        String firstName, String lastName, String location,
-                                        int lvl)
+    public static Task<Void> createUser(String uid, String email, String username, String urlPicture, int lvl)
     {
-        User userToCreate = new User(uid, username, firstName, lastName, email, location, lvl,
-                                     birthDate, creationDate, urlPicture);
+        User userToCreate = new User(uid, email, username, urlPicture, lvl);
         return UserHelper.getUsersCollection().document(uid).set(userToCreate);
     }
 
