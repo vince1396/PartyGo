@@ -27,7 +27,6 @@ public class ProfileActivity extends BaseActivity {
     @BindView(R.id.profile_activity_view_picture) ImageView mImageViewProfile;
     @BindView(R.id.profile_activity_view_name) TextView mTextViewName;
     @BindView(R.id.profile_activity_view_email) TextView mTextViewEmail;
-    @BindView(R.id.profile_activity_button_update) TextView mButtonUpdate;
 
     // =============================================================================================
 
