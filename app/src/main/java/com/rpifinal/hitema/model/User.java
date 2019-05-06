@@ -1,5 +1,5 @@
 package com.rpifinal.hitema.model;
-import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 
 public class User {
 

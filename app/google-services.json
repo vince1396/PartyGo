@@ -15,6 +15,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "367876055503-k8u6diqe2ov6ifb9lgd3sofvd4fo9m1o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rpifinal.hitema",
+            "certificate_hash": "0745eaf6e04d8a657880e30a785619dcfcc11f19"
+          }
+        },
+        {
+          "client_id": "367876055503-eqniu1o5tcfa5jakcg8p9t2lkkebu9pp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rpifinal.hitema",
+            "certificate_hash": "b0af53931beca2a83de7b374714663008667577e"
+          }
+        },
+        {
           "client_id": "367876055503-mmv4g1oanjimi22bu2k5h754h2v50k9e.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -33,20 +49,13 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 2,
           "other_platform_oauth_client": [
             {
               "client_id": "367876055503-ldemc292dfoqvedp87c4052lojm6huhv.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
-        },
-        "ads_service": {
-          "status": 2
         }
       }
     }

@@ -1,9 +1,9 @@
 package com.rpifinal.hitema.controller;
 
 import android.content.Intent;
-import android.support.annotation.Nullable;
-import android.support.design.widget.CoordinatorLayout;
-import android.support.design.widget.Snackbar;
+import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import com.google.android.material.snackbar.Snackbar;
 import android.widget.Button;
 
 import com.Company.DemoPhoton.UnityPlayerActivity;
