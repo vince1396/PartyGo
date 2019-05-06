@@ -1,5 +1,7 @@
 package api;
 
+import android.util.Log;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -22,6 +24,7 @@ public class UserHelper {
     public static Task<Void> createUser(String uid, String email, String username, String urlPicture, int lvl)
     {
         User userToCreate = new User(uid, email, username, urlPicture, lvl);
+        Log.i("UserHelper", "OKayuy");
         return UserHelper.getUsersCollection().document(uid).set(userToCreate);
     }
 

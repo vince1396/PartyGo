@@ -3,8 +3,11 @@ package com.rpifinal.hitema.controller;
 import android.content.Intent;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+
+import com.crashlytics.android.Crashlytics;
 import com.google.android.material.snackbar.Snackbar;
-import android.widget.Button;
+
+import android.util.Log;
 
 import com.Company.DemoPhoton.UnityPlayerActivity;
 import com.firebase.ui.auth.AuthUI;
@@ -26,8 +29,6 @@ public class MainActivity extends BaseActivity {
 
     // Récupération des éléments de la vue au sein du code Java
     @BindView(R.id.main_activity_coordinator_layout) CoordinatorLayout coordinatorLayout;
-    @BindView(R.id.main_activity_button_login) Button mLoginButton;
-    @BindView(R.id.main_activity_button_signin) Button mSignInButton;
 
     // =============================================================================================
     // Récupération de la vue correspondante à l'acitivité
@@ -70,6 +71,12 @@ public class MainActivity extends BaseActivity {
         startActivity(i);
     }
 
+    @OnClick(R.id.main_activity_button_crash)
+    public void onClickCrashButton() {
+
+        Crashlytics.getInstance().crash();
+    }
+
     // --------------------
     // NAVIGATION
     // --------------------
@@ -82,11 +89,11 @@ public class MainActivity extends BaseActivity {
 
         if (this.getCurrentUser() != null){
 
-            String uid = this.getCurrentUser().getUid();
-            String email = this.getCurrentUser().getEmail();
-            String username = this.getCurrentUser().getDisplayName();
+            String uid        = this.getCurrentUser().getUid();
+            String email      = this.getCurrentUser().getEmail();
+            String username   = this.getCurrentUser().getDisplayName();
             String urlPicture = (this.getCurrentUser().getPhotoUrl() != null) ?
-                    this.getCurrentUser().getPhotoUrl().toString() : null;
+                                this.getCurrentUser().getPhotoUrl().toString() : null;
             int lvl = 1;
 
             UserHelper.createUser(uid, email, username, urlPicture, lvl)
@@ -126,6 +133,7 @@ public class MainActivity extends BaseActivity {
                 this.showSnackBar(this.coordinatorLayout, getString(R.string.connection_succeed));
                 Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
                 //Intent maps = new Intent(MainActivity.this, MapsActivity.class);
+                Log.i("MainActivity", "Start Profile");
                 startActivity(profile);
                 // Démarrage de MapsActivity
             }

@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "367876055503-6r0riuo60n8lg626uui852fjf961580u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rpifinal.hitema",
+            "certificate_hash": "cfdc9beacd83d50fae9df3b9ff53fdb0036066cc"
+          }
+        },
+        {
           "client_id": "367876055503-k8u6diqe2ov6ifb9lgd3sofvd4fo9m1o.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
