@@ -4,64 +4,79 @@ import androidx.annotation.Nullable;
 public class User {
 
     private String mUid;
-    private String mUsername;
     private String mEmail;
-    private int mLvl;
+    private String mUsername;
+    private String mFirstName;
+    private String mLastName;
     @Nullable private String mUrlPicture;
+    private int mLvl;
+    private int mXp;
 
     // =============================================================================================
     // Void constructor
     public User(){}
 
     // Parameters constructor
-    public User(String uid, String email, String username, @Nullable String urlPicture, int lvl) {
+    public User(String uid, String email, String username, String firstName, String lastName,
+                @Nullable String urlPicture, int lvl, int xp) {
+
         this.mUid = uid;
-        this.mUsername = username;
         this.mEmail = email;
-        this.mLvl = lvl;
+        this.mUsername = username;
+        this.mFirstName = firstName;
+        this.mLastName = lastName;
         this.mUrlPicture = urlPicture;
+        this.mLvl = lvl;
+        this.mXp = xp;
     }
 
     // =============================================================================================
     // --- GETTERS ---
-    public String getUid() {
+    public String getUid() { return mUid; }
 
-        return mUid;
-    }
-    public String getUsername() {
-
-        return mUsername;
-    }
     public String getEmail() {
         return mEmail;
     }
+
+    public String getUsername() { return mUsername; }
+
+    public String getFirstName() {
+        return mFirstName;
+    }
+
+    public String getLastName() {
+        return mLastName;
+    }
+
     public int getLvl() {
         return mLvl;
     }
 
-    @Nullable
-    public String getUrlPicture() {
-
-        return mUrlPicture;
+    public int getXp() {
+        return mXp;
     }
+
+    @Nullable
+    public String getUrlPicture() { return mUrlPicture; }
     // =============================================================================================
     // --- SETTERS ---
-    public void setUsername(String mUsername) {
+    public void setUid(String mUid) { this.mUid = mUid; }
 
-        this.mUsername = mUsername;
-    }
-    public void setUid(String mUid) {
+    public void setEmail(String mEmail) { this.mEmail = mEmail; }
 
-        this.mUid = mUid;
-    }
-    public void setUrlPicture(@Nullable String mUrlPicture) {
+    public void setUsername(String mUsername) { this.mUsername = mUsername; }
 
-        this.mUrlPicture = mUrlPicture;
+    public void setFirstName(String firstName) {
+        this.mFirstName = firstName;
     }
-    public void setEmail(String mEmail) {
-        this.mEmail = mEmail;
-    }
-    public void setLvl(int mLvl) {
-        this.mLvl = mLvl;
+
+    public void setLastName(String lastName) { this.mLastName = lastName; }
+
+    public void setUrlPicture(@Nullable String mUrlPicture) { this.mUrlPicture = mUrlPicture; }
+
+    public void setLvl(int mLvl) { this.mLvl = mLvl; }
+
+    public void setXp(int xp) {
+        this.mXp = xp;
     }
 }

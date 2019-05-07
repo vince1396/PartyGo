@@ -8,4 +8,6 @@
     <color name="colorGreen">#6BB18C</color>
     <color name="colorSandLight">#ECDAAF</color>
     <color name="colorSand">#EBCB94</color>
+    <color name="enable_button">#4CAF50</color>
+    <color name="disable_button">#F44336</color>
 </resources>

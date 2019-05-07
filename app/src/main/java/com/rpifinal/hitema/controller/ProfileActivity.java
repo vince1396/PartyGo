@@ -18,6 +18,7 @@ import butterknife.OnClick;
 
 public class ProfileActivity extends BaseActivity {
 
+    // =============================================================================================
     // Code pour chaque requête HTTP
     private static final int SIGN_OUT_TASK = 10;
     private static final int DELETE_USER_TASK = 20;
@@ -27,9 +28,9 @@ public class ProfileActivity extends BaseActivity {
     @BindView(R.id.profile_activity_view_picture) ImageView mImageViewProfile;
     @BindView(R.id.profile_activity_view_name) TextView mTextViewName;
     @BindView(R.id.profile_activity_view_email) TextView mTextViewEmail;
-
     // =============================================================================================
 
+    // =============================================================================================
     // Récupération de la vue correspondante à l'activité
     @Override
     public int getFragmentLayout() { return R.layout.activity_profile; }
@@ -42,8 +43,10 @@ public class ProfileActivity extends BaseActivity {
         // A la création de l'activité on met à jour la vue
         this.updateUIWhenCreating();
     }
+    // =============================================================================================
 
     // =============================================================================================
+    // ACTIONS
 
     // Quand l'utilisateur clique sur déconnexion
     @OnClick(R.id.profile_activity_logout_button)
@@ -60,15 +63,15 @@ public class ProfileActivity extends BaseActivity {
     }
 
     // Quand l'utilisateur clique sur Modifier informations
-    @OnClick
+    @OnClick(R.id.profile_activity_update_button)
     public void onClickUpdateButton() {
 
         Intent update = new Intent(ProfileActivity.this, UpdateUserActivity.class);
         startActivity(update);
     }
-
     // =============================================================================================
 
+    // =============================================================================================
     // Méthode mettant à jour la vue (Appelée à la création de l'activité)
     private void updateUIWhenCreating(){
 
@@ -86,13 +89,17 @@ public class ProfileActivity extends BaseActivity {
             }
 
             // Récupération de l'email de l'utilisateur en vérifiant qu'il n'est pas NULL
-            String email = TextUtils.isEmpty(this.getCurrentUser().getEmail()) ? getString(R.string.info_no_email_found) : this.getCurrentUser().getEmail();
+            String email = TextUtils.isEmpty(
+                    this.getCurrentUser()
+                            .getEmail()) ? getString(R.string.info_no_email_found) : this.getCurrentUser().getEmail();
 
             // Insertion de l'email dans la vue
             this.mTextViewEmail.setText(email);
         }
     }
+    // =============================================================================================
 
+    // =============================================================================================
     // --------------------
     // REST REQUESTS
     // --------------------
@@ -110,7 +117,9 @@ public class ProfileActivity extends BaseActivity {
 
         if (this.getCurrentUser() != null) {
 
-            UserHelper.deleteUser(this.getCurrentUser().getUid()).addOnFailureListener(this.onFailureListener());
+            UserHelper.deleteUser(this.getCurrentUser()
+                        .getUid())
+                        .addOnFailureListener(this.onFailureListener());
 
             AuthUI.getInstance()
                     .delete(this)
@@ -121,22 +130,18 @@ public class ProfileActivity extends BaseActivity {
     // Cette méthode est appelée à la fin de la déconnexion ou de la suppression pour terminer l'activité
     private OnSuccessListener<Void> updateUIAfterRESTRequestsCompleted(final int origin) {
 
-        return new OnSuccessListener<Void>()
-        {
-            @Override
-            public void onSuccess(Void aVoid)
-            {
-                switch (origin){
-                    case SIGN_OUT_TASK:
-                        finish();
-                        break;
-                    case DELETE_USER_TASK:
-                        finish();
-                        break;
-                    default:
-                        break;
-                }
+        return aVoid -> {
+            switch (origin){
+                case SIGN_OUT_TASK:
+                    finish();
+                    break;
+                case DELETE_USER_TASK:
+                    finish();
+                    break;
+                default:
+                    break;
             }
         };
     }
+    // =============================================================================================
 }

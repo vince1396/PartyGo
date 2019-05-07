@@ -7,8 +7,6 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.crashlytics.android.Crashlytics;
 import com.google.android.material.snackbar.Snackbar;
 
-import android.util.Log;
-
 import com.Company.DemoPhoton.UnityPlayerActivity;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.ErrorCodes;
@@ -77,10 +75,7 @@ public class MainActivity extends BaseActivity {
         Crashlytics.getInstance().crash();
     }
 
-    // --------------------
-    // NAVIGATION
-    // --------------------
-
+    // =============================================================================================
     /*
         Création de l'utilisateur dans Firestore en récupérant
         les informations depuis FireAuth
@@ -91,14 +86,24 @@ public class MainActivity extends BaseActivity {
 
             String uid        = this.getCurrentUser().getUid();
             String email      = this.getCurrentUser().getEmail();
-            String username   = this.getCurrentUser().getDisplayName();
+            String username   = "";
+            String firstName  = splitUsername(this.getCurrentUser().getDisplayName())[0];
+            String lastName   = splitUsername(this.getCurrentUser().getDisplayName())[1];
             String urlPicture = (this.getCurrentUser().getPhotoUrl() != null) ?
                                 this.getCurrentUser().getPhotoUrl().toString() : null;
             int lvl = 1;
+            int xp  = 0;
 
-            UserHelper.createUser(uid, email, username, urlPicture, lvl)
+            UserHelper.createUser(uid, email, username, firstName, lastName, urlPicture, lvl, xp)
                     .addOnFailureListener(this.onFailureListener());
         }
+    }
+
+    //On coupe la chaine de caractères provenant de la méthode getDisplayName() afin de récupérer
+    // le nom et le prénom séparément
+    public String[] splitUsername(String username) {
+
+        return username.split("\\s", 2);
     }
 
     // Méthode d'inscription/connexion à l'aide de FireBaseUI
@@ -117,6 +122,7 @@ public class MainActivity extends BaseActivity {
                 RC_SIGN_IN);
     }
 
+    // Gestion du résultat de la connexion
     private void handleResponseAfterSignIn(int requestCode, int resultCode, Intent data) {
 
         IdpResponse response = IdpResponse.fromResultIntent(data);
@@ -133,7 +139,6 @@ public class MainActivity extends BaseActivity {
                 this.showSnackBar(this.coordinatorLayout, getString(R.string.connection_succeed));
                 Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
                 //Intent maps = new Intent(MainActivity.this, MapsActivity.class);
-                Log.i("MainActivity", "Start Profile");
                 startActivity(profile);
                 // Démarrage de MapsActivity
             }
@@ -157,4 +162,5 @@ public class MainActivity extends BaseActivity {
             }
         }
     }
+    // =============================================================================================
 }

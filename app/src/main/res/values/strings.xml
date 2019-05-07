@@ -50,10 +50,13 @@
 
     <!-- UPDATE ACTIVITY -->
     <string name="title_update">Modifiez vos informations</string>
-    <string name="username_field">Username : </string>
-    <string name="firstName_field">Prénom : </string>
-    <string name="lastName_field">Nom : </string>
+    <string name="username_field">Username</string>
+    <string name="firstName_field">Prénom</string>
+    <string name="lastName_field">Nom</string>
     <string name="submit_update">Valider</string>
     <string name="title_activity_maps">Map</string>
+
+    <!-- ERRORS -->
+    <string name="no_user_connected_error">Erreur : Aucun utilisateur connecté</string>
 
 </resources>

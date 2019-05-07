@@ -48,7 +48,7 @@
                 android:layout_weight="1"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:autofillHints="@string/username_field"
+                android:importantForAutofill="no"
                 android:hint="@string/username_field"
                 tools:targetApi="o" />
 
@@ -82,9 +82,8 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:text="@string/firstName_field" 
-                android:labelFor="@+id/update_activity_firstName_label"
                 tools:targetApi="o"
-                android:autofillHints="@string/firstName_field"
+                android:importantForAutofill="no"
                 android:hint="@string/firstName_field"/>
 
             <Button
@@ -118,7 +117,7 @@
                 android:inputType="textPersonName"
                 android:text="@string/lastName_field" 
                 android:labelFor="@+id/update_activity_lastName_label"
-                android:autofillHints="@string/lastName_field"
+                android:importantForAutofill="no"
                 tools:targetApi="o" 
                 android:hint="@string/lastName_field"/>
 
