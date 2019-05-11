@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.rpifinal.hitema.R;
 import com.rpifinal.hitema.model.User;
 import api.UserHelper;
@@ -48,7 +52,10 @@ public class UpdateUserActivity extends BaseActivity {
     @OnClick(R.id.update_activity_username_submit)
     public void onClickUsernameButton() {
 
+        String uid = getCurrentUser().getUid();
+        String username = mUsernameUpdateField.getText().toString();
 
+        UserHelper.updateUsername(username, uid);
     }
 
     @OnClick(R.id.update_activity_firstName_submit)
@@ -96,12 +103,12 @@ public class UpdateUserActivity extends BaseActivity {
                         this.mFirstnameUpdateField,
                         this.mLastnameUpdateField};
 
-                int i = 0;
+                /*int i = 0;
                 for (Button b: arrayButton)
                 {
                     checkButtonState(arrayEditText[i], arrayButton[i]);
                     i++;
-                }
+                }*/
             });
         }
 
@@ -110,9 +117,14 @@ public class UpdateUserActivity extends BaseActivity {
             this.mTitleUpdateTextView.setText(getString(R.string.no_user_connected_error));
         }
     }
+
+    public void makeToast() {
+
+        Toast.makeText(getBaseContext(), "OKAY", Toast.LENGTH_SHORT).show();
+    }
     // =============================================================================================
 
-    public void checkButtonState(EditText editText, Button button)
+    /*public void checkButtonState(EditText editText, Button button)
     {
         button.setEnabled(false);
         button.setBackgroundResource(R.color.disable_button);
@@ -124,5 +136,5 @@ public class UpdateUserActivity extends BaseActivity {
             button.setEnabled(true);
             button.setBackgroundResource(R.color.enable_button);
         }
-    }
+    }*/
 }
