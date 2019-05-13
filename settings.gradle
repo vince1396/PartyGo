@@ -1,1 +1,1 @@
-include ':app', ':DemoPhoton'
+include ':app', ':MiniGame1', ':MiniGame2'

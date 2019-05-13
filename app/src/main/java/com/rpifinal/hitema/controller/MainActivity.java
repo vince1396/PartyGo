@@ -7,7 +7,6 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import com.crashlytics.android.Crashlytics;
 import com.google.android.material.snackbar.Snackbar;
 
-import com.Company.DemoPhoton.UnityPlayerActivity;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.ErrorCodes;
 import com.firebase.ui.auth.IdpResponse;
@@ -59,14 +58,6 @@ public class MainActivity extends BaseActivity {
 
         // Démarrage de l'acitivité de connexion (FirebaseAuth)
         this.startSignInActivity();
-    }
-
-    // Démarrage de la démo Unity
-    @OnClick(R.id.main_activity_button_signin)
-    public void onClickSignInButton() {
-
-        Intent i = new Intent(MainActivity.this, UnityPlayerActivity.class);
-        startActivity(i);
     }
 
     @OnClick(R.id.main_activity_button_crash)
