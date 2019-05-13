@@ -55,10 +55,6 @@
     <string name="lastName_field">Nom</string>
     <string name="submit_update">Valider</string>
     <string name="title_activity_maps">Map</string>
-    <string name="success_update_username">Votre pseudo a bien été mis à jour.</string>
-    <string name="success_update_firstname">Votre prénom a bien été mis à jour.</string>
-    <string name="success_update_lastname">Votre nom a bien été mis à jour.</string>
-    <string name="failure_update">Une erreur est survenue</string>
 
     <!-- ERRORS -->
     <string name="no_user_connected_error">Erreur : Aucun utilisateur connecté</string>
