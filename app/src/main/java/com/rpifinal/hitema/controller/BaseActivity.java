@@ -52,5 +52,4 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected OnFailureListener onFailureListener(){
         return e -> Toast.makeText(getApplicationContext(), getString(R.string.error_unknown_error), Toast.LENGTH_LONG).show();
     }
-
 }

@@ -7,7 +7,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.rpifinal.hitema.R;
 import com.rpifinal.hitema.model.User;
 import api.UserHelper;
@@ -54,20 +53,29 @@ public class UpdateUserActivity extends BaseActivity {
 
         String uid = getCurrentUser().getUid();
         String username = mUsernameUpdateField.getText().toString();
+        String successMessage = getString(R.string.success_update_username);
 
-        UserHelper.updateUsername(username, uid);
+        UserHelper.updateUsername(username, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
     }
 
     @OnClick(R.id.update_activity_firstName_submit)
     public void onClickFirstNameButton() {
 
+        String uid = getCurrentUser().getUid();
+        String username = mFirstnameUpdateField.getText().toString();
+        String successMessage = getString(R.string.success_update_firstname);
 
+        UserHelper.updateFirstName(username, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
     }
 
     @OnClick(R.id.update_activity_lastName_submit)
     public void onClickLastNameButton() {
 
+        String uid = getCurrentUser().getUid();
+        String username = mLastnameUpdateField.getText().toString();
+        String successMessage = getString(R.string.success_update_lastnname);
 
+        UserHelper.updateLastName(username, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
     }
     // =============================================================================================
     public void updateUI() {
@@ -121,6 +129,11 @@ public class UpdateUserActivity extends BaseActivity {
     public void makeToast() {
 
         Toast.makeText(getBaseContext(), "OKAY", Toast.LENGTH_SHORT).show();
+    }
+
+    private OnSuccessListener onSuccessListener(String resId)
+    {
+        return e-> Toast.makeText(getApplicationContext(), resId, Toast.LENGTH_SHORT).show();
     }
     // =============================================================================================
 
