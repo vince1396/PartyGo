@@ -24,30 +24,6 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
-    packagingOptions {
-        pickFirst 'lib/armeabi-v7a/libMonoPosixHelper.so'
-        pickFirst 'lib/arm64-v8a/libMonoPosixHelper.so'
-        pickFirst 'lib/x86_64/libMonoPosixHelper.so'
-        pickFirst 'lib/x86/libMonoPosixHelper.so'
-        pickFirst 'lib/mips/libMonoPosixHelper.so'
-        pickFirst 'lib/armeabi-v7a/libmain.so'
-        pickFirst 'lib/arm64-v8a/libmain.so'
-        pickFirst 'lib/x86_64/libmain.so'
-        pickFirst 'lib/x86/libmain.so'
-        pickFirst 'lib/mips/libmain.so'
-        pickFirst 'lib/armeabi-v7a/libmonobdwgc-2.0.so'
-        pickFirst 'lib/arm64-v8a/libmonobdwgc-2.0.so'
-        pickFirst 'lib/x86_64/libmonobdwgc-2.0.so'
-        pickFirst 'lib/x86/libmonobdwgc-2.0.so'
-        pickFirst 'lib/mips/libmonobdwgc-2.0.so'
-        pickFirst 'lib/armeabi-v7a/libunity.so'
-        pickFirst 'lib/arm64-v8a/libunity.so'
-        pickFirst 'lib/x86_64/libunity.so'
-        pickFirst 'lib/x86/libunity.so'
-        pickFirst 'lib/mips/libunity.so'
-        pickFirst 'org.fmod.FMODAudioDevice'
-        pickFirst 'org.fmod.a'
-    }
 }
 
 dependencies {
@@ -105,8 +81,6 @@ dependencies {
     // =============================================================================================
 
     //Unity
-    implementation project(path: ':MiniGame1')
-    implementation project(path: ':MiniGame2')
 }
 
 apply plugin: 'com.google.gms.google-services'
