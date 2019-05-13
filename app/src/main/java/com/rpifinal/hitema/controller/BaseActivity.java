@@ -49,8 +49,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     // Méthode qui retournera un message en cas d'erreur d'un traitement
-    protected OnFailureListener onFailureListener(){
+    protected OnFailureListener onFailureListener() {
+
         return e -> Toast.makeText(getApplicationContext(), getString(R.string.error_unknown_error), Toast.LENGTH_LONG).show();
     }
-
 }
