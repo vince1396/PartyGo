@@ -1,4 +1,5 @@
 package com.rpifinal.hitema.model;
+
 import androidx.annotation.Nullable;
 
 public class User {
@@ -29,7 +30,6 @@ public class User {
         this.mLvl = lvl;
         this.mXp = xp;
     }
-
     // =============================================================================================
     // --- GETTERS ---
     public String getUid() { return mUid; }

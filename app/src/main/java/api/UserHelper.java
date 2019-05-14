@@ -28,7 +28,7 @@ public class UserHelper {
 
     // =============================================================================================
     // --- READ ---
-    public static Task<DocumentSnapshot> getUser(String uid){
+    public static Task<DocumentSnapshot> getUser(String uid) {
 
         return UserHelper.getUsersCollection().document(uid).get();
     }

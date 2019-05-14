@@ -69,6 +69,21 @@ public class ProfileActivity extends BaseActivity {
         Intent update = new Intent(ProfileActivity.this, UpdateUserActivity.class);
         startActivity(update);
     }
+
+    @OnClick(R.id.profile_activity_game1)
+    public void onClickGame1() {
+
+    }
+
+    @OnClick(R.id.profile_activity_game2)
+    public void onClickGame2() {
+
+    }
+
+    @OnClick(R.id.profile_activity_game3)
+    public void onClickGame3() {
+
+    }
     // =============================================================================================
 
     // =============================================================================================

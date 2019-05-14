@@ -21,16 +21,16 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:layout_marginTop="50dp"
-            tools:srcCompat="@tools:sample/avatars"
-            android:contentDescription="@string/desc_user_picture" />
+            android:layout_marginTop="10dp"
+            android:contentDescription="@string/desc_user_picture"
+            tools:srcCompat="@tools:sample/avatars" />
 
         <TextView
             android:id="@+id/profile_activity_view_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="10dp"
             android:contentDescription="@string/desc_user_name"
             android:text="@string/user_name"
             android:visibility="visible" />
@@ -40,7 +40,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="30dp"
             android:contentDescription="@string/desc_user_email"
             android:text="@string/user_email"
             android:visibility="visible" />
@@ -80,5 +81,42 @@
             style="?android:attr/borderlessButtonStyle"
             android:layout_margin="@dimen/default_large_margin"
             android:padding="@dimen/default_large_margin"/>
+
+        <Button
+            android:id="@+id/profile_activity_game1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/jeu1"
+            android:textColor="#fff"
+            android:textSize="@dimen/default_text_size"
+            android:background="@drawable/button_radius_accent_color"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_marginTop="50dp"
+            android:padding="@dimen/default_large_margin"/>
+
+        <Button
+            android:id="@+id/profile_activity_game2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/jeu2"
+            android:textColor="#fff"
+            android:textSize="@dimen/default_text_size"
+            android:background="@drawable/button_radius_accent_color"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_margin="@dimen/default_large_margin"
+            android:padding="@dimen/default_large_margin"/>
+
+        <Button
+            android:id="@+id/profile_activity_game3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/jeu3"
+            android:textColor="#fff"
+            android:textSize="@dimen/default_text_size"
+            android:background="@drawable/button_radius_accent_color"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_margin="@dimen/default_large_margin"
+            android:padding="@dimen/default_large_margin"/>
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

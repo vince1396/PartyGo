@@ -56,6 +56,7 @@ public class UpdateUserActivity extends BaseActivity {
         String successMessage = getString(R.string.success_update_username);
 
         UserHelper.updateUsername(username, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
+        updateUI();
     }
 
     @OnClick(R.id.update_activity_firstName_submit)
@@ -66,6 +67,7 @@ public class UpdateUserActivity extends BaseActivity {
         String successMessage = getString(R.string.success_update_firstname);
 
         UserHelper.updateFirstName(username, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
+        updateUI();
     }
 
     @OnClick(R.id.update_activity_lastName_submit)
@@ -76,6 +78,7 @@ public class UpdateUserActivity extends BaseActivity {
         String successMessage = getString(R.string.success_update_lastnname);
 
         UserHelper.updateLastName(username, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
+        updateUI();
     }
     // =============================================================================================
     public void updateUI() {
@@ -101,7 +104,7 @@ public class UpdateUserActivity extends BaseActivity {
                     this.mLastnameUpdateField.setText(currentUser.getLastName());
                 }
 
-                Button[] arrayButton = {
+                /*Button[] arrayButton = {
                         this.mUsernameButton,
                         this.mFirstnameButton,
                         this.mLastnameButton};
@@ -109,7 +112,7 @@ public class UpdateUserActivity extends BaseActivity {
                 EditText[] arrayEditText = {
                         this.mUsernameUpdateField,
                         this.mFirstnameUpdateField,
-                        this.mLastnameUpdateField};
+                        this.mLastnameUpdateField};*/
 
                 /*int i = 0;
                 for (Button b: arrayButton)
