@@ -81,6 +81,7 @@ dependencies {
     // =============================================================================================
 
     //Unity
+    implementation project(':PartyGoMiniGames');
 }
 
 apply plugin: 'com.google.gms.google-services'

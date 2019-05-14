@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.SACGGames.PartyGoMiniGames.UnityPlayerActivity;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.firebase.ui.auth.AuthUI;
@@ -72,17 +73,26 @@ public class ProfileActivity extends BaseActivity {
 
     @OnClick(R.id.profile_activity_game1)
     public void onClickGame1() {
-
+        Intent intentGame1 = new Intent(ProfileActivity.this, UnityPlayerActivity.class);
+        intentGame1.putExtra("miniGame", "MiniGame1");
+        intentGame1.putExtra("randomRoom", "1001");
+        startActivity(intentGame1);
     }
 
     @OnClick(R.id.profile_activity_game2)
     public void onClickGame2() {
-
+        Intent intentGame2 = new Intent(ProfileActivity.this, UnityPlayerActivity.class);
+        intentGame2.putExtra("miniGame", "MiniGame2");
+        intentGame2.putExtra("randomRoom", "2002");
+        startActivity(intentGame2);
     }
 
     @OnClick(R.id.profile_activity_game3)
     public void onClickGame3() {
-
+        Intent intentGame3 = new Intent(ProfileActivity.this, UnityPlayerActivity.class);
+        intentGame3.putExtra("miniGame", "MiniGame3");
+        intentGame3.putExtra("randomRoom", "3003");
+        startActivity(intentGame3);
     }
     // =============================================================================================
 
