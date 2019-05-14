@@ -91,7 +91,7 @@ public class ProfileActivity extends BaseActivity {
     public void onClickGame3() {
         Intent intentGame3 = new Intent(ProfileActivity.this, UnityPlayerActivity.class);
         intentGame3.putExtra("miniGame", "MiniGame3");
-        intentGame3.putExtra("randomRoom", "3003");
+        intentGame3.putExtra("randomRoom", "333s3");
         startActivity(intentGame3);
     }
     // =============================================================================================
