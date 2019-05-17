@@ -9,7 +9,8 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.rpifinal.hitema.R;
-
+import com.rpifinal.hitema.model.User;
+import api.UserHelper;
 import butterknife.ButterKnife;
 
 /*
@@ -44,7 +45,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     // Vérifie que l'utilisateur est bien connecté
-    protected Boolean isCurrentUserLogged(){
+    protected Boolean isCurrentUserLogged() {
+
         return (this.getCurrentUser() != null);
     }
 

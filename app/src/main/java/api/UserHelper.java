@@ -16,7 +16,6 @@ public class UserHelper {
 
         return FirebaseFirestore.getInstance().collection(COLLECTION_NAME);
     }
-
     // =============================================================================================
     // --- CREATE ---
     public static Task<Void> createUser(String uid, String email, String username, String firstName,
@@ -25,14 +24,12 @@ public class UserHelper {
         User userToCreate = new User(uid, email, username, firstName, lastName, urlPicture, lvl, xp);
         return UserHelper.getUsersCollection().document(uid).set(userToCreate);
     }
-
     // =============================================================================================
     // --- READ ---
     public static Task<DocumentSnapshot> getUser(String uid) {
 
         return UserHelper.getUsersCollection().document(uid).get();
     }
-
     // =============================================================================================
     // --- UPDATE ---
     public static Task<Void> updateUsername(String username, String uid) {
@@ -49,7 +46,6 @@ public class UserHelper {
     {
         return UserHelper.getUsersCollection().document(uid).update("lastName", lastName);
     }
-
     // =============================================================================================
     // --- DELETE ---
     public static Task<Void> deleteUser(String uid) {

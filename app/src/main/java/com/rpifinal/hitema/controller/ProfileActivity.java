@@ -12,6 +12,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.rpifinal.hitema.R;
+import com.rpifinal.hitema.model.User;
 
 import api.UserHelper;
 import butterknife.BindView;
@@ -73,25 +74,37 @@ public class ProfileActivity extends BaseActivity {
 
     @OnClick(R.id.profile_activity_game1)
     public void onClickGame1() {
+
+        String username = getObjectCurrentUser().getUsername();
+
         Intent intentGame1 = new Intent(ProfileActivity.this, UnityPlayerActivity.class);
         intentGame1.putExtra("miniGame", "MiniGame1");
         intentGame1.putExtra("randomRoom", "1001");
+        intentGame1.putExtra("username", username);
         startActivity(intentGame1);
     }
 
     @OnClick(R.id.profile_activity_game2)
     public void onClickGame2() {
+
+        String username = getObjectCurrentUser().getUsername();
+
         Intent intentGame2 = new Intent(ProfileActivity.this, UnityPlayerActivity.class);
         intentGame2.putExtra("miniGame", "MiniGame2");
         intentGame2.putExtra("randomRoom", "2002");
+        intentGame2.putExtra("username", username);
         startActivity(intentGame2);
     }
 
     @OnClick(R.id.profile_activity_game3)
     public void onClickGame3() {
+
+        String username = getObjectCurrentUser().getUsername();
+
         Intent intentGame3 = new Intent(ProfileActivity.this, UnityPlayerActivity.class);
         intentGame3.putExtra("miniGame", "MiniGame3");
         intentGame3.putExtra("randomRoom", "333s3");
+        intentGame3.putExtra("username", username);
         startActivity(intentGame3);
     }
     // =============================================================================================
@@ -128,6 +141,11 @@ public class ProfileActivity extends BaseActivity {
     // --------------------
     // REST REQUESTS
     // --------------------
+
+    protected User getObjectCurrentUser() {
+
+        return UserHelper.getUser(getCurrentUser().getUid()).getResult().toObject(User.class);
+    }
 
     // Méthode de déconnexion (FirebaseAuth)
     private void signOutUserFromFirebase(){
