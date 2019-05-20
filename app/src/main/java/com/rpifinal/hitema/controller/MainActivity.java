@@ -1,6 +1,8 @@
 package com.rpifinal.hitema.controller;
 
 import android.content.Intent;
+import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
@@ -28,6 +30,11 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.main_activity_coordinator_layout) CoordinatorLayout coordinatorLayout;
 
     // =============================================================================================
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     // Récupération de la vue correspondante à l'acitivité
     @Override
     public int getFragmentLayout() { return R.layout.activity_main; }
