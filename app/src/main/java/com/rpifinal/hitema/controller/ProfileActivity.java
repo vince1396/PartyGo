@@ -26,6 +26,8 @@ public class ProfileActivity extends BaseActivity {
     private static final int DELETE_USER_TASK = 20;
     private static final int UPDATE_USERNAME = 30;
 
+    private User mUser;
+
     // Récupération des éléments de la vue au sein du code Java
     @BindView(R.id.profile_activity_view_picture) ImageView mImageViewProfile;
     @BindView(R.id.profile_activity_view_name) TextView mTextViewName;
@@ -44,6 +46,7 @@ public class ProfileActivity extends BaseActivity {
 
         // A la création de l'activité on met à jour la vue
         this.updateUIWhenCreating();
+        this.getObjectCurrentUser();
     }
     // =============================================================================================
 
@@ -79,11 +82,11 @@ public class ProfileActivity extends BaseActivity {
         intentGame1.putExtra("miniGame", "MiniGame1");
         intentGame1.putExtra("randomRoom", "1001");
 
-        if(getCurrentUser() != null)
+        /*if(this.getCurrentUser() != null)
         {
-            String username = getObjectCurrentUser().getUsername();
+            String username = this.mUser.getUsername();
             intentGame1.putExtra("username", username);
-        }
+        }*/
 
         startActivity(intentGame1);
     }
@@ -95,9 +98,9 @@ public class ProfileActivity extends BaseActivity {
         intentGame2.putExtra("miniGame", "MiniGame2");
         intentGame2.putExtra("randomRoom", "2002");
 
-        if(getCurrentUser() != null)
+        if(this.getCurrentUser() != null)
         {
-            String username = getObjectCurrentUser().getUsername();
+            String username = this.mUser.getUsername();
             intentGame2.putExtra("username", username);
         }
 
@@ -111,9 +114,9 @@ public class ProfileActivity extends BaseActivity {
         intentGame3.putExtra("miniGame", "MiniGame3");
         intentGame3.putExtra("randomRoom", "333s3");
 
-        if(getCurrentUser() != null)
+        if(this.getCurrentUser() != null)
         {
-            String username = getObjectCurrentUser().getUsername();
+            String username = this.mUser.getUsername();
             intentGame3.putExtra("username", username);
         }
 
@@ -154,9 +157,10 @@ public class ProfileActivity extends BaseActivity {
     // REST REQUESTS
     // --------------------
 
-    protected User getObjectCurrentUser() {
+    protected void getObjectCurrentUser() {
 
-        return UserHelper.getUser(getCurrentUser().getUid()).getResult().toObject(User.class);
+        UserHelper.getUser(getCurrentUser().getUid()).addOnSuccessListener(documentSnapshot ->
+                this.mUser = documentSnapshot.toObject(User.class));
     }
 
     // Méthode de déconnexion (FirebaseAuth)

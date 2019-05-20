@@ -9,8 +9,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.rpifinal.hitema.R;
-import com.rpifinal.hitema.model.User;
-import api.UserHelper;
 import butterknife.ButterKnife;
 
 /*
