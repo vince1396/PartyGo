@@ -87,7 +87,6 @@ public class ProfileActivity extends BaseActivity {
             String username = this.mUser.getUsername();
             intentGame1.putExtra("username", username);
         }
-
         startActivity(intentGame1);
     }
 
@@ -103,7 +102,7 @@ public class ProfileActivity extends BaseActivity {
             String username = this.mUser.getUsername();
             intentGame2.putExtra("username", username);
         }
-
+        intentGame2.putExtra("username", "username");
         startActivity(intentGame2);
     }
 
@@ -119,7 +118,7 @@ public class ProfileActivity extends BaseActivity {
             String username = this.mUser.getUsername();
             intentGame3.putExtra("username", username);
         }
-
+        intentGame3.putExtra("username", "username");
         startActivity(intentGame3);
     }
     // =============================================================================================
