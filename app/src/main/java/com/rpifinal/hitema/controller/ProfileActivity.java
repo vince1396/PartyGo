@@ -82,11 +82,11 @@ public class ProfileActivity extends BaseActivity {
         intentGame1.putExtra("miniGame", "MiniGame1");
         intentGame1.putExtra("randomRoom", "1001");
 
-        /*if(this.getCurrentUser() != null)
+        if(this.getCurrentUser() != null)
         {
             String username = this.mUser.getUsername();
             intentGame1.putExtra("username", username);
-        }*/
+        }
 
         startActivity(intentGame1);
     }
