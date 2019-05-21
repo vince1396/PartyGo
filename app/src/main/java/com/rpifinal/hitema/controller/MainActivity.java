@@ -13,6 +13,7 @@ import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.ErrorCodes;
 import com.firebase.ui.auth.IdpResponse;
 import com.rpifinal.hitema.R;
+import com.rpifinal.hitema.interfaces.UsernameCallback;
 
 import java.util.Arrays;
 
@@ -39,7 +40,6 @@ public class MainActivity extends BaseActivity {
     @Override
     public int getFragmentLayout() { return R.layout.activity_main; }
 
-    // =============================================================================================
     // Traitement après l'inscription/connexion de l'utilisateur
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -47,7 +47,6 @@ public class MainActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         this.handleResponseAfterSignIn(requestCode, resultCode, data);
     }
-
     // =============================================================================================
     //Affichage d'une snackBar
     private void showSnackBar(CoordinatorLayout coordinatorLayout, String message) {
@@ -72,7 +71,6 @@ public class MainActivity extends BaseActivity {
 
         Crashlytics.getInstance().crash();
     }
-
     // =============================================================================================
     /*
         Création de l'utilisateur dans Firestore en récupérant
@@ -84,7 +82,7 @@ public class MainActivity extends BaseActivity {
 
             String uid        = this.getCurrentUser().getUid();
             String email      = this.getCurrentUser().getEmail();
-            String username   = "";
+            String username   = this.getCurrentUser().getDisplayName();
             String firstName  = splitUsername(this.getCurrentUser().getDisplayName())[0];
             String lastName   = splitUsername(this.getCurrentUser().getDisplayName())[1];
             String urlPicture = (this.getCurrentUser().getPhotoUrl() != null) ?
@@ -131,8 +129,15 @@ public class MainActivity extends BaseActivity {
             // Si la connexion s'est bien passé
             if(resultCode == RESULT_OK) //SUCCESS
             {
-                // Création de l'utilisateur en BDD
-                this.createUserInFirestore();
+                checkIfUserExists(userExists -> {
+
+                    if(!userExists)
+                    {
+                        // Création de l'utilisateur en BDD
+                        this.createUserInFirestore();
+                    }
+                });
+
                 // Affichage d'une SnackBar
                 this.showSnackBar(this.coordinatorLayout, getString(R.string.connection_succeed));
                 Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
@@ -159,6 +164,19 @@ public class MainActivity extends BaseActivity {
                 }
             }
         }
+    }
+
+    private void checkIfUserExists(UsernameCallback usernameCallback) {
+
+        UserHelper.getUser(getCurrentUser().getUid()).addOnSuccessListener(documentSnapshot -> {
+
+            boolean userExists = false;
+
+            if(documentSnapshot.exists())
+                userExists = true;
+
+            usernameCallback.onCallback(userExists);
+        });
     }
     // =============================================================================================
 }
