@@ -77,7 +77,7 @@
             android:text="@string/delete_account_text"
             android:textColor="#fff"
             android:textSize="@dimen/default_text_size"
-            android:background="@drawable/button_radius_accent_color"
+            android:background="@drawable/button_delete_account_color"
             style="?android:attr/borderlessButtonStyle"
             android:layout_margin="@dimen/default_large_margin"
             android:padding="@dimen/default_large_margin"/>
@@ -89,7 +89,7 @@
             android:text="@string/jeu1"
             android:textColor="#fff"
             android:textSize="@dimen/default_text_size"
-            android:background="@drawable/button_radius_accent_color"
+            android:background="@drawable/button_game_color"
             style="?android:attr/borderlessButtonStyle"
             android:layout_marginTop="50dp"
             android:padding="@dimen/default_large_margin"/>
@@ -101,7 +101,7 @@
             android:text="@string/jeu2"
             android:textColor="#fff"
             android:textSize="@dimen/default_text_size"
-            android:background="@drawable/button_radius_accent_color"
+            android:background="@drawable/button_game_color"
             style="?android:attr/borderlessButtonStyle"
             android:layout_margin="@dimen/default_large_margin"
             android:padding="@dimen/default_large_margin"/>
@@ -113,7 +113,7 @@
             android:text="@string/jeu3"
             android:textColor="#fff"
             android:textSize="@dimen/default_text_size"
-            android:background="@drawable/button_radius_accent_color"
+            android:background="@drawable/button_game_color"
             style="?android:attr/borderlessButtonStyle"
             android:layout_margin="@dimen/default_large_margin"
             android:padding="@dimen/default_large_margin"/>

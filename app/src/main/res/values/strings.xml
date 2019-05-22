@@ -4,7 +4,7 @@
     <string name="main_activity_description">Jouez partout, avec les gens autour de vous !</string>
 
     <string name="login">Connexion</string>
-    <string name="signin">Lancer Démo</string>
+    <string name="signin"> </string>
 
     <!-- NOTIFICATION SERVICE -->
     <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
@@ -18,7 +18,7 @@
     <string name="connection_succeed">Authentification réussie !</string>
     <string name="button_login_text_logged">Afficher le profil</string>
     <string name="button_login_text_not_logged">Connexion</string>
-    <string name="button_crash">Crash</string>
+    <string name="button_crash">Crash Test</string>
 
     <!-- LOGIN ACTIVITY -->
     <string name="toolbar_title_login_activity">Votre Profil</string>
@@ -47,9 +47,9 @@
     <string name="logout_text" translatable="false">Déconnexion</string>
     <string name="delete_account_text" translatable="false">Supprimer votre compte</string>
     <string name="update_button">Modifiez les informations du compte</string>
-    <string name="jeu1">Jeu 1</string>
-    <string name="jeu2">Jeu 2</string>
-    <string name="jeu3">Jeu 3</string>
+    <string name="jeu1">La couleur</string>              //jeu 1
+    <string name="jeu2">Le canon</string>              //jeu 2
+    <string name="jeu3">La course</string>              //jeu 3
 
     <!-- UPDATE ACTIVITY -->
     <string name="title_update">Modifiez vos informations</string>
