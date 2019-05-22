@@ -45,8 +45,8 @@
     <string name="desc_user_email" translatable="false">User email</string>
     <string name="desc_user_picture" translatable="false">User picture</string>
     <string name="logout_text" translatable="false">Déconnexion</string>
-    <string name="delete_account_text" translatable="false">Supprimer compte</string>
-    <string name="update_button">Modifiez informations du compte</string>
+    <string name="delete_account_text" translatable="false">Supprimer votre compte</string>
+    <string name="update_button">Modifiez les informations du compte</string>
     <string name="jeu1">Jeu 1</string>
     <string name="jeu2">Jeu 2</string>
     <string name="jeu3">Jeu 3</string>
