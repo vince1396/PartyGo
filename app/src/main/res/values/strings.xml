@@ -47,9 +47,9 @@
     <string name="logout_text" translatable="false">Déconnexion</string>
     <string name="delete_account_text" translatable="false">Supprimer votre compte</string>
     <string name="update_button">Modifiez les informations du compte</string>
-    <string name="jeu1">La couleur</string>              //jeu 1
-    <string name="jeu2">Le canon</string>              //jeu 2
-    <string name="jeu3">La course</string>              //jeu 3
+    <string name="jeu1">COLOR TAP</string>              //jeu 1
+    <string name="jeu2">CANON SHOT</string>              //jeu 2
+    <string name="jeu3">TAP RUN</string>              //jeu 3
 
     <!-- UPDATE ACTIVITY -->
     <string name="title_update">Modifiez vos informations</string>
