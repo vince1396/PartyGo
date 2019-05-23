@@ -144,9 +144,11 @@ public class ProfileActivity extends BaseActivity {
             String email = TextUtils.isEmpty(
                     this.getCurrentUser()
                             .getEmail()) ? getString(R.string.info_no_email_found) : this.getCurrentUser().getEmail();
+            String name = this.getCurrentUser().getDisplayName();
 
             // Insertion de l'email dans la vue
             this.mTextViewEmail.setText(email);
+            this.mTextViewName.setText(name);
         }
     }
     // =============================================================================================
