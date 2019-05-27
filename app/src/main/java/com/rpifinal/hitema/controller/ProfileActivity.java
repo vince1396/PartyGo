@@ -67,8 +67,8 @@ public class ProfileActivity extends BaseActivity {
     public void onClickDeleteButton() {
         AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
         builder.setCancelable(true);
-        builder.setTitle("être vous sur??");
-        builder.setMessage("voulez vous vraiment supprimez votre compte ???");
+        builder.setTitle("Confirmation");
+        builder.setMessage("Voulez vous vraiment supprimez votre compte ?");
 
         //Si la reponse est non
         builder.setNegativeButton("NON", new DialogInterface.OnClickListener() {
@@ -79,13 +79,12 @@ public class ProfileActivity extends BaseActivity {
             }
         });
         //si la reponse est oui
-        builder.setPositiveButton("oui", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("OUI", new DialogInterface.OnClickListener() {
 
 
             @Override
             public void onClick(DialogInterface dialog, int whichButton) {
-
-                //this.deleteUserFromFirebase();
+                deleteUserFromFirebase();
             }
         });
 
