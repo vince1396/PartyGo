@@ -86,7 +86,6 @@ public class ProfileActivity extends BaseActivity {
 
                 //this.deleteUserFromFirebase();
             }
-
         });
 
         builder.show();
