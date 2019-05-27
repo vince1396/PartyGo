@@ -75,6 +75,7 @@ public class ProfileActivity extends BaseActivity {
             @Override
             public void onClick(DialogInterface dialog, int whichButton) {
                 dialog.cancel();
+
             }
         });
         //si la reponse est oui
