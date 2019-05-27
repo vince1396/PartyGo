@@ -84,7 +84,7 @@ public class ProfileActivity extends BaseActivity {
             @Override
             public void onClick(DialogInterface dialog, int whichButton) {
 
-                //this.deleteUserFromFirebase();   
+                //this.deleteUserFromFirebase();
             }
 
         });
