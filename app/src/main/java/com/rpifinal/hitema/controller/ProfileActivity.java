@@ -1,5 +1,7 @@
 package com.rpifinal.hitema.controller;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -63,8 +65,32 @@ public class ProfileActivity extends BaseActivity {
     // Quand l'utilisateur clique sur suppression du compte
     @OnClick(R.id.profile_activity_delete_button)
     public void onClickDeleteButton() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
+        builder.setCancelable(true);
+        builder.setTitle("être vous sur??");
+        builder.setMessage("voulez vous vraiment supprimez votre compte ???");
 
-        this.deleteUserFromFirebase();
+        //Si la reponse est non
+        builder.setNegativeButton("NON", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int whichButton) {
+                dialog.cancel();
+            }
+        });
+        //si la reponse est oui
+        builder.setPositiveButton("oui", new DialogInterface.OnClickListener() {
+
+
+            @Override
+            public void onClick(DialogInterface dialog, int whichButton) {
+
+                //this.deleteUserFromFirebase();
+            }
+
+        });
+
+        builder.show();
+
     }
 
     // Quand l'utilisateur clique sur Modifier informations
