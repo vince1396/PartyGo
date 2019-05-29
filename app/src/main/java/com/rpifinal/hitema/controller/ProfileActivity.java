@@ -71,22 +71,9 @@ public class ProfileActivity extends BaseActivity {
         builder.setMessage("Voulez vous vraiment supprimez votre compte ?");
 
         //Si la reponse est non
-        builder.setNegativeButton("NON", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int whichButton) {
-                dialog.cancel();
-
-            }
-        });
+        builder.setNegativeButton("NON", (dialog, whichButton) -> dialog.cancel());
         //si la reponse est oui
-        builder.setPositiveButton("OUI", new DialogInterface.OnClickListener() {
-
-
-            @Override
-            public void onClick(DialogInterface dialog, int whichButton) {
-                deleteUserFromFirebase();
-            }
-        });
+        builder.setPositiveButton("OUI", (dialog, whichButton) -> deleteUserFromFirebase());
 
         builder.show();
 
