@@ -64,10 +64,16 @@ public class UpdateUserActivity extends BaseActivity {
 
         String uid = getCurrentUser().getUid();
         String username = mFirstnameUpdateField.getText().toString();
-        String successMessage = getString(R.string.success_update_firstname);
+        if (!username.matches("[a-zA-Z]+") || username=="" || username.length()< 3) {
 
-        UserHelper.updateFirstName(username, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
-        updateUI();
+            String successMessage="Votre nom doit contenir au moins 3 caratères et ne peut contenir que des lettres";
+        }
+        else{
+            String successMessage = getString(R.string.success_update_firstname);
+            UserHelper.updateFirstName(username, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
+            updateUI();
+
+        }
     }
 
     @OnClick(R.id.update_activity_lastName_submit)
