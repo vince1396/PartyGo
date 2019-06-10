@@ -64,7 +64,7 @@ public class UpdateUserActivity extends BaseActivity {
 
         String uid = getCurrentUser().getUid();
         String username = mFirstnameUpdateField.getText().toString();
-        if (!username.matches("[a-zA-Z]+") || username=="" || username.length()< 3) {
+        if (!username.matches("[a-zA-Z-]+[:blank:]?[a-zA-Z]+") || username=="" || username.length()< 3) {
 
             String successMessage="Votre prénom doit contenir au moins 3 caratères et ne peut contenir que des lettres";
         }
@@ -82,7 +82,7 @@ public class UpdateUserActivity extends BaseActivity {
         String uid = getCurrentUser().getUid();
         String username = mLastnameUpdateField.getText().toString();
 
-        if (!username.matches("[a-zA-Z]+") || username=="" || username.length()< 3) {
+        if (!username.matches("[a-zA-Z-]+[:blank:]?[a-zA-Z]+") || username=="" || username.length()< 3) {
 
             String successMessage="Votre nom doit contenir au moins 3 caratères et ne peut contenir que des lettres";
         }
