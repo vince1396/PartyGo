@@ -40,11 +40,11 @@
             android:name=".controller.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".controller.UpdateUserActivity" />
-        <activity android:name=".controller.ProfileActivity" />
-        <activity android:name=".controller.MainActivity">
+        <activity android:name=".controller.ProfileActivity" android:theme="@style/ProfilPageTheme" />
+        <activity android:name=".controller.MainActivity" android:theme="@style/HomePageTheme" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

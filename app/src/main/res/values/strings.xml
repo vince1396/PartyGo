@@ -6,7 +6,7 @@
     <string name="welcome_message">BIENVENUE</string>
     <string name="game_choice_message">Selectionnez un jeu :</string>
 
-    <string name="login">Connexion</string>
+    <string name="login">Connexion / Inscription</string>
     <string name="signin"> </string>
 
     <!-- NOTIFICATION SERVICE -->
@@ -41,6 +41,11 @@
     <string name="facebook_application_id" translatable="false">420763051691337</string>
     <string name="facebook_login_protocol_scheme" translatable="false" tools:ignore="UnusedResources">fb420763051691337</string>
 
+    <!-- DESCRIPTION DES IMAGES -->
+    <string name="button_setting" translatable="false"> </string>
+    <string name="button_delete" translatable="false"> </string>
+    <string name="button_logout" translatable="false"> </string>
+
     <!-- PROFILE ACTIVITY -->
     <string name="user_name" translatable="false">Nom Prénom</string>
     <string name="user_email" translatable="false">Email</string>
@@ -48,8 +53,8 @@
     <string name="desc_user_email" translatable="false">User email</string>
     <string name="desc_user_picture" translatable="false">User picture</string>
     <string name="logout_text" translatable="false">Déconnexion</string>
-    <string name="delete_account_text" translatable="false">Supprimer votre compte</string>
-    <string name="update_button">Modifiez les informations du compte</string>
+    <string name="delete_account_text" translatable="false">Suppression</string>
+    <string name="update_button">Paramètres</string>
     <string name="jeu1">Color tap</string>              //jeu 1
     <string name="jeu2">Canon shot</string>              //jeu 2
     <string name="jeu3">Tap run</string>              //jeu 3

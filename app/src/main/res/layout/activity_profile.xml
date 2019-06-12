@@ -1,122 +1,183 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.ProfileActivity">
+    tools:context=".controller.ProfileActivity"
+    android:background="@color/colorAccent"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/profile_activity_view_picture"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:contentDescription="@string/desc_user_picture"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/profile_activity_view_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            android:contentDescription="@string/desc_user_name"
-            android:text="@string/user_name"
-            android:visibility="visible" />
-
-        <TextView
-            android:id="@+id/profile_activity_view_email"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="1dp"
-            android:layout_marginBottom="30dp"
-            android:contentDescription="@string/desc_user_email"
-            android:text="@string/user_email"
-            android:visibility="visible" />
-
-        <Button
-            android:id="@+id/profile_activity_update_button"
+        android:layout_height="400dp">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/update_button"
-            android:textColor="#fff"
-            android:textSize="@dimen/default_text_size"
-            android:background="@drawable/button_radius_primary_color"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_margin="@dimen/default_large_margin"
-            android:padding="@dimen/default_large_margin"/>
+            android:layout_height="350dp"
+            android:background="@color/colorPrimary"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/profile_activity_view_picture"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="100dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:contentDescription="@string/desc_user_picture"
+                tools:srcCompat="@tools:sample/avatars" />
+            <TextView
+                android:id="@+id/profile_activity_view_name"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/desc_user_name"
+                android:text="@string/user_name"
+                android:textStyle="bold"
+                android:textSize="21sp"
+                android:textColor="@color/colorWhite"
+                android:visibility="visible" />
+            <TextView
+                android:id="@+id/profile_activity_view_email"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="1dp"
+                android:layout_marginBottom="30dp"
+                android:contentDescription="@string/desc_user_email"
+                android:text="@string/user_email"
+                android:textColor="@color/colorWhite"
+                android:visibility="visible" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/profile_activity_logout_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/logout_text"
-            android:textColor="#fff"
-            android:textSize="@dimen/default_text_size"
-            android:background="@drawable/button_radius_primary_color"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_margin="@dimen/default_large_margin"
-            android:padding="@dimen/default_large_margin"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="300dp"
+            android:layout_height="90dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="310dp">
 
-        <Button
-            android:id="@+id/profile_activity_delete_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/delete_account_text"
-            android:textColor="#fff"
-            android:textSize="@dimen/default_text_size"
-            android:background="@drawable/button_delete_account_color"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_margin="@dimen/default_large_margin"
-            android:padding="@dimen/default_large_margin"/>
+            <LinearLayout
+                android:baselineAligned="false"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="3">
 
-        <Button
-            android:id="@+id/profile_activity_game1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/jeu1"
-            android:textColor="#fff"
-            android:textSize="@dimen/default_text_size"
-            android:background="@drawable/button_game_color"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_marginTop="50dp"
-            android:padding="@dimen/default_large_margin"/>
+                <!-- PARAMETRES DU COMPTE -->
+                <LinearLayout
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
-        <Button
-            android:id="@+id/profile_activity_game2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/jeu2"
-            android:textColor="#fff"
-            android:textSize="@dimen/default_text_size"
-            android:background="@drawable/button_game_color"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_margin="@dimen/default_large_margin"
-            android:padding="@dimen/default_large_margin"/>
+                    <ImageView
+                        android:contentDescription="@string/button_setting"
+                        android:id="@+id/profile_activity_update_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:src="@drawable/setting_button" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/update_button"
+                        android:textSize="12sp" />
 
-        <Button
-            android:id="@+id/profile_activity_game3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/jeu3"
-            android:textColor="#fff"
-            android:textSize="@dimen/default_text_size"
-            android:background="@drawable/button_game_color"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_margin="@dimen/default_large_margin"
-            android:padding="@dimen/default_large_margin"/>
+                </LinearLayout>
 
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <!-- SUPPRESSION DU COMPTE -->
+                <LinearLayout
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:contentDescription="@string/button_delete"
+                        android:id="@+id/profile_activity_delete_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:src="@drawable/delete_button" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/delete_account_text"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <!-- DECONNEXION  -->
+                <LinearLayout
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+                    <ImageView
+                        android:contentDescription="@string/button_logout"
+                        android:id="@+id/profile_activity_logout_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:src="@drawable/logout_button" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/logout_text"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+    <Button
+        android:id="@+id/profile_activity_game1"
+        android:layout_width="@dimen/default_button_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/jeu1"
+        android:textColor="#fff"
+        android:textSize="@dimen/default_text_size"
+        android:background="@drawable/button_radius_primary_color"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_marginTop="50dp"
+        android:padding="@dimen/default_large_margin"/>
+
+    <Button
+        android:id="@+id/profile_activity_game2"
+        android:layout_width="@dimen/default_button_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/jeu2"
+        android:textColor="#fff"
+        android:textSize="@dimen/default_text_size"
+        android:background="@drawable/button_radius_primary_color"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_margin="@dimen/default_large_margin"
+        android:padding="@dimen/default_large_margin"/>
+
+    <Button
+        android:id="@+id/profile_activity_game3"
+        android:layout_width="@dimen/default_button_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/jeu3"
+        android:textColor="#fff"
+        android:textSize="@dimen/default_text_size"
+        android:background="@drawable/button_radius_primary_color"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_margin="@dimen/default_large_margin"
+        android:padding="@dimen/default_large_margin"/>
+</LinearLayout>
