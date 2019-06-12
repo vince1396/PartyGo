@@ -42,9 +42,10 @@
     <string name="facebook_login_protocol_scheme" translatable="false" tools:ignore="UnusedResources">fb420763051691337</string>
 
     <!-- DESCRIPTION DES IMAGES -->
-    <string name="button_setting" translatable="false"> </string>
-    <string name="button_delete" translatable="false"> </string>
-    <string name="button_logout" translatable="false"> </string>
+    <string name="button_setting_desc" translatable="false">Bouton de paramètre de compte</string>
+    <string name="button_delete_desc" translatable="false">Bouton de suppression de compte</string>
+    <string name="button_logout_desc" translatable="false">Bouton de déconnexion de compte</string>
+    <string name="party_go_logo_title" translatable="false">Modèle du titre de Party Go</string>
 
     <!-- PROFILE ACTIVITY -->
     <string name="user_name" translatable="false">Nom Prénom</string>

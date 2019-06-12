@@ -8,53 +8,57 @@
     android:background="@color/colorAccent"
     android:orientation="vertical">
 
+    <!-- PARTIE MOITIE HAUT -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp">
+        android:layout_height="@dimen/pa_relative_layout_height">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="350dp"
+            android:layout_height="@dimen/pa_linear_layout_height"
             android:background="@color/colorPrimary"
             android:orientation="vertical">
+            <!-- PHOTO DE PROFIL -->
             <ImageView
                 android:id="@+id/profile_activity_view_picture"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="100dp"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_marginTop="@dimen/pa_profil_image_view_dimen"
+                android:layout_width="@dimen/pa_profil_image_view_dimen"
+                android:layout_height="@dimen/pa_profil_image_view_dimen"
                 android:contentDescription="@string/desc_user_picture"
                 tools:srcCompat="@tools:sample/avatars" />
+            <!-- NOM PRENOM DU JOUEUR -->
             <TextView
                 android:id="@+id/profile_activity_view_name"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/pa_username_margin_top"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:contentDescription="@string/desc_user_name"
                 android:text="@string/user_name"
                 android:textStyle="bold"
-                android:textSize="21sp"
+                android:textSize="@dimen/pa_username_text_size"
                 android:textColor="@color/colorWhite"
                 android:visibility="visible" />
+            <!-- EMAIL -->
             <TextView
                 android:id="@+id/profile_activity_view_email"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="1dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginTop="@dimen/pa_email_margin_top"
+                android:layout_marginBottom="@dimen/pa_email_margin_bottom"
                 android:contentDescription="@string/desc_user_email"
                 android:text="@string/user_email"
                 android:textColor="@color/colorWhite"
                 android:visibility="visible" />
         </LinearLayout>
 
+        <!-- CADRE RECTANGLE -->
         <androidx.cardview.widget.CardView
-            android:layout_width="300dp"
-            android:layout_height="90dp"
+            android:layout_width="@dimen/pa_card_view_layout_width"
+            android:layout_height="@dimen/pa_card_view_layout_height"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="310dp">
-
+            android:layout_marginTop="@dimen/pa_card_view_margin_top">
             <LinearLayout
                 android:baselineAligned="false"
                 android:layout_width="match_parent"
@@ -66,22 +70,22 @@
                 <LinearLayout
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/pa_layout_width"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
 
                     <ImageView
-                        android:contentDescription="@string/button_setting"
+                        android:contentDescription="@string/button_setting_desc"
                         android:id="@+id/profile_activity_update_button"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="@dimen/pa_layout_height"
                         android:gravity="center"
                         android:src="@drawable/setting_button" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/update_button"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/pa_text_size" />
 
                 </LinearLayout>
 
@@ -89,21 +93,21 @@
                 <LinearLayout
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/pa_layout_width"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
                     <ImageView
-                        android:contentDescription="@string/button_delete"
+                        android:contentDescription="@string/button_delete_desc"
                         android:id="@+id/profile_activity_delete_button"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="@dimen/pa_layout_height"
                         android:gravity="center"
                         android:src="@drawable/delete_button" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/delete_account_text"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/pa_text_size" />
 
                 </LinearLayout>
 
@@ -111,21 +115,21 @@
                 <LinearLayout
                     android:gravity="center"
                     android:orientation="vertical"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/pa_layout_width"
                     android:layout_height="match_parent"
                     android:layout_weight="1">
                     <ImageView
-                        android:contentDescription="@string/button_logout"
+                        android:contentDescription="@string/button_logout_desc"
                         android:id="@+id/profile_activity_logout_button"
                         android:layout_width="wrap_content"
-                        android:layout_height="50dp"
+                        android:layout_height="@dimen/pa_layout_height"
                         android:gravity="center"
                         android:src="@drawable/logout_button" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/logout_text"
-                        android:textSize="12sp" />
+                        android:textSize="@dimen/pa_text_size" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -133,15 +137,7 @@
 
     </RelativeLayout>
 
-
-
-
-
-
-
-
-
-
+    <!-- BOUTON DES MINI JEUX -->
     <Button
         android:id="@+id/profile_activity_game1"
         android:layout_width="@dimen/default_button_width"
@@ -152,7 +148,7 @@
         android:textSize="@dimen/default_text_size"
         android:background="@drawable/button_radius_primary_color"
         style="?android:attr/borderlessButtonStyle"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="@dimen/pa_game_margin_top"
         android:padding="@dimen/default_large_margin"/>
 
     <Button
@@ -165,6 +161,7 @@
         android:textSize="@dimen/default_text_size"
         android:background="@drawable/button_radius_primary_color"
         style="?android:attr/borderlessButtonStyle"
+        android:layout_marginTop="@dimen/pa_game_margin_top"
         android:layout_margin="@dimen/default_large_margin"
         android:padding="@dimen/default_large_margin"/>
 
@@ -178,6 +175,7 @@
         android:textSize="@dimen/default_text_size"
         android:background="@drawable/button_radius_primary_color"
         style="?android:attr/borderlessButtonStyle"
+        android:layout_marginTop="@dimen/pa_game_margin_top"
         android:layout_margin="@dimen/default_large_margin"
         android:padding="@dimen/default_large_margin"/>
 </LinearLayout>
