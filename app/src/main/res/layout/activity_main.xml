@@ -45,6 +45,8 @@
             android:textStyle="bold"
             android:text="@string/main_activity_description"
             android:textColor="@color/colorWhite"
+            android:gravity="center"
+            android:includeFontPadding="false"
             android:textSize="@dimen/slogan_text_size" />
 
         <!-- BUTTONS CONTAINER -->

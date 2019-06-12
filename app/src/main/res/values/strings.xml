@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">PartyGo</string>
 
-    <string name="main_activity_description">Jouez partout, avec les gens autour de vous !</string>
+    <string name="main_activity_description">Jouez partout\n avec les gens autour de vous !</string>
 
     <string name="welcome_message">BIENVENUE</string>
     <string name="game_choice_message">Selectionnez un jeu :</string>
