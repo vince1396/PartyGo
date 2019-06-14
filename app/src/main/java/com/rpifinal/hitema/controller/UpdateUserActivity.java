@@ -15,8 +15,6 @@ import butterknife.OnClick;
 
 public class UpdateUserActivity extends BaseActivity {
 
-    //TODO : TextWatcher, addOnTextChangeListener
-
     // =============================================================================================
     // ATTRIBUTS MEMBRES
     private static final String TAG = "UpdateUserActivity";
@@ -64,11 +62,14 @@ public class UpdateUserActivity extends BaseActivity {
 
         String uid = getCurrentUser().getUid();
         String username = mFirstnameUpdateField.getText().toString();
-        if (!username.matches("[a-zA-Z-]+[:blank:]?[a-zA-Z]+") || username=="" || username.length()< 3) {
+
+        if (!username.matches("[a-zA-Z-]+[:blank]?[a-zA-Z]+") || username.equals("") || username.length()< 3)
+        {
 
             String successMessage="Votre prénom doit contenir au moins 3 caratères et ne peut contenir que des lettres";
         }
-        else{
+        else
+        {
             String successMessage = getString(R.string.success_update_firstname);
             UserHelper.updateFirstName(username, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
             updateUI();
@@ -82,11 +83,13 @@ public class UpdateUserActivity extends BaseActivity {
         String uid = getCurrentUser().getUid();
         String username = mLastnameUpdateField.getText().toString();
 
-        if (!username.matches("[a-zA-Z-]+[:blank:]?[a-zA-Z]+") || username=="" || username.length()< 3) {
+        if (!username.matches("[a-zA-Z-]+[:blank]?[a-zA-Z]+") || username.equals("") || username.length()< 3)
+        {
 
             String successMessage="Votre nom doit contenir au moins 3 caratères et ne peut contenir que des lettres";
         }
-        else{
+        else
+        {
             String successMessage = getString(R.string.success_update_lastnname);
             UserHelper.updateLastName(username, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
             updateUI();
