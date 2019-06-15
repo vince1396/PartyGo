@@ -142,6 +142,7 @@ public class MainActivity extends BaseActivity {
                 // Affichage d'une SnackBar
                 this.showSnackBar(this.coordinatorLayout, getString(R.string.connection_succeed));
                 Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
+                Intent map = new Intent(MainActivity.this, MapsActivity.class);
                 //Intent maps = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(profile);
                 // Démarrage de MapsActivity

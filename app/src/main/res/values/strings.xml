@@ -73,5 +73,8 @@
     <!-- ERRORS -->
     <string name="no_user_connected_error">Erreur : Aucun utilisateur connecté</string>
 
+    <!-- MAP ACTIVITY -->
     <string name="title_activity_maps">Map</string>
+    <string name="positive_button_alert_dialog">OK</string>
+    <string name="permission_explanation">PartyGO nécéssite l\'accès à la localisation de votre appareil afin de pouvoir fonctionner correctement. </string>
 </resources>

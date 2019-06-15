@@ -2,22 +2,34 @@ package com.rpifinal.hitema.controller;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Intent;
+import android.content.IntentSender;
 import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.FragmentActivity;
 
+import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResponse;
+import com.google.android.gms.location.SettingsClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.Task;
 import com.rpifinal.hitema.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -28,9 +40,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     ///////////////////////////////
 
     private static final int REQUEST_ACCESS_FINE_LOCATION = 628;
+    private static final int REQUEST_CHECK_SETTINGS = 752;
 
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationClient;
+    private static Location mCurrentLocation;
     // =============================================================================================
     ////////////////////////////////
     // ACTIVITY LIFE CYCLE
@@ -53,14 +67,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+
         mMap = googleMap;
         //maps.putExtra("latitute", 48.825913);
         //maps.putExtra("longitude", 2.267375);
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(48.825913, 2.267375);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Hitema"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));
+        /*LatLng current = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
+        mMap.addMarker(new MarkerOptions().position(current).title("Marker in Hitema"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(current));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));*/
     }
 
     @Override
@@ -92,22 +107,95 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onDestroy() {
         super.onDestroy();
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        switch (requestCode) {
+
+            case REQUEST_CHECK_SETTINGS : {
+
+                getLocation();
+            }
+        }
+    }
+// =================================================================================================
+    ////////////////////////////////
+    // UI
+    ///////////////////////////////
+
+    public Dialog permissionExplanation() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(MapsActivity.this);
+        builder.setMessage(R.string.permission_explanation)
+                .setPositiveButton(R.string.positive_button_alert_dialog, (dialog, which) ->
+                        requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_ACCESS_FINE_LOCATION));
+
+        return builder.create();
+    }
+
+    public void setMap() {
+
+        LatLng current = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
+        mMap.addMarker(new MarkerOptions().position(current).title("Marker in Hitema"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(current));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));
+    }
     // =============================================================================================
     ////////////////////////////////
     // LOCATION
     ///////////////////////////////
 
     @SuppressLint("MissingPermission")
-    void getLocation() {
+    private void getLocation() {
 
         mFusedLocationClient.getLastLocation().addOnSuccessListener(this, location -> {
 
             if (location != null) {
 
+                mCurrentLocation = location;
+                setMap();
             }
         });
     }
-    // =============================================================================================
+
+    protected void createLocationRequest() {
+
+        LocationRequest locationRequest = LocationRequest.create();
+        locationRequest.setInterval(10000);
+        locationRequest.setFastestInterval(5000);
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+
+        LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
+                .addLocationRequest(locationRequest);
+
+        SettingsClient client = LocationServices.getSettingsClient(this);
+        Task<LocationSettingsResponse> task = client.checkLocationSettings(builder.build());
+
+        task.addOnSuccessListener(this, locationSettingsResponse -> getLocation());
+
+        task.addOnFailureListener(this, e -> {
+
+            if (e instanceof ResolvableApiException)
+            {
+                // Location settings are not satisfied, but this can be fixed
+                // by showing the user a dialog.
+                try
+                {
+                    // Show the dialog by calling startResolutionForResult(),
+                    // and check the result in onActivityResult().
+                    ResolvableApiException resolvable = (ResolvableApiException) e;
+                    resolvable.startResolutionForResult(MapsActivity.this,
+                            REQUEST_CHECK_SETTINGS);
+                }
+                catch (IntentSender.SendIntentException sendEx)
+                {
+                    // Ignore the error.
+                }
+            }
+        });
+    }
+// =============================================================================================
     ////////////////////////////////
     // PERMISSIONS
     ///////////////////////////////
@@ -119,19 +207,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
                 && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
         {
-            // TODO: Consider calling
-            //    Activity#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for Activity#requestPermissions for more details.
-
-
             // Should we show an explanation ?
             if(shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION))
             {
                 // Show an explanation & try to request the permission again
+                permissionExplanation().show();
             }
             else // Ask for permission
             {
@@ -140,7 +220,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
         else // Permission is already granted
         {
-            getLocation();
+            createLocationRequest();
         }
     }
 
@@ -152,12 +232,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                 {
-                    getLocation();
+                    createLocationRequest();
                 }
                 else
                 {
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
+                    Intent mainActivity = new Intent(MapsActivity.this, MainActivity.class);
+                    startActivity(mainActivity);
                 }
             }
             // other 'case' lines to check for other
