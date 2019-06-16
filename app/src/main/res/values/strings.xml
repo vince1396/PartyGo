@@ -56,9 +56,9 @@
     <string name="logout_text" translatable="false">Déconnexion</string>
     <string name="delete_account_text" translatable="false">Suppression</string>
     <string name="update_button">Paramètres</string>
-    <string name="jeu1">Color tap</string>              //jeu 1
-    <string name="jeu2">Canon shot</string>              //jeu 2
-    <string name="jeu3">Tap run</string>              //jeu 3
+    <string name="jeu1">Color tap</string>
+    <string name="jeu2">Canon shot</string>
+    <string name="jeu3">Tap run</string>
 
     <!-- UPDATE ACTIVITY -->
     <string name="title_update">Modifiez vos informations</string>

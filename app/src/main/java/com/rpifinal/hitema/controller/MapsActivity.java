@@ -18,7 +18,9 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResponse;
@@ -45,6 +47,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationClient;
     private static Location mCurrentLocation;
+    private static boolean mRequestingLocationUpdates;
+    private LocationCallback mLocationCallback;
+    private LocationRequest mLocationRequest;
     // =============================================================================================
     ////////////////////////////////
     // ACTIVITY LIFE CYCLE
@@ -62,6 +67,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mapFragment.getMapAsync(this);
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        mLocationCallback = new LocationCallback() {
+
+            @Override
+            public void onLocationResult(LocationResult locationResult) {
+
+                if (locationResult == null) {
+                    return;
+                }
+                for (Location location : locationResult.getLocations()) {
+                    // Update UI with location data
+                    // ...
+                    setMap(location);
+                }
+            }
+        };
+
         checkPermissions();
     }
 
@@ -69,13 +91,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
 
         mMap = googleMap;
-        //maps.putExtra("latitute", 48.825913);
-        //maps.putExtra("longitude", 2.267375);
-        // Add a marker in Sydney and move the camera
-        /*LatLng current = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
-        mMap.addMarker(new MarkerOptions().position(current).title("Marker in Hitema"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(current));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));*/
     }
 
     @Override
@@ -85,12 +100,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     protected void onResume() {
+
         super.onResume();
+
+        if (mRequestingLocationUpdates) {
+            startLocationUpdates();
+        }
+
     }
 
     @Override
     protected void onPause() {
+
         super.onPause();
+        stopLocationUpdates();
     }
 
     @Override
@@ -137,7 +160,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void setMap() {
 
         LatLng current = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
-        mMap.addMarker(new MarkerOptions().position(current).title("Marker in Hitema"));
+        mMap.addMarker(new MarkerOptions().position(current).title("My last position"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(current));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));
+    }
+
+    public void setMap(Location location) {
+
+        LatLng current = new LatLng(location.getLatitude(), location.getLongitude());
+        mMap.addMarker(new MarkerOptions().position(current).title("My position"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(current));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));
     }
@@ -161,18 +192,18 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     protected void createLocationRequest() {
 
-        LocationRequest locationRequest = LocationRequest.create();
-        locationRequest.setInterval(10000);
-        locationRequest.setFastestInterval(5000);
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        mLocationRequest = LocationRequest.create();
+        mLocationRequest.setInterval(10000);
+        mLocationRequest.setFastestInterval(5000);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
         LocationSettingsRequest.Builder builder = new LocationSettingsRequest.Builder()
-                .addLocationRequest(locationRequest);
+                .addLocationRequest(mLocationRequest);
 
         SettingsClient client = LocationServices.getSettingsClient(this);
         Task<LocationSettingsResponse> task = client.checkLocationSettings(builder.build());
 
-        task.addOnSuccessListener(this, locationSettingsResponse -> getLocation());
+        task.addOnSuccessListener(this, locationSettingsResponse -> locationRequestGranted());
 
         task.addOnFailureListener(this, e -> {
 
@@ -195,6 +226,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         });
     }
+
+    @SuppressLint("MissingPermission")
+    private void startLocationUpdates() {
+        mFusedLocationClient.requestLocationUpdates(mLocationRequest,
+                mLocationCallback,
+                null /* Looper */);
+    }
+
+    private void locationRequestGranted() {
+
+        mRequestingLocationUpdates = true;
+        startLocationUpdates();
+    }
+
+    private void stopLocationUpdates() {
+        mFusedLocationClient.removeLocationUpdates(mLocationCallback);
+    }
+
 // =============================================================================================
     ////////////////////////////////
     // PERMISSIONS

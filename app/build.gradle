@@ -80,12 +80,20 @@ dependencies {
 
     // =============================================================================================
     // FIREBASE UI
-    // FirebaseUI
         // Authentification
         implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
 
         // FireStore
         implementation 'com.firebaseui:firebase-ui-firestore:3.1.3'
+    // =============================================================================================
+
+    // =============================================================================================
+    // SNAPCHAT
+    implementation([
+            'com.snapchat.kit.sdk:bitmoji:1.2.0',
+            'com.snapchat.kit.sdk:login:1.2.0',
+            'com.snapchat.kit.sdk:core:1.2.0',
+    ])
     // =============================================================================================
 
     //Unity

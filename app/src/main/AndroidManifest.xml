@@ -10,7 +10,6 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
-
     <!--
        l2 : android:icon="@mipmap/ic_launcher"
        l4 : android:roundIcon="@mipmap/ic_launcher_round"
@@ -35,6 +34,8 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
+        <meta-data android:name="com.snapchat.kit.sdk.clientId" android:value="3918eca7-74c5-42d0-a910-9eee29f22c84" />
 
         <activity
             android:name=".controller.MapsActivity"

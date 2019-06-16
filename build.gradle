@@ -7,9 +7,10 @@ buildscript {
         jcenter()
         maven {
             url 'https://maven.fabric.io/public'
+            }
+        maven {
+            url "https://storage.googleapis.com/snap-kit-build/maven"
         }
-
-
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.4.1'
@@ -25,7 +26,9 @@ allprojects {
     repositories {
         google()
         jcenter()
-        
+        maven {
+            url "https://storage.googleapis.com/snap-kit-build/maven"
+        }
     }
 }
 
