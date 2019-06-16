@@ -1,132 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".controller.UpdateUserActivity">
+    android:layout_gravity="center"
+    tools:context=".controller.ProfileActivity"
+    android:background="@drawable/background_app2"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="721dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:layout_marginHorizontal="40dp"
+        android:background="@drawable/round_border_transparent_layout"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/update_activity_title_textView"
-            android:layout_width="287dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="70dp"
             android:text="@string/title_update"
+            android:textColor="@color/colorWhite"
+            android:textSize="20sp"
             tools:text="Modifiez vos informations" />
 
+
+        <!-- PARTIE PSEUDOMYME -->
+        <TextView
+            android:id="@+id/update_activity_username_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/colorWhite"
+            android:text="@string/username_field" />
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/update_activity_username_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/username_field" />
+            android:layout_gravity="center_horizontal">
 
             <EditText
                 android:id="@+id/update_activity_username_field"
-                android:layout_width="228dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:importantForAutofill="no"
-                android:hint="@string/username_field"
-                tools:targetApi="o" />
-
-            <Button
-                android:id="@+id/update_activity_username_submit"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/submit_update" />
-
+                android:layout_height="30dp"
+                android:ems="10"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:hint="@string/username_field"
+                android:importantForAutofill="no"
+                android:background="@drawable/round_border_text_fill"
+                android:inputType="textPersonName"
+                tools:targetApi="o" />
         </LinearLayout>
+        <Button
+            android:id="@+id/update_activity_username_submit"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:background="@drawable/round_button_blue"
+            android:layout_gravity="center"
+            android:layout_marginBottom="40dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            android:text="@string/submit_update_username" />
+
+        <!-- PARTIE PRENOM -->
+        <TextView
+            android:id="@+id/update_activity_firstName_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/colorWhite"
+            android:text="@string/firstName_field" />
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/update_activity_firstName_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/firstName_field" />
+            android:layout_gravity="center_horizontal">
 
             <EditText
                 android:id="@+id/update_activity_firstName_field"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="30dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/firstName_field" 
-                tools:targetApi="o"
+                android:hint="@string/firstName_field"
+                android:gravity="center"
                 android:importantForAutofill="no"
-                android:hint="@string/firstName_field"/>
-
-            <Button
-                android:id="@+id/update_activity_firstName_submit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/submit_update" />
-
+                android:layout_gravity="center_horizontal"
+                android:background="@drawable/round_border_text_fill"
+                android:inputType="textPersonName"
+                android:text="@string/firstName_field"
+                tools:targetApi="o" />
         </LinearLayout>
 
+        <Button
+            android:id="@+id/update_activity_firstName_submit"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:background="@drawable/round_button_blue"
+            android:layout_marginBottom="40dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            android:text="@string/submit_update_first_name" />
+
+
+        <!-- PARTIE NOM -->
+        <TextView
+            android:id="@+id/update_activity_lastName_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/colorWhite"
+            android:text="@string/lastName_field" />
+
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="15dp"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/update_activity_lastName_label"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/lastName_field" />
+            android:layout_gravity="center_horizontal">
 
             <EditText
                 android:id="@+id/update_activity_lastName_field"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_height="30dp"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/lastName_field" 
-                android:labelFor="@+id/update_activity_lastName_label"
+                android:hint="@string/lastName_field"
                 android:importantForAutofill="no"
-                tools:targetApi="o" 
-                android:hint="@string/lastName_field"/>
-
-            <Button
-                android:id="@+id/update_activity_lastName_submit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/submit_update" />
+                android:background="@drawable/round_border_text_fill"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:labelFor="@+id/update_activity_lastName_label"
+                android:text="@string/lastName_field"
+                tools:targetApi="o" />
         </LinearLayout>
+        <Button
+            android:id="@+id/update_activity_lastName_submit"
+            android:background="@drawable/round_button_blue"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:textColor="@color/colorWhite"
+            android:textSize="12sp"
+            android:text="@string/submit_update_last_name" />
+
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

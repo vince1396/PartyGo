@@ -20,7 +20,7 @@
             <!-- PHOTO DE PROFIL -->
             <ImageView
                 android:id="@+id/profile_activity_view_picture"
-                android:layout_gravity="center_horizontal"
+                android:layout_gravity="center"
                 android:layout_marginTop="@dimen/pa_profil_image_view_dimen"
                 android:layout_width="@dimen/pa_profil_image_view_dimen"
                 android:layout_height="@dimen/pa_profil_image_view_dimen"
@@ -146,7 +146,8 @@
         android:text="@string/jeu1"
         android:textColor="#fff"
         android:textSize="@dimen/default_text_size"
-        android:background="@drawable/button_radius_primary_color"
+        android:background="@drawable/round_button_blue"
+        android:shadowColor="@color/colorWhite"
         style="?android:attr/borderlessButtonStyle"
         android:layout_marginTop="@dimen/pa_game_margin_top"
         android:padding="@dimen/default_large_margin"/>
@@ -159,7 +160,7 @@
         android:text="@string/jeu2"
         android:textColor="#fff"
         android:textSize="@dimen/default_text_size"
-        android:background="@drawable/button_radius_primary_color"
+        android:background="@drawable/round_button_blue"
         style="?android:attr/borderlessButtonStyle"
         android:layout_marginTop="@dimen/pa_game_margin_top"
         android:layout_margin="@dimen/default_large_margin"
@@ -173,7 +174,7 @@
         android:text="@string/jeu3"
         android:textColor="#fff"
         android:textSize="@dimen/default_text_size"
-        android:background="@drawable/button_radius_primary_color"
+        android:background="@drawable/round_button_blue"
         style="?android:attr/borderlessButtonStyle"
         android:layout_marginTop="@dimen/pa_game_margin_top"
         android:layout_margin="@dimen/default_large_margin"

@@ -62,10 +62,12 @@
 
     <!-- UPDATE ACTIVITY -->
     <string name="title_update">Modifiez vos informations</string>
-    <string name="username_field">Username</string>
+    <string name="username_field">Pseudo</string>
     <string name="firstName_field">Prénom</string>
     <string name="lastName_field">Nom</string>
-    <string name="submit_update">Valider</string>
+    <string name="submit_update_username">Modifier le pseudo</string>
+    <string name="submit_update_last_name">Modifier le nom</string>
+    <string name="submit_update_first_name">Modifier le prénom</string>
     <string name="success_update_username">Le pseudo a bien été mis à jour</string>
     <string name="success_update_firstname">Votre prénom a bien été mis à jour</string>
     <string name="success_update_lastnname">Votre nom a bien été mis à jour</string>

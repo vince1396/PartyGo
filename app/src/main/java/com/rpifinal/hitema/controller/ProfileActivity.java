@@ -68,7 +68,7 @@ public class ProfileActivity extends BaseActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
         builder.setCancelable(true);
         builder.setTitle("Confirmation");
-        builder.setMessage("Voulez vous vraiment supprimez votre compte ?");
+        builder.setMessage("Voulez vous vraiment supprimer votre compte ?");
 
         //Si la reponse est non
         builder.setNegativeButton("NON", (dialog, whichButton) -> dialog.cancel());

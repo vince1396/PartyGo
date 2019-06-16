@@ -3,8 +3,10 @@
     <color name="colorPrimary">#039BE5</color>
     <color name="colorPrimaryDark">#0288D1</color>
     <color name="colorAccent">#FFA000</color>
+    <color name="colorAccentDark">#A26A09</color>
     <color name="colorError">#FF5252</color>
 
+    <color name="colorDarkTransparent">#80000000</color>  <!-- dark transparent 20% -->
 
     <color name="colorRed">#F44336</color>
     <color name="colorGreen">#6BB18C</color>
