@@ -13,22 +13,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="40dp"
-        android:layout_marginHorizontal="40dp"
+        android:layout_marginTop="@dimen/upa_linear_layout_margin"
+        android:layout_marginBottom="@dimen/upa_linear_layout_margin"
+        android:layout_marginHorizontal="@dimen/upa_linear_layout_margin"
         android:background="@drawable/round_border_transparent_layout"
         android:orientation="vertical">
 
+        <!-- PARTIE TITRE PRINCIPAL -->
         <TextView
             android:id="@+id/update_activity_title_textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="70dp"
+            android:layout_marginTop="@dimen/upa_main_title_layout_margin_top"
+            android:layout_marginBottom="@dimen/upa_main_title_layout_margin_bottom"
             android:text="@string/title_update"
             android:textColor="@color/colorWhite"
-            android:textSize="20sp"
+            android:textSize="@dimen/upa_main_title_text_size"
             tools:text="Modifiez vos informations" />
 
 
@@ -40,17 +41,15 @@
             android:layout_gravity="center_horizontal"
             android:textColor="@color/colorWhite"
             android:text="@string/username_field" />
-
         <LinearLayout
-            android:layout_width="200dp"
+            android:layout_width="@dimen/upa_linear_layout_width_param"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="@dimen/upa_linear_layout_margin_bottom_param"
             android:layout_gravity="center_horizontal">
-
             <EditText
                 android:id="@+id/update_activity_username_field"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="@dimen/upa_edit_text_layout_height"
                 android:ems="10"
                 android:layout_gravity="center"
                 android:gravity="center"
@@ -62,13 +61,13 @@
         </LinearLayout>
         <Button
             android:id="@+id/update_activity_username_submit"
-            android:layout_width="150dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/upa_button_layout_width"
+            android:layout_height="@dimen/upa_button_layout_height"
             android:background="@drawable/round_button_blue"
             android:layout_gravity="center"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="@dimen/upa_button_layout_margin_bottom"
             android:textColor="@color/colorWhite"
-            android:textSize="12sp"
+            android:textSize="@dimen/upa_button_text_size"
             android:text="@string/submit_update_username" />
 
         <!-- PARTIE PRENOM -->
@@ -81,15 +80,14 @@
             android:text="@string/firstName_field" />
 
         <LinearLayout
-            android:layout_width="200dp"
+            android:layout_width="@dimen/upa_linear_layout_width_param"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="@dimen/upa_linear_layout_margin_bottom_param"
             android:layout_gravity="center_horizontal">
-
             <EditText
                 android:id="@+id/update_activity_firstName_field"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="@dimen/upa_edit_text_layout_height"
                 android:ems="10"
                 android:hint="@string/firstName_field"
                 android:gravity="center"
@@ -100,16 +98,15 @@
                 android:text="@string/firstName_field"
                 tools:targetApi="o" />
         </LinearLayout>
-
         <Button
             android:id="@+id/update_activity_firstName_submit"
-            android:layout_width="150dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/upa_button_layout_width"
+            android:layout_height="@dimen/upa_button_layout_height"
             android:layout_gravity="center"
             android:background="@drawable/round_button_blue"
-            android:layout_marginBottom="40dp"
+            android:layout_marginBottom="@dimen/upa_button_layout_margin_bottom"
             android:textColor="@color/colorWhite"
-            android:textSize="12sp"
+            android:textSize="@dimen/upa_button_text_size"
             android:text="@string/submit_update_first_name" />
 
 
@@ -121,17 +118,15 @@
             android:layout_gravity="center_horizontal"
             android:textColor="@color/colorWhite"
             android:text="@string/lastName_field" />
-
         <LinearLayout
-            android:layout_width="200dp"
+            android:layout_width="@dimen/upa_linear_layout_width_param"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
+            android:layout_marginBottom="@dimen/upa_linear_layout_margin_bottom_param"
             android:layout_gravity="center_horizontal">
-
             <EditText
                 android:id="@+id/update_activity_lastName_field"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="@dimen/upa_edit_text_layout_height"
                 android:ems="10"
                 android:hint="@string/lastName_field"
                 android:importantForAutofill="no"
@@ -145,11 +140,12 @@
         <Button
             android:id="@+id/update_activity_lastName_submit"
             android:background="@drawable/round_button_blue"
-            android:layout_width="150dp"
-            android:layout_height="30dp"
+            android:layout_width="@dimen/upa_button_layout_width"
+            android:layout_height="@dimen/upa_button_layout_height"
             android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/upa_button_layout_margin_bottom"
             android:textColor="@color/colorWhite"
-            android:textSize="12sp"
+            android:textSize="@dimen/upa_button_text_size"
             android:text="@string/submit_update_last_name" />
 
     </LinearLayout>
