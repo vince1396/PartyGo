@@ -35,7 +35,7 @@
 
 
                                                 <!-- PROFIL ACTIVITY (PA) DIMENSION -->
-    <!-- PARTIE MOITIE HAUT -->
+            <!-- PARTIE MOITIE HAUT -->
     <dimen name="pa_relative_layout_height">400dp</dimen>
     <dimen name="pa_linear_layout_height">350dp</dimen>
     <!-- PHOTO DE PROFIL -->
@@ -54,10 +54,25 @@
     <dimen name="pa_layout_width">0dp</dimen>
     <dimen name="pa_layout_height">50dp</dimen>
     <dimen name="pa_text_size">12sp</dimen>
+            <!-- PARTIE MOITIE BAS -->
     <!-- DIMENSION DES BOUTON DES MINI JEUX -->
     <dimen name="pa_game_margin_top">50dp</dimen>
 
 
 
+                                                <!-- UPDATE PROFIL ACTIVITY (UPA) DIMENSION -->
+    <dimen name="upa_linear_layout_margin">40dp</dimen>
+    <!-- PARTIE TITRE PRINCIPAL -->
+    <dimen name="upa_main_title_layout_margin_top">30dp</dimen>
+    <dimen name="upa_main_title_layout_margin_bottom">70dp</dimen>
+    <dimen name="upa_main_title_text_size">20sp</dimen>
+    <!-- PARTIE LAYOUT DES CHAMPS DE PARAMETRES -->
+    <dimen name="upa_linear_layout_width_param">200dp</dimen>
+    <dimen name="upa_linear_layout_margin_bottom_param">15dp</dimen>
+    <dimen name="upa_edit_text_layout_height">30dp</dimen>
+    <dimen name="upa_button_layout_width">150dp</dimen>
+    <dimen name="upa_button_layout_height">30dp</dimen>
+    <dimen name="upa_button_layout_margin_bottom">40dp</dimen>
+    <dimen name="upa_button_text_size">12sp</dimen>
 
 </resources>
