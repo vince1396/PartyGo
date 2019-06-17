@@ -70,7 +70,10 @@
     <string name="submit_update_first_name">Modifier le prénom</string>
     <string name="success_update_username">Le pseudo a bien été mis à jour</string>
     <string name="success_update_firstname">Votre prénom a bien été mis à jour</string>
-    <string name="success_update_lastnname">Votre nom a bien été mis à jour</string>
+    <string name="success_update_lastname">Votre nom a bien été mis à jour</string>
+    <string name="error_update_username">Votre pseudo doit contenir au moins 3 caratères et ne peut contenir que des lettres,des chiffres et un underscore</string>
+    <string name="error_update_firstname">Votre prénom doit contenir au moins 3 caratères et ne peut contenir que des lettres</string>
+    <string name="error_update_lastname">Votre nom doit contenir au moins 3 caratères et ne peut contenir que des lettres</string>
 
     <!-- ERRORS -->
     <string name="no_user_connected_error">Erreur : Aucun utilisateur connecté</string>

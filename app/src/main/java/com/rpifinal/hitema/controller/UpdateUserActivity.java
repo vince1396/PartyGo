@@ -1,5 +1,6 @@
 package com.rpifinal.hitema.controller;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,10 +19,15 @@ public class UpdateUserActivity extends BaseActivity {
     // =============================================================================================
     // ATTRIBUTS MEMBRES
     private static final String TAG = "UpdateUserActivity";
+    private static final String REGEX_LN = "[a-zA-Z-]+[:blank]?[a-zA-Z]+";
+    private static final String REGEX_FN  = "[a-zA-Z-]+[:blank]?[a-zA-Z]+";
+
+    private static final String REGEX_USERNAME = "[a-zA-Z0-9_]+";
 
     private static final int UPDATE_USERNAME  = 10;
     private static final int UPDATE_FIRSTNAME = 20;
     private static final int UPDATE_LASTNAME  = 30;
+
 
     @BindView(R.id.update_activity_title_textView)   TextView mTitleUpdateTextView;
     @BindView(R.id.update_activity_username_field)   EditText mUsernameUpdateField;
@@ -46,57 +52,82 @@ public class UpdateUserActivity extends BaseActivity {
 
     // =============================================================================================
     // ACTIONS
+
     @OnClick(R.id.update_activity_username_submit)
     public void onClickUsernameButton() {
 
         String uid = getCurrentUser().getUid();
-        String username = mUsernameUpdateField.getText().toString();
-        String successMessage = getString(R.string.success_update_username);
-
-        UserHelper.updateUsername(username, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
-        updateUI();
+        String data = mUsernameUpdateField.getText().toString();
+        checkDataEntry(UPDATE_USERNAME,data,uid);
     }
 
     @OnClick(R.id.update_activity_firstName_submit)
     public void onClickFirstNameButton() {
 
         String uid = getCurrentUser().getUid();
-        String username = mFirstnameUpdateField.getText().toString();
-
-        if (!username.matches("[a-zA-Z-]+[:blank]?[a-zA-Z]+") || username.equals("") || username.length()< 3)
-        {
-
-            String successMessage="Votre prénom doit contenir au moins 3 caratères et ne peut contenir que des lettres";
-        }
-        else
-        {
-            String successMessage = getString(R.string.success_update_firstname);
-            UserHelper.updateFirstName(username, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
-            updateUI();
-
-        }
+        String data = mFirstnameUpdateField.getText().toString();
+        checkDataEntry(UPDATE_FIRSTNAME,data,uid);
     }
 
     @OnClick(R.id.update_activity_lastName_submit)
     public void onClickLastNameButton() {
 
         String uid = getCurrentUser().getUid();
-        String username = mLastnameUpdateField.getText().toString();
+        String data = mLastnameUpdateField.getText().toString();
+        checkDataEntry(UPDATE_LASTNAME,data,uid);
 
-        if (!username.matches("[a-zA-Z-]+[:blank]?[a-zA-Z]+") || username.equals("") || username.length()< 3)
-        {
+    }
 
-            String successMessage="Votre nom doit contenir au moins 3 caratères et ne peut contenir que des lettres";
-        }
-        else
-        {
-            String successMessage = getString(R.string.success_update_lastnname);
-            UserHelper.updateLastName(username, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
+
+    // =============================================================================================
+    public void checkDataEntry(int code,String data,String uid){
+        String successMessage;
+        String errorMessage;
+        int duration = Toast.LENGTH_LONG;
+        Context context=getApplicationContext();
+
+
+        switch (code){
+                case UPDATE_LASTNAME:
+                    if (data.matches(REGEX_LN) && !data.equals("") && data.length()> 3)
+                    {
+                        successMessage = getString(R.string.success_update_lastname);
+                        UserHelper.updateLastName(data, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
+                    }
+                    else
+                    {
+                        errorMessage=getString(R.string.error_update_lastname);
+                        Toast.makeText(context, errorMessage, duration).show();
+                    }
+                    break;
+                case UPDATE_FIRSTNAME:
+                    if (data.matches(REGEX_FN) && !data.equals("") && data.length()> 3)
+                    {
+                        successMessage = getString(R.string.success_update_firstname);
+                        UserHelper.updateFirstName(data, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
+                    }
+                    else
+                    {
+                        errorMessage=getString(R.string.error_update_firstname);
+                        Toast.makeText(context, errorMessage, duration).show();
+                    }
+                    break;
+                case UPDATE_USERNAME:
+                    if (data.matches(REGEX_USERNAME) && !data.equals("") && data.length()> 3)
+                    {
+                        successMessage = getString(R.string.success_update_username);
+                        UserHelper.updateUsername(data, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
+                    }
+                    else {
+                        errorMessage=getString(R.string.error_update_username);
+                        Toast.makeText(context, errorMessage, duration).show();
+                    }
+                    break;
+            }
             updateUI();
         }
 
-    }
-    // =============================================================================================
+
     public void updateUI() {
 
         if(this.getCurrentUser() != null)
