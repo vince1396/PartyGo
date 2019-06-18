@@ -38,12 +38,10 @@
 
         <meta-data android:name="com.snapchat.kit.sdk.clientId" android:value="3918eca7-74c5-42d0-a910-9eee29f22c84" />
 
-        <activity
-            android:name=".controller.MapsActivity"
-            android:label="@string/title_activity_maps" />
-        <activity android:name=".controller.UpdateUserActivity" android:theme="@style/UpdateProfilPageTheme" />
-        <activity android:name=".controller.ProfileActivity" android:theme="@style/ProfilPageTheme" />
-        <activity android:name=".controller.MainActivity" android:theme="@style/HomePageTheme" >
+        <activity android:name=".controller.MapsActivity" android:label="@string/title_activity_maps" android:theme="@style/MapPageTheme" />
+        <activity android:name=".controller.UpdateUserActivity"               android:theme="@style/UpdateProfilPageTheme" />
+        <activity android:name=".controller.ProfileActivity"                  android:theme="@style/ProfilPageTheme" />
+        <activity android:name=".controller.MainActivity"                     android:theme="@style/HomePageTheme" >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
