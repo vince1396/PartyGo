@@ -33,7 +33,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <!-- UPDATE PROFIL ACTIVITY -->
+    <!-- UPDATE PROFIL ACTIVITY, took out task bar -->
     <style name="MapPageTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
