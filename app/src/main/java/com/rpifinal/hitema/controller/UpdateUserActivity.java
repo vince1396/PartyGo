@@ -19,15 +19,14 @@ public class UpdateUserActivity extends BaseActivity {
     // =============================================================================================
     // ATTRIBUTS MEMBRES
     private static final String TAG = "UpdateUserActivity";
-    private static final String REGEX_LN = "[a-zA-Z-]+[:blank]?[a-zA-Z]+";
-    private static final String REGEX_FN  = "[a-zA-Z-]+[:blank]?[a-zA-Z]+";
 
+    private static final String REGEX_LAST_NAME = "[a-zA-Z-]+[:blank]?[a-zA-Z]+";
+    private static final String REGEX_FIRST_NAME  = "[a-zA-Z-]+[:blank]?[a-zA-Z]+";
     private static final String REGEX_USERNAME = "[a-zA-Z0-9_]+";
 
     private static final int UPDATE_USERNAME  = 10;
     private static final int UPDATE_FIRSTNAME = 20;
     private static final int UPDATE_LASTNAME  = 30;
-
 
     @BindView(R.id.update_activity_title_textView)   TextView mTitleUpdateTextView;
     @BindView(R.id.update_activity_username_field)   EditText mUsernameUpdateField;
@@ -57,76 +56,73 @@ public class UpdateUserActivity extends BaseActivity {
     public void onClickUsernameButton() {
 
         String uid = getCurrentUser().getUid();
-        String data = mUsernameUpdateField.getText().toString();
-        checkDataEntry(UPDATE_USERNAME,data,uid);
+        String username = mUsernameUpdateField.getText().toString();
+        checkDataEntry(UPDATE_USERNAME,username,uid);
     }
 
     @OnClick(R.id.update_activity_firstName_submit)
     public void onClickFirstNameButton() {
 
         String uid = getCurrentUser().getUid();
-        String data = mFirstnameUpdateField.getText().toString();
-        checkDataEntry(UPDATE_FIRSTNAME,data,uid);
+        String firstName = mFirstnameUpdateField.getText().toString();
+        checkDataEntry(UPDATE_FIRSTNAME,firstName,uid);
     }
 
     @OnClick(R.id.update_activity_lastName_submit)
     public void onClickLastNameButton() {
 
         String uid = getCurrentUser().getUid();
-        String data = mLastnameUpdateField.getText().toString();
-        checkDataEntry(UPDATE_LASTNAME,data,uid);
-
+        String lastName = mLastnameUpdateField.getText().toString();
+        checkDataEntry(UPDATE_LASTNAME,lastName,uid);
     }
 
 
     // =============================================================================================
     public void checkDataEntry(int code,String data,String uid){
-        String successMessage;
-        String errorMessage;
-        int duration = Toast.LENGTH_LONG;
-        Context context=getApplicationContext();
-
 
         switch (code){
                 case UPDATE_LASTNAME:
-                    if (data.matches(REGEX_LN) && !data.equals("") && data.length()> 3)
+                    if (data.matches(REGEX_LAST_NAME) && !data.equals("") && data.length()> 3)
                     {
-                        successMessage = getString(R.string.success_update_lastname);
-                        UserHelper.updateLastName(data, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
+                        String successMessage = getString(R.string.success_update_lastname);
+                        UserHelper.updateLastName(data, uid).addOnFailureListener(this.onFailureListener())
+                                .addOnSuccessListener(this.onSuccessListener(successMessage));
                     }
                     else
                     {
-                        errorMessage=getString(R.string.error_update_lastname);
-                        Toast.makeText(context, errorMessage, duration).show();
+                        String errorMessage = getString(R.string.error_update_lastname);
+                        Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case UPDATE_FIRSTNAME:
-                    if (data.matches(REGEX_FN) && !data.equals("") && data.length()> 3)
+                    if (data.matches(REGEX_FIRST_NAME) && !data.equals("") && data.length()> 3)
                     {
-                        successMessage = getString(R.string.success_update_firstname);
-                        UserHelper.updateFirstName(data, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
+                        String successMessage = getString(R.string.success_update_firstname);
+                        UserHelper.updateFirstName(data, uid).addOnFailureListener(this.onFailureListener())
+                                .addOnSuccessListener(this.onSuccessListener(successMessage));
                     }
                     else
                     {
-                        errorMessage=getString(R.string.error_update_firstname);
-                        Toast.makeText(context, errorMessage, duration).show();
+                        String errorMessage=getString(R.string.error_update_firstname);
+                        Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case UPDATE_USERNAME:
                     if (data.matches(REGEX_USERNAME) && !data.equals("") && data.length()> 3)
                     {
-                        successMessage = getString(R.string.success_update_username);
-                        UserHelper.updateUsername(data, uid).addOnFailureListener(this.onFailureListener()).addOnSuccessListener(this.onSuccessListener(successMessage));
+                        String successMessage = getString(R.string.success_update_username);
+                        UserHelper.updateUsername(data, uid).addOnFailureListener(this.onFailureListener()).
+                                addOnSuccessListener(this.onSuccessListener(successMessage));
                     }
-                    else {
-                        errorMessage=getString(R.string.error_update_username);
-                        Toast.makeText(context, errorMessage, duration).show();
+                    else
+                    {
+                        String errorMessage=getString(R.string.error_update_username);
+                        Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
                     }
                     break;
             }
             updateUI();
         }
-
 
     public void updateUI() {
 
@@ -145,28 +141,10 @@ public class UpdateUserActivity extends BaseActivity {
                 {
                     this.mFirstnameUpdateField.setText(currentUser.getFirstName());
                 }
-
                 if(!currentUser.getLastName().isEmpty())
                 {
                     this.mLastnameUpdateField.setText(currentUser.getLastName());
                 }
-
-                /*Button[] arrayButton = {
-                        this.mUsernameButton,
-                        this.mFirstnameButton,
-                        this.mLastnameButton};
-
-                EditText[] arrayEditText = {
-                        this.mUsernameUpdateField,
-                        this.mFirstnameUpdateField,
-                        this.mLastnameUpdateField};*/
-
-                /*int i = 0;
-                for (Button b: arrayButton)
-                {
-                    checkButtonState(arrayEditText[i], arrayButton[i]);
-                    i++;
-                }*/
             });
         }
 
@@ -181,23 +159,9 @@ public class UpdateUserActivity extends BaseActivity {
         Toast.makeText(getBaseContext(), "OKAY", Toast.LENGTH_SHORT).show();
     }
 
-    private OnSuccessListener onSuccessListener(String resId)
-    {
+    private OnSuccessListener onSuccessListener(String resId) {
+
         return e-> Toast.makeText(getApplicationContext(), resId, Toast.LENGTH_SHORT).show();
     }
     // =============================================================================================
-
-    /*public void checkButtonState(EditText editText, Button button)
-    {
-        button.setEnabled(false);
-        button.setBackgroundResource(R.color.disable_button);
-        
-        String currentValue = editText.getText().toString();
-        
-        if(!editText.getText().toString().isEmpty() && !editText.getText().toString().equals(currentValue))
-        {
-            button.setEnabled(true);
-            button.setBackgroundResource(R.color.enable_button);
-        }
-    }*/
 }
