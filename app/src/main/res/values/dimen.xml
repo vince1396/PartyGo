@@ -56,7 +56,9 @@
     <dimen name="pa_text_size">12sp</dimen>
             <!-- PARTIE MOITIE BAS -->
     <!-- DIMENSION DES BOUTON DES MINI JEUX -->
-    <dimen name="pa_game_margin_top">50dp</dimen>
+    <dimen name="pa_game_margin_top">10dp</dimen>
+    <dimen name="pa_game_layout_height">40dp</dimen>
+
 
 
 

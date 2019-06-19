@@ -92,15 +92,16 @@ public class UpdateUserActivity extends BaseActivity {
     private void closeKeyboard() {
         View view = this.getCurrentFocus();
         if (view != null) {
-            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
     }
 
-    /*          //Hide keyboard when click outside the screen
+/*
+    //Hide keyboard when click outside the screen
     public void hideKeyboard(View view) {
-        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
-        InputMethodManager.hideSoftInputFromWindow(view.getWindowToken(),0);
+        InputMethodManager inn = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inn.hideSoftInputFromWindow(view.getWindowToken(),0);
     }
 */
 

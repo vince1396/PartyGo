@@ -59,6 +59,8 @@
     <string name="jeu1">Color tap</string>
     <string name="jeu2">Canon shot</string>
     <string name="jeu3">Tap run</string>
+    <string name="jeu4">Jeu 4</string>
+    <string name="jeu5">Jeu 5</string>
 
     <!-- UPDATE ACTIVITY -->
     <string name="title_update">Modifiez vos informations</string>
