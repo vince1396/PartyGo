@@ -1,7 +1,10 @@
 package com.rpifinal.hitema.controller;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -58,6 +61,9 @@ public class UpdateUserActivity extends BaseActivity {
         String uid = getCurrentUser().getUid();
         String username = mUsernameUpdateField.getText().toString();
         checkDataEntry(UPDATE_USERNAME,username,uid);
+
+        //Hide keyboard when click on the update button
+        closeKeyboard();
     }
 
     @OnClick(R.id.update_activity_firstName_submit)
@@ -66,6 +72,9 @@ public class UpdateUserActivity extends BaseActivity {
         String uid = getCurrentUser().getUid();
         String firstName = mFirstnameUpdateField.getText().toString();
         checkDataEntry(UPDATE_FIRSTNAME,firstName,uid);
+
+        //Hide keyboard when click on the update button
+        closeKeyboard();
     }
 
     @OnClick(R.id.update_activity_lastName_submit)
@@ -74,7 +83,26 @@ public class UpdateUserActivity extends BaseActivity {
         String uid = getCurrentUser().getUid();
         String lastName = mLastnameUpdateField.getText().toString();
         checkDataEntry(UPDATE_LASTNAME,lastName,uid);
+
+        //Hide keyboard when click on the update button
+        closeKeyboard();
     }
+
+    //Method closeKeyboard() that will close/hide the keyboard when click on the valid update button
+    private void closeKeyboard() {
+        View view = this.getCurrentFocus();
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    /*          //Hide keyboard when click outside the screen
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
+        InputMethodManager.hideSoftInputFromWindow(view.getWindowToken(),0);
+    }
+*/
 
 
     // =============================================================================================
