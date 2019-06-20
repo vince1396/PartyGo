@@ -80,10 +80,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onLocationResult(LocationResult locationResult) {
 
-                if (locationResult == null) {
+                if (locationResult == null)
+                {
                     return;
                 }
-                for (Location location : locationResult.getLocations()) {
+
+                for (Location location : locationResult.getLocations())
+                {
                     // Update UI with location data
                     // ...
                     setMap(location);
@@ -250,7 +253,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private void stopLocationUpdates() {
         mFusedLocationClient.removeLocationUpdates(mLocationCallback);
     }
-
 // =============================================================================================
     ////////////////////////////////
     // PERMISSIONS

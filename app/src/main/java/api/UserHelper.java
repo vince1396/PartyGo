@@ -19,9 +19,9 @@ public class UserHelper {
     // =============================================================================================
     // --- CREATE ---
     public static Task<Void> createUser(String uid, String email, String username, String firstName,
-                                        String lastName, String urlPicture, int lvl, int xp)
+                                        String lastName, String urlPicture, int lvl, int xp, boolean isConnected)
     {
-        User userToCreate = new User(uid, email, username, firstName, lastName, urlPicture, lvl, xp);
+        User userToCreate = new User(uid, email, username, firstName, lastName, urlPicture, lvl, xp, isConnected);
         return UserHelper.getUsersCollection().document(uid).set(userToCreate);
     }
     // =============================================================================================
@@ -46,6 +46,11 @@ public class UserHelper {
     public static Task<Void> updateLastName(String lastName, String uid)
     {
         return UserHelper.getUsersCollection().document(uid).update("lastName", lastName);
+    }
+
+    public static Task<Void> updateIsConnected(boolean isConnected, String uid)
+    {
+        return UserHelper.getUsersCollection().document(uid).update("isConnected", isConnected);
     }
     // =============================================================================================
     // --- DELETE ---

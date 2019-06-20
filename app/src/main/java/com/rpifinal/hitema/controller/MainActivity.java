@@ -90,8 +90,9 @@ public class MainActivity extends BaseActivity {
                                 this.getCurrentUser().getPhotoUrl().toString() : null;
             int lvl = 1;
             int xp  = 0;
+            boolean isConnected = true;
 
-            UserHelper.createUser(uid, email, username, firstName, lastName, urlPicture, lvl, xp)
+            UserHelper.createUser(uid, email, username, firstName, lastName, urlPicture, lvl, xp, isConnected)
                     .addOnFailureListener(this.onFailureListener());
         }
     }

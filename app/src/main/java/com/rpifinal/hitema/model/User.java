@@ -12,6 +12,8 @@ public class User {
     @Nullable private String mUrlPicture;
     private int mLvl;
     private int mXp;
+    private boolean mIsConnected;
+
 
     // =============================================================================================
     // Void constructor
@@ -19,7 +21,7 @@ public class User {
 
     // Parameters constructor
     public User(String uid, String email, String username, String firstName, String lastName,
-                @Nullable String urlPicture, int lvl, int xp) {
+                @Nullable String urlPicture, int lvl, int xp, boolean isConnected) {
 
         this.mUid = uid;
         this.mEmail = email;
@@ -29,6 +31,7 @@ public class User {
         this.mUrlPicture = urlPicture;
         this.mLvl = lvl;
         this.mXp = xp;
+        this.mIsConnected = isConnected;
     }
     // =============================================================================================
     // --- GETTERS ---
