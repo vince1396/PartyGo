@@ -19,7 +19,7 @@ public class UserHelper {
     // =============================================================================================
     // --- CREATE ---
     public static Task<Void> createUser(String uid, String email, String username, String firstName,
-                                        String lastName, String urlPicture, int lvl, int xp, boolean isConnected)
+                                        String lastName, String urlPicture, int lvl, int xp, String isConnected)
     {
         User userToCreate = new User(uid, email, username, firstName, lastName, urlPicture, lvl, xp, isConnected);
         return UserHelper.getUsersCollection().document(uid).set(userToCreate);

@@ -90,7 +90,7 @@ public class MainActivity extends BaseActivity {
                                 this.getCurrentUser().getPhotoUrl().toString() : null;
             int lvl = 1;
             int xp  = 0;
-            boolean isConnected = true;
+            String isConnected = "true";
 
             UserHelper.createUser(uid, email, username, firstName, lastName, urlPicture, lvl, xp, isConnected)
                     .addOnFailureListener(this.onFailureListener());
@@ -144,9 +144,7 @@ public class MainActivity extends BaseActivity {
                 this.showSnackBar(this.coordinatorLayout, getString(R.string.connection_succeed));
                 Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
                 Intent map = new Intent(MainActivity.this, MapsActivity.class);
-                //Intent maps = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(profile);
-                // Démarrage de MapsActivity
             }
             else // En cas d'erreur
             {

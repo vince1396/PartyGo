@@ -12,7 +12,8 @@ public class User {
     @Nullable private String mUrlPicture;
     private int mLvl;
     private int mXp;
-    private boolean mIsConnected;
+    private String mIsConnected;
+
 
 
     // =============================================================================================
@@ -21,7 +22,7 @@ public class User {
 
     // Parameters constructor
     public User(String uid, String email, String username, String firstName, String lastName,
-                @Nullable String urlPicture, int lvl, int xp, boolean isConnected) {
+                @Nullable String urlPicture, int lvl, int xp, String isConnected) {
 
         this.mUid = uid;
         this.mEmail = email;
@@ -36,11 +37,9 @@ public class User {
     // =============================================================================================
     // --- GETTERS ---
     public String getUid() { return mUid; }
-
     public String getEmail() {
         return mEmail;
     }
-
     public String getUsername() { return mUsername; }
 
     public String getFirstName() {
@@ -61,10 +60,14 @@ public class User {
 
     @Nullable
     public String getUrlPicture() { return mUrlPicture; }
+
+    public String getIsConnected() {
+        return mIsConnected;
+    }
+
     // =============================================================================================
     // --- SETTERS ---
     public void setUid(String mUid) { this.mUid = mUid; }
-
     public void setEmail(String mEmail) { this.mEmail = mEmail; }
 
     public void setUsername(String mUsername) { this.mUsername = mUsername; }
@@ -81,5 +84,9 @@ public class User {
 
     public void setXp(int xp) {
         this.mXp = xp;
+    }
+
+    public void setIsConnected(String mIsConnected) {
+        this.mIsConnected = mIsConnected;
     }
 }
