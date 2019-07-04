@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -45,7 +46,9 @@ public class ProfileActivity extends BaseActivity {
     // =============================================================================================
     // Récupération de la vue correspondante à l'activité
     @Override
-    public int getFragmentLayout() { return R.layout.activity_profile; }
+    public int getFragmentLayout() {
+        return R.layout.activity_profile;
+    }
 
     @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -93,22 +96,27 @@ public class ProfileActivity extends BaseActivity {
         startActivity(update);
     }
 
-    @OnClick(R.id.profile_activity_game1)
-    public void onClickGame1() {
+    @OnClick({R.id.profile_activity_game1, R.id.profile_activity_game2, R.id.profile_activity_game3})
+    public void onClickGame(View view) {
 
-        lauchGame(GAME1);
-    }
+        switch (view.getId())
+        {
+            // =====================================================================================
+            case R.id.profile_activity_game1:
 
-    @OnClick(R.id.profile_activity_game2)
-    public void onClickGame2() {
+                lauchGame(GAME1);
+                break;
+            // =====================================================================================
+            case R.id.profile_activity_game2:
 
-        lauchGame(GAME2);
-    }
+                lauchGame(GAME2);
+                break;
+            // =====================================================================================
+            case R.id.profile_activity_game3:
 
-    @OnClick(R.id.profile_activity_game3)
-    public void onClickGame3() {
-
-        lauchGame(GAME3);
+                lauchGame(GAME3);
+                break;
+        }
     }
 
     private void lauchGame(int game) {
@@ -188,7 +196,6 @@ public class ProfileActivity extends BaseActivity {
 
         if (this.getCurrentUser() != null)
         {
-
             UserHelper.deleteUser(this.getCurrentUser()
                         .getUid())
                         .addOnFailureListener(this.onFailureListener());

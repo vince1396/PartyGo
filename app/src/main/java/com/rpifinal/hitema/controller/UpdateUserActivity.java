@@ -91,6 +91,26 @@ public class UpdateUserActivity extends BaseActivity {
         closeKeyboard();
     }
 
+    //TODO : Finish this
+    @OnClick({R.id.update_activity_username_submit, R.id.update_activity_firstName_submit, R.id.update_activity_lastName_submit})
+    public void onClickUpdate(View view) {
+
+        switch(view.getId())
+        {
+            case R.id.update_activity_username_submit:
+
+                break;
+
+            case R.id.update_activity_firstName_submit:
+
+                break;
+
+            case R.id.update_activity_lastName_submit:
+
+                break;
+        }
+    }
+
     //Method closeKeyboard() that will close/hide the keyboard when click on the valid update button
     private void closeKeyboard() {
 
@@ -120,6 +140,7 @@ public class UpdateUserActivity extends BaseActivity {
         {
                 // =================================================================================
                 case UPDATE_LASTNAME:
+
                     if (namesCondition)
                     {
                         String successMessage = getString(R.string.success_update_lastname);

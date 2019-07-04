@@ -33,14 +33,12 @@ public class MainActivity extends BaseActivity {
     // =============================================================================================
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
     }
 
     // Récupération de la vue correspondante à l'acitivité
     @Override
     public int getFragmentLayout() {
-
         return R.layout.activity_main;
     }
 
@@ -80,10 +78,10 @@ public class MainActivity extends BaseActivity {
         Création de l'utilisateur dans Firestore en récupérant
         les informations depuis FireAuth
      */
-    private void createUserInFirestore(){
+    private void createUserInFirestore() {
 
-        if (this.getCurrentUser() != null){
-
+        if (this.getCurrentUser() != null)
+        {
             String uid        = this.getCurrentUser().getUid();
             String email      = this.getCurrentUser().getEmail();
             String username   = this.getCurrentUser().getDisplayName();
@@ -108,7 +106,7 @@ public class MainActivity extends BaseActivity {
     }
 
     // Méthode d'inscription/connexion à l'aide de FireBaseUI
-    public void startSignInActivity(){
+    public void startSignInActivity() {
 
         startActivityForResult(
                 AuthUI.getInstance()
