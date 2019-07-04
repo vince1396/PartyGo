@@ -19,6 +19,8 @@ import api.UserHelper;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+//TODO : Duplication code onCLick boutons
+
 public class ProfileActivity extends BaseActivity {
 
     // =============================================================================================
@@ -114,7 +116,6 @@ public class ProfileActivity extends BaseActivity {
             String username = this.mUser.getUsername();
             intentGame2.putExtra("username", username);
         }
-        intentGame2.putExtra("username", "username");
         startActivity(intentGame2);
     }
 
@@ -130,7 +131,6 @@ public class ProfileActivity extends BaseActivity {
             String username = this.mUser.getUsername();
             intentGame3.putExtra("username", username);
         }
-        intentGame3.putExtra("username", "username");
         startActivity(intentGame3);
     }
     // =============================================================================================

@@ -39,7 +39,10 @@ public class MainActivity extends BaseActivity {
 
     // Récupération de la vue correspondante à l'acitivité
     @Override
-    public int getFragmentLayout() { return R.layout.activity_main; }
+    public int getFragmentLayout() {
+
+        return R.layout.activity_main;
+    }
 
     // Traitement après l'inscription/connexion de l'utilisateur
     @Override

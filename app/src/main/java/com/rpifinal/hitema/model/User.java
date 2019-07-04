@@ -36,11 +36,17 @@ public class User {
     }
     // =============================================================================================
     // --- GETTERS ---
-    public String getUid() { return mUid; }
+    public String getUid() {
+        return mUid;
+    }
+
     public String getEmail() {
         return mEmail;
     }
-    public String getUsername() { return mUsername; }
+
+    public String getUsername() {
+        return mUsername;
+    }
 
     public String getFirstName() {
         return mFirstName;
@@ -59,7 +65,9 @@ public class User {
     }
 
     @Nullable
-    public String getUrlPicture() { return mUrlPicture; }
+    public String getUrlPicture() {
+        return mUrlPicture;
+    }
 
     public String getIsConnected() {
         return mIsConnected;
@@ -67,20 +75,33 @@ public class User {
 
     // =============================================================================================
     // --- SETTERS ---
-    public void setUid(String mUid) { this.mUid = mUid; }
-    public void setEmail(String mEmail) { this.mEmail = mEmail; }
+    public void setUid(String mUid) {
+        this.mUid = mUid;
+    }
 
-    public void setUsername(String mUsername) { this.mUsername = mUsername; }
+    public void setEmail(String mEmail) {
+        this.mEmail = mEmail;
+    }
+
+    public void setUsername(String mUsername) {
+        this.mUsername = mUsername;
+    }
 
     public void setFirstName(String firstName) {
         this.mFirstName = firstName;
     }
 
-    public void setLastName(String lastName) { this.mLastName = lastName; }
+    public void setLastName(String lastName) {
+        this.mLastName = lastName;
+    }
 
-    public void setUrlPicture(@Nullable String mUrlPicture) { this.mUrlPicture = mUrlPicture; }
+    public void setUrlPicture(@Nullable String mUrlPicture) {
+        this.mUrlPicture = mUrlPicture;
+    }
 
-    public void setLvl(int mLvl) { this.mLvl = mLvl; }
+    public void setLvl(int mLvl) {
+        this.mLvl = mLvl;
+    }
 
     public void setXp(int xp) {
         this.mXp = xp;

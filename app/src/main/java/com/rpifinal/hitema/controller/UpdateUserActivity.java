@@ -1,6 +1,5 @@
 package com.rpifinal.hitema.controller;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -17,14 +16,15 @@ import api.UserHelper;
 import butterknife.BindView;
 import butterknife.OnClick;
 
+//TODO : Optimisation REGEX
+
 public class UpdateUserActivity extends BaseActivity {
 
     // =============================================================================================
     // ATTRIBUTS MEMBRES
     private static final String TAG = "UpdateUserActivity";
 
-    private static final String REGEX_LAST_NAME = "[a-zA-Z-]+[:blank]?[a-zA-Z]+";
-    private static final String REGEX_FIRST_NAME  = "[a-zA-Z-]+[:blank]?[a-zA-Z]+";
+    private static final String REGEX_FL_NAME = "[a-zA-Z-]+[:blank]?[a-zA-Z]+";
     private static final String REGEX_USERNAME = "[a-zA-Z0-9_]+";
 
     private static final int UPDATE_USERNAME  = 10;
@@ -49,7 +49,10 @@ public class UpdateUserActivity extends BaseActivity {
     }
 
     @Override
-    public int getFragmentLayout() { return R.layout.activity_update_user; }
+    public int getFragmentLayout() {
+
+        return R.layout.activity_update_user;
+    }
     // =============================================================================================
 
     // =============================================================================================
@@ -90,8 +93,10 @@ public class UpdateUserActivity extends BaseActivity {
 
     //Method closeKeyboard() that will close/hide the keyboard when click on the valid update button
     private void closeKeyboard() {
+
         View view = this.getCurrentFocus();
-        if (view != null) {
+        if (view != null)
+        {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
             imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
         }
@@ -107,11 +112,15 @@ public class UpdateUserActivity extends BaseActivity {
 
 
     // =============================================================================================
-    public void checkDataEntry(int code,String data,String uid){
+    public void checkDataEntry(int code,String data,String uid) {
 
-        switch (code){
+        final boolean namesCondition = data.matches(REGEX_FL_NAME) && !data.equals("") && data.length() > 3;
+
+        switch (code)
+        {
+                // =================================================================================
                 case UPDATE_LASTNAME:
-                    if (data.matches(REGEX_LAST_NAME) && !data.equals("") && data.length()> 3)
+                    if (namesCondition)
                     {
                         String successMessage = getString(R.string.success_update_lastname);
                         UserHelper.updateLastName(data, uid).addOnFailureListener(this.onFailureListener())
@@ -123,8 +132,10 @@ public class UpdateUserActivity extends BaseActivity {
                         Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
                     }
                     break;
+                // =================================================================================
                 case UPDATE_FIRSTNAME:
-                    if (data.matches(REGEX_FIRST_NAME) && !data.equals("") && data.length()> 3)
+
+                    if (namesCondition)
                     {
                         String successMessage = getString(R.string.success_update_firstname);
                         UserHelper.updateFirstName(data, uid).addOnFailureListener(this.onFailureListener())
@@ -136,7 +147,9 @@ public class UpdateUserActivity extends BaseActivity {
                         Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
                     }
                     break;
+                // =================================================================================
                 case UPDATE_USERNAME:
+
                     if (data.matches(REGEX_USERNAME) && !data.equals("") && data.length()> 3)
                     {
                         String successMessage = getString(R.string.success_update_username);
@@ -149,9 +162,10 @@ public class UpdateUserActivity extends BaseActivity {
                         Toast.makeText(getApplicationContext(), errorMessage, Toast.LENGTH_SHORT).show();
                     }
                     break;
-            }
-            updateUI();
+                // =================================================================================
         }
+            updateUI();
+    }
 
     public void updateUI() {
 
@@ -170,6 +184,7 @@ public class UpdateUserActivity extends BaseActivity {
                 {
                     this.mFirstnameUpdateField.setText(currentUser.getFirstName());
                 }
+
                 if(!currentUser.getLastName().isEmpty())
                 {
                     this.mLastnameUpdateField.setText(currentUser.getLastName());

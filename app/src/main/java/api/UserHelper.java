@@ -12,7 +12,7 @@ public class UserHelper {
 
     // =============================================================================================
     // --- COLLECTION REFERENCE ---
-    public static CollectionReference getUsersCollection(){
+    public static CollectionReference getUsersCollection() {
 
         return FirebaseFirestore.getInstance().collection(COLLECTION_NAME);
     }
@@ -37,19 +37,18 @@ public class UserHelper {
         return UserHelper.getUsersCollection().document(uid).update("username", username);
     }
 
-    public static Task<Void> updateFirstName(String firstName, String uid)
-    {
+    public static Task<Void> updateFirstName(String firstName, String uid) {
 
         return UserHelper.getUsersCollection().document(uid).update("firstName", firstName);
     }
 
-    public static Task<Void> updateLastName(String lastName, String uid)
-    {
+    public static Task<Void> updateLastName(String lastName, String uid) {
+
         return UserHelper.getUsersCollection().document(uid).update("lastName", lastName);
     }
 
-    public static Task<Void> updateIsConnected(boolean isConnected, String uid)
-    {
+    public static Task<Void> updateIsConnected(boolean isConnected, String uid) {
+
         return UserHelper.getUsersCollection().document(uid).update("isConnected", isConnected);
     }
     // =============================================================================================
