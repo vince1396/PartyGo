@@ -78,7 +78,6 @@ public class ProfileActivity extends BaseActivity {
         builder.setPositiveButton("OUI", (dialog, whichButton) -> deleteUserFromFirebase());
 
         builder.show();
-
     }
 
     // Quand l'utilisateur clique sur Modifier informations
@@ -137,7 +136,7 @@ public class ProfileActivity extends BaseActivity {
 
     // =============================================================================================
     // Méthode mettant à jour la vue (Appelée à la création de l'activité)
-    private void updateUIWhenCreating(){
+    private void updateUIWhenCreating() {
 
         // Vérification que l'utilisateur actuel n'est pas vide
         if (this.getCurrentUser() != null)
@@ -177,7 +176,7 @@ public class ProfileActivity extends BaseActivity {
     }
 
     // Méthode de déconnexion (FirebaseAuth)
-    private void signOutUserFromFirebase(){
+    private void signOutUserFromFirebase() {
 
         AuthUI.getInstance()
                 .signOut(this)
@@ -185,9 +184,10 @@ public class ProfileActivity extends BaseActivity {
     }
 
     // Méthode de suppression de compte (FirebaseAuth)
-    private void deleteUserFromFirebase(){
+    private void deleteUserFromFirebase() {
 
-        if (this.getCurrentUser() != null) {
+        if (this.getCurrentUser() != null)
+        {
 
             UserHelper.deleteUser(this.getCurrentUser()
                         .getUid())
