@@ -15,11 +15,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.rpifinal.hitema.R;
 import com.rpifinal.hitema.model.User;
 
+import java.util.Random;
+
 import api.UserHelper;
 import butterknife.BindView;
 import butterknife.OnClick;
-
-//TODO : Duplication code onCLick boutons
 
 public class ProfileActivity extends BaseActivity {
 
@@ -28,6 +28,11 @@ public class ProfileActivity extends BaseActivity {
     private static final int SIGN_OUT_TASK = 10;
     private static final int DELETE_USER_TASK = 20;
     private static final int UPDATE_USERNAME = 30;
+
+    // Code Jeux
+    private static final int GAME1 = 100;
+    private static final int GAME2 = 200;
+    private static final int GAME3 = 300;
 
     private User mUser;
 
@@ -91,51 +96,46 @@ public class ProfileActivity extends BaseActivity {
     @OnClick(R.id.profile_activity_game1)
     public void onClickGame1() {
 
-        Intent intentGame1 = new Intent(ProfileActivity.this, UnityPlayerActivity.class);
-        intentGame1.putExtra("miniGame", "MiniGame1");
-        intentGame1.putExtra("randomRoom", "1001");
-
-        if(this.getCurrentUser() != null)
-        {
-            String username = this.mUser.getUsername();
-            intentGame1.putExtra("username", username);
-        }
-        startActivity(intentGame1);
+        lauchGame(GAME1);
     }
 
     @OnClick(R.id.profile_activity_game2)
     public void onClickGame2() {
 
-        Intent intentGame2 = new Intent(ProfileActivity.this, UnityPlayerActivity.class);
-        intentGame2.putExtra("miniGame", "MiniGame2");
-        intentGame2.putExtra("randomRoom", "2002");
-
-        if(this.getCurrentUser() != null)
-        {
-            String username = this.mUser.getUsername();
-            intentGame2.putExtra("username", username);
-        }
-        startActivity(intentGame2);
+        lauchGame(GAME2);
     }
 
     @OnClick(R.id.profile_activity_game3)
     public void onClickGame3() {
 
-        Intent intentGame3 = new Intent(ProfileActivity.this, UnityPlayerActivity.class);
-        intentGame3.putExtra("miniGame", "MiniGame3");
-        intentGame3.putExtra("randomRoom", "333s3");
+        lauchGame(GAME3);
+    }
+
+    private void lauchGame(int game) {
+
+        Random r = new Random();
+        int room = 100 + r.nextInt(10000 - 100);
+
+        Intent startGame = new Intent(ProfileActivity.this, UnityPlayerActivity.class);
+        startGame.putExtra("game", game);
+        startGame.putExtra("room", room);
 
         if(this.getCurrentUser() != null)
         {
-            String username = this.mUser.getUsername();
-            intentGame3.putExtra("username", username);
+            startGame.putExtra("username", this.mUser.getUsername());
         }
-        startActivity(intentGame3);
+        else
+        {
+            startGame.putExtra("username", "No value");
+        }
+
+        startActivity(startGame);
     }
     // =============================================================================================
 
     // =============================================================================================
     // Méthode mettant à jour la vue (Appelée à la création de l'activité)
+
     private void updateUIWhenCreating() {
 
         // Vérification que l'utilisateur actuel n'est pas vide
