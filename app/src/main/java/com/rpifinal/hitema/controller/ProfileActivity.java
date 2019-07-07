@@ -34,6 +34,8 @@ public class ProfileActivity extends BaseActivity {
     private static final int GAME1 = 100;
     private static final int GAME2 = 200;
     private static final int GAME3 = 300;
+    private static final int GAME4 = 400;
+    private static final int GAME5 = 500;
 
     private User mUser;
 
@@ -96,7 +98,7 @@ public class ProfileActivity extends BaseActivity {
         startActivity(update);
     }
 
-    @OnClick({R.id.profile_activity_game1, R.id.profile_activity_game2, R.id.profile_activity_game3})
+    @OnClick({R.id.profile_activity_game1, R.id.profile_activity_game2, R.id.profile_activity_game3, R.id.profile_activity_game4, R.id.profile_activity_game5})
     public void onClickGame(View view) {
 
         switch (view.getId())
@@ -115,6 +117,16 @@ public class ProfileActivity extends BaseActivity {
             case R.id.profile_activity_game3:
 
                 lauchGame(GAME3);
+                break;
+
+            case R.id.profile_activity_game4:
+
+                lauchGame(GAME4);
+                break;
+
+            case R.id.profile_activity_game5:
+
+                lauchGame(GAME5);
                 break;
         }
     }
