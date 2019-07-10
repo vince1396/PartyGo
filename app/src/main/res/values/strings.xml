@@ -76,7 +76,7 @@
     <string name="error_update_username">Votre pseudo doit contenir au moins 3 caratères et ne peut contenir que des lettres,des chiffres et un underscore</string>
     <string name="error_update_firstname">Votre prénom doit contenir au moins 3 caratères et ne peut contenir que des lettres</string>
     <string name="error_update_lastname">Votre nom doit contenir au moins 3 caratères et ne peut contenir que des lettres</string>
-    
+
     <!-- ERRORS -->
     <string name="no_user_connected_error">Erreur : Aucun utilisateur connecté</string>
 

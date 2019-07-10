@@ -47,7 +47,7 @@ public class UserHelper {
         return UserHelper.getUsersCollection().document(uid).update("lastName", lastName);
     }
 
-    public static Task<Void> updateIsConnected(boolean isConnected, String uid) {
+    public static Task<Void> updateIsConnected(String isConnected, String uid) {
 
         return UserHelper.getUsersCollection().document(uid).update("isConnected", isConnected);
     }
