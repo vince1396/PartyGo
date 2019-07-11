@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:layout_gravity="center"
     tools:context=".controller.ProfileActivity"
-    android:background="@drawable/background_app2"
+    android:background="@drawable/background_app3"
     android:orientation="vertical">
 
     <LinearLayout
@@ -147,6 +147,14 @@
             android:textColor="@color/colorWhite"
             android:textSize="@dimen/upa_button_text_size"
             android:text="@string/submit_update_last_name" />
+
+        <Button
+            android:background="@drawable/delete_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="@dimen/upa_button_layout_margin_bottom" />
+
 
     </LinearLayout>
 
