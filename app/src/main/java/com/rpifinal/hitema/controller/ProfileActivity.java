@@ -65,14 +65,6 @@ public class ProfileActivity extends BaseActivity {
     // =============================================================================================
     // ACTIONS
 
-    //Boutton de retour de la page update vers la page profil
-    public void ReturnHome(View view){
-        super.onBackPressed();
-        //super.finish();
-        //this.moveTaskToBack(true);
-    }
-
-
     // Quand l'utilisateur clique sur déconnexion
     @OnClick(R.id.profile_activity_logout_button)
     public void onClickLogoutButton() {

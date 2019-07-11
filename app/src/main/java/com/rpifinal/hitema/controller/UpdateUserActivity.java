@@ -1,6 +1,7 @@
 package com.rpifinal.hitema.controller;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -57,6 +58,14 @@ public class UpdateUserActivity extends BaseActivity {
 
     // =============================================================================================
     // ACTIONS
+
+    //Boutton de retour de la page update vers la page profil
+    @OnClick(R.id.return_to_profil_activity_button)
+    public void onClickReturnProfilButton(){
+        Intent it = new Intent(this, ProfileActivity.class);
+        startActivity(it);
+    }
+
 
     @OnClick(R.id.update_activity_username_submit)
     public void onClickUsernameButton() {
