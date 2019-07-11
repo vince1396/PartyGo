@@ -14,8 +14,6 @@ public class User {
     private int mXp;
     private String mIsConnected;
 
-
-
     // =============================================================================================
     // Void constructor
     public User(){}

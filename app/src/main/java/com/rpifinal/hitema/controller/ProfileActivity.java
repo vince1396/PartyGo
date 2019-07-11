@@ -133,12 +133,12 @@ public class ProfileActivity extends BaseActivity {
 
     private void lauchGame(int game) {
 
-        Random r = new Random();
-        int room = 100 + r.nextInt(10000 - 100);
+        //Random r = new Random();
+        //int room = 100 + r.nextInt(10000 - 100);
 
         Intent startGame = new Intent(ProfileActivity.this, UnityPlayerActivity.class);
         startGame.putExtra("game", game);
-        startGame.putExtra("room", room);
+        startGame.putExtra("room", 20);
 
         if(this.getCurrentUser() != null)
         {
