@@ -23,10 +23,14 @@
     <dimen name="party_go_title_width">300dp</dimen>
     <dimen name="party_go_title_height">200dp</dimen>
     <dimen name="party_go_title_magin">45dp</dimen>
+    <dimen name="party_go_title_maginTop">230dp</dimen>
+    <dimen name="party_go_title_maginBottom">30dp</dimen>
+
 
     <!-- Button containers -->
     <dimen name="button_container_height">402dp</dimen>
     <dimen name="button_container_margin">5dp</dimen>
+    <dimen name="button_container_layout_height">130dp</dimen>
 
     <!-- Description slogan (TextView) -->
     <dimen name="slogan_margin">2dp</dimen>

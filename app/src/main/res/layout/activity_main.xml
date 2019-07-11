@@ -20,7 +20,8 @@
             android:id="@+id/main_activity_imageView_logo"
             android:layout_width="@dimen/party_go_title_width"
             android:layout_height="@dimen/party_go_title_height"
-            android:layout_margin="@dimen/party_go_title_magin"
+            android:layout_marginTop="@dimen/party_go_title_maginTop"
+            android:layout_marginBottom="@dimen/party_go_title_maginBottom"
             android:background="@drawable/party_go_title_logo"
             android:contentDescription="@string/party_go_logo_title"
             tools:ignore="HardcodedText" />
@@ -38,21 +39,11 @@
         -->
 
         <!-- DESCRIPTION SLOGAN -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/slogan_margin"
-            android:textStyle="bold"
-            android:text="@string/main_activity_description"
-            android:textColor="@color/colorWhite"
-            android:gravity="center"
-            android:includeFontPadding="false"
-            android:textSize="@dimen/slogan_text_size" />
 
         <!-- BUTTONS CONTAINER -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/button_container_height"
+            android:layout_height="@dimen/button_container_layout_height"
             android:layout_margin="@dimen/button_container_margin"
             android:gravity="center"
             android:orientation="vertical">
