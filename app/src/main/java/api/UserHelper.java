@@ -30,15 +30,18 @@ public class UserHelper {
 
         return UserHelper.getUsersCollection().document(uid).get();
     }
+
+    public static Task<DocumentSnapshot> getAllUser(){
+        return  UserHelper.getUsersCollection().document().get();
+    }
+
     // =============================================================================================
     // --- UPDATE ---
     public static Task<Void> updateUsername(String username, String uid) {
-
         return UserHelper.getUsersCollection().document(uid).update("username", username);
     }
 
     public static Task<Void> updateFirstName(String firstName, String uid) {
-
         return UserHelper.getUsersCollection().document(uid).update("firstName", firstName);
     }
 

@@ -149,12 +149,12 @@
             android:text="@string/submit_update_last_name" />
 
         <Button
-            android:background="@drawable/delete_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:onClick="ReturnHome"
-            android:layout_marginBottom="@dimen/upa_button_layout_margin_bottom" />
+            android:layout_marginBottom="@dimen/upa_button_layout_margin_bottom"
+            android:background="@drawable/delete_button"
+            android:onClick="ReturnHome" />
 
 
     </LinearLayout>

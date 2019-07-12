@@ -7,14 +7,14 @@
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/partygo_logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/partygo_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:icon,android:theme"
-        android:fullBackupContent="@xml/backup_descriptor">
-
+        tools:replace="android:icon,android:theme">
+        <activity android:name=".controller.User_view_list"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -23,20 +23,29 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="com.snapchat.kit.sdk.clientId"
+            android:value="3918eca7-74c5-42d0-a910-9eee29f22c84" />
 
-        <meta-data android:name="com.snapchat.kit.sdk.clientId" android:value="3918eca7-74c5-42d0-a910-9eee29f22c84" />
-
-        <activity android:name=".controller.MapsActivity" android:label="@string/title_activity_maps" android:theme="@style/MapPageTheme" />
-        <activity android:name=".controller.UpdateUserActivity"               android:theme="@style/UpdateProfilPageTheme" />
-        <activity android:name=".controller.ProfileActivity"                  android:theme="@style/ProfilPageTheme" />
-        <activity android:name=".controller.MainActivity"                     android:theme="@style/HomePageTheme" >
-
+        <activity
+            android:name=".controller.MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:theme="@style/MapPageTheme" />
+        <activity
+            android:name=".controller.UpdateUserActivity"
+            android:theme="@style/UpdateProfilPageTheme" />
+        <activity
+            android:name=".controller.ProfileActivity"
+            android:theme="@style/ProfilPageTheme" />
+        <activity
+            android:name=".controller.MainActivity"
+            android:theme="@style/HomePageTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

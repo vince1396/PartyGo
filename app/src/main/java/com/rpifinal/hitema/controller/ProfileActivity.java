@@ -43,6 +43,7 @@ public class ProfileActivity extends BaseActivity {
     @BindView(R.id.profile_activity_view_picture) ImageView mImageViewProfile;
     @BindView(R.id.profile_activity_view_name) TextView mTextViewName;
     @BindView(R.id.profile_activity_view_email) TextView mTextViewEmail;
+
     // =============================================================================================
 
     // =============================================================================================
@@ -50,6 +51,7 @@ public class ProfileActivity extends BaseActivity {
     @Override
     public int getFragmentLayout() {
         return R.layout.activity_profile;
+
     }
 
     @Override
@@ -66,11 +68,8 @@ public class ProfileActivity extends BaseActivity {
     // ACTIONS
 
     //Boutton de retour de la page update vers la page profil
-    public void ReturnHome(View view){
-        super.onBackPressed();
-        //super.finish();
-        //this.moveTaskToBack(true);
-    }
+
+
 
 
     // Quand l'utilisateur clique sur déconnexion
@@ -102,7 +101,8 @@ public class ProfileActivity extends BaseActivity {
     public void onClickUpdateButton() {
 
         Intent update = new Intent(ProfileActivity.this, UpdateUserActivity.class);
-        startActivity(update);
+        Intent userView = new Intent(ProfileActivity.this, User_view_list.class);
+        startActivity(userView);
     }
 
     @OnClick({R.id.profile_activity_game1, R.id.profile_activity_game2, R.id.profile_activity_game3, R.id.profile_activity_game4, R.id.profile_activity_game5})
