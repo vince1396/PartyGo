@@ -61,7 +61,7 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textColorPrimary">@android:color/darker_gray</item>
         <item name="android:textColorSecondary">@android:color/darker_gray</item>
-        <item name="android:windowBackground">@android:color/white</item>               //@android:color/white
+        <item name="android:windowBackground">@drawable/background_app3</item>               //@android:color/white
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:textColorHint">@android:color/white</item>

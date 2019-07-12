@@ -116,7 +116,7 @@ public class MainActivity extends BaseActivity {
                                 Arrays.asList(new AuthUI.IdpConfig.EmailBuilder().build(),
                                               new AuthUI.IdpConfig.GoogleBuilder().build()
                                 ))
-                        .setLogo(R.drawable.ic_logo_auth)
+                        .setLogo(R.drawable.party_go_title_logo)
                         .build(),
                 RC_SIGN_IN);
     }
