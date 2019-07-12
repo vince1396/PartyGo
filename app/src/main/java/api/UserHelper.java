@@ -31,9 +31,9 @@ public class UserHelper {
         return UserHelper.getUsersCollection().document(uid).get();
     }
 
-    public static Task<DocumentSnapshot> getAllUser(){
-        return  UserHelper.getUsersCollection().document().get();
-    }
+    /*public static Task<DocumentSnapshot> getAllUser(){
+        return  UserHelper.getUsersCollection().whereEqualTo("isConnect","true");
+    }*/
 
     // =============================================================================================
     // --- UPDATE ---
