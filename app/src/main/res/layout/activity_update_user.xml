@@ -149,7 +149,7 @@
             android:text="@string/submit_update_last_name" />
 
         <Button
-            android:id="@+id/return_to_profil_activity_button"
+            android:id="@+id/back_to_profile"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center"

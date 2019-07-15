@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.SACGGames.PartyGoMiniGames.UnityPlayerActivity;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -15,9 +14,6 @@ import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.rpifinal.hitema.R;
 import com.rpifinal.hitema.model.User;
-
-import java.util.Random;
-
 import api.UserHelper;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -37,6 +33,7 @@ public class ProfileActivity extends BaseActivity {
     private static final int GAME4 = 400;
     private static final int GAME5 = 500;
 
+    // Current User
     private User mUser;
 
     // Récupération des éléments de la vue au sein du code Java
@@ -67,11 +64,6 @@ public class ProfileActivity extends BaseActivity {
     // =============================================================================================
     // ACTIONS
 
-    //Boutton de retour de la page update vers la page profil
-
-
-
-
     // Quand l'utilisateur clique sur déconnexion
     @OnClick(R.id.profile_activity_logout_button)
     public void onClickLogoutButton() {
@@ -83,6 +75,7 @@ public class ProfileActivity extends BaseActivity {
     @OnClick(R.id.profile_activity_delete_button)
     public void onClickDeleteButton() {
 
+        // TODO : Découpage du code
         AlertDialog.Builder builder = new AlertDialog.Builder(ProfileActivity.this);
         builder.setCancelable(true);
         builder.setTitle("Confirmation");
@@ -101,10 +94,11 @@ public class ProfileActivity extends BaseActivity {
     public void onClickUpdateButton() {
 
         Intent update = new Intent(ProfileActivity.this, UpdateUserActivity.class);
-        Intent userView = new Intent(ProfileActivity.this, User_view_list.class);
+        Intent userView = new Intent(ProfileActivity.this, ConnectedUsersList.class);
         startActivity(userView);
     }
 
+    // Gestion du lancement du jeu choisi
     @OnClick({R.id.profile_activity_game1, R.id.profile_activity_game2, R.id.profile_activity_game3, R.id.profile_activity_game4, R.id.profile_activity_game5})
     public void onClickGame(View view) {
 
@@ -125,19 +119,21 @@ public class ProfileActivity extends BaseActivity {
 
                 lauchGame(GAME3);
                 break;
-
+            // =====================================================================================
             case R.id.profile_activity_game4:
 
                 lauchGame(GAME4);
                 break;
-
+            // =====================================================================================
             case R.id.profile_activity_game5:
 
                 lauchGame(GAME5);
                 break;
+            // =====================================================================================
         }
     }
 
+    // Lancement de unity
     private void lauchGame(int game) {
 
         //Random r = new Random();
@@ -161,8 +157,9 @@ public class ProfileActivity extends BaseActivity {
     // =============================================================================================
 
     // =============================================================================================
-    // Méthode mettant à jour la vue (Appelée à la création de l'activité)
+    // UI
 
+    // Méthode mettant à jour la vue (Appelée à la création de l'activité)
     private void updateUIWhenCreating() {
 
         // Vérification que l'utilisateur actuel n'est pas vide

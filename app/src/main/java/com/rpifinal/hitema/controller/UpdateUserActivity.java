@@ -23,15 +23,19 @@ public class UpdateUserActivity extends BaseActivity {
 
     // =============================================================================================
     // ATTRIBUTS MEMBRES
+
     private static final String TAG = "UpdateUserActivity";
 
+    // Expressions régulières
     private static final String REGEX_FL_NAME = "[a-zA-Z-]+[:blank]?[a-zA-Z]+";
     private static final String REGEX_USERNAME = "[a-zA-Z0-9_]+";
 
+    // CODE REST
     private static final int UPDATE_USERNAME  = 10;
     private static final int UPDATE_FIRSTNAME = 20;
     private static final int UPDATE_LASTNAME  = 30;
 
+    // Binding UI
     @BindView(R.id.update_activity_title_textView)   TextView mTitleUpdateTextView;
     @BindView(R.id.update_activity_username_field)   EditText mUsernameUpdateField;
     @BindView(R.id.update_activity_firstName_field)  EditText mFirstnameUpdateField;
@@ -59,13 +63,15 @@ public class UpdateUserActivity extends BaseActivity {
     // =============================================================================================
     // ACTIONS
 
-    //Boutton de retour de la page update vers la page profil
-    @OnClick(R.id.return_to_profil_activity_button)
-    public void onClickReturnProfilButton(){
-        Intent it = new Intent(this, ProfileActivity.class);
-        startActivity(it);
-    }
+    // TODO : Regrouper onCLick
 
+    //Boutton de retour de la page update vers la page profil
+    @OnClick(R.id.back_to_profile)
+    public void onClickReturnProfilButton() {
+
+        Intent profile = new Intent(this, ProfileActivity.class);
+        startActivity(profile);
+    }
 
     @OnClick(R.id.update_activity_username_submit)
     public void onClickUsernameButton() {
@@ -131,16 +137,18 @@ public class UpdateUserActivity extends BaseActivity {
         }
     }
 
-/*
     //Hide keyboard when click outside the screen
+    /*
     public void hideKeyboard(View view) {
         InputMethodManager inn = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         inn.hideSoftInputFromWindow(view.getWindowToken(),0);
     }
-*/
+    */
 
 
     // =============================================================================================
+    // UI/UX
+
     public void checkDataEntry(int code,String data,String uid) {
 
         final boolean namesCondition = data.matches(REGEX_FL_NAME) && !data.equals("") && data.length() > 3;

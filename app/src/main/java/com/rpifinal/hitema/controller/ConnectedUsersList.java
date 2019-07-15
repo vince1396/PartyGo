@@ -10,13 +10,20 @@ import com.rpifinal.hitema.model.User;
 
 import java.util.ArrayList;
 
-public class User_view_list extends AppCompatActivity {
+public class ConnectedUsersList extends AppCompatActivity {
+
+    // =============================================================================================
+    // ATTRIBUTS MEMBRES
+
     ArrayList liste_user;
     ListView laVueUser;
     ArrayAdapterUser userAdapter;
+    // =============================================================================================
 
+    // =============================================================================================
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_list_view);
 
@@ -31,4 +38,5 @@ public class User_view_list extends AppCompatActivity {
         userAdapter = new ArrayAdapterUser(this, liste_user);
         laVueUser.setAdapter(userAdapter);
     }
+    // =============================================================================================
 }

@@ -98,7 +98,7 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    //On coupe la chaine de caractères provenant de la méthode getDisplayName() afin de récupérer
+    // On coupe la chaine de caractères provenant de la méthode getDisplayName() afin de récupérer
     // le nom et le prénom séparément
     public String[] splitUsername(String username) {
 
@@ -170,6 +170,8 @@ public class MainActivity extends BaseActivity {
         }
     }
 
+    // Vérification que l'utilisateur n'existe pas déja dans la BDD afin de ne pas écraser
+    // un document déja existant
     private void checkIfUserExists(UsernameCallback usernameCallback) {
 
         UserHelper.getUser(getCurrentUser().getUid()).addOnSuccessListener(documentSnapshot -> {

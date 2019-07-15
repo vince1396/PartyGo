@@ -1,42 +1,49 @@
 package com.rpifinal.hitema.controller;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-import androidx.annotation.Nullable;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.rpifinal.hitema.R;
 import com.rpifinal.hitema.model.User;
 import java.util.ArrayList;
 
-import butterknife.BindView;
-
 public class ArrayAdapterUser extends ArrayAdapter<User> {
+
+    // =============================================================================================
+    // ATTRIBUTS MEMBRES
+
     private Context context;
     private ArrayList<User> liste_user;
     private User user;
+    // =============================================================================================
 
-    public ArrayAdapterUser(Context context,int resource, ArrayList<User> objects){
+    // =============================================================================================
+    public ArrayAdapterUser(Context context,int resource, ArrayList<User> objects) {
 
         super(context,0,objects);
         this.context = context;
     }
 
-    public ArrayAdapterUser(Context context, ArrayList<User> objects){
+    public ArrayAdapterUser(Context context, ArrayList<User> objects) {
 
         super(context,0,objects);
         this.context = context;
         this.liste_user = objects;
     }
 
-    public View getView (int position, @Nullable View convertView, @Nullable ViewGroup parent){
+    @NonNull
+    public View getView (int position, @Nullable View convertView, @Nullable ViewGroup parent) {
 
         LayoutInflater inflater =(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         user = liste_user.get(position);
-        View vueCustom_User = inflater.inflate(R.layout.activity_array_adapter_user, parent,false);
+        @SuppressLint("ViewHolder") View vueCustom_User = inflater.inflate(R.layout.activity_array_adapter_user, parent,false);
 
         TextView textView_lastName = vueCustom_User.findViewById(R.id.tv_lastName);
         TextView textView_firstName = vueCustom_User.findViewById(R.id.tv_firstName);
@@ -55,5 +62,5 @@ public class ArrayAdapterUser extends ArrayAdapter<User> {
         textView_exp.setText(s_exp);
         return vueCustom_User;
     }
-
+    // =============================================================================================
 }
