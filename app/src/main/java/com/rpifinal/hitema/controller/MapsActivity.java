@@ -4,10 +4,12 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Window;
@@ -20,6 +22,7 @@ import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.common.api.ResolvableApiException;
 import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.GeofencingClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
@@ -46,12 +49,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private static final int REQUEST_ACCESS_FINE_LOCATION = 628;
     private static final int REQUEST_CHECK_SETTINGS = 752;
 
+    LocationManager locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
+
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationClient;
     private static Location mCurrentLocation;
     private static boolean mRequestingLocationUpdates;
     private LocationCallback mLocationCallback;
     private LocationRequest mLocationRequest;
+    private GeofencingClient geofencingClient;
+    private MarkerOptions currentPosition;
     // =============================================================================================
     ////////////////////////////////
     // ACTIVITY LIFE CYCLE
@@ -61,7 +68,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
         // Set MapActivity in FULLSCREEN
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -73,7 +79,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        geofencingClient = LocationServices.getGeofencingClient(this);
+        currentPosition = new MarkerOptions();
 
         mLocationCallback = new LocationCallback() {
 
@@ -105,6 +114,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     protected void onStart() {
+
         super.onStart();
     }
 
@@ -128,16 +138,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     protected void onStop() {
+
         super.onStop();
     }
 
     @Override
     protected void onRestart() {
+
         super.onRestart();
     }
 
     @Override
     protected void onDestroy() {
+
         super.onDestroy();
     }
 
@@ -170,7 +183,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void setMap() {
 
         LatLng current = new LatLng(mCurrentLocation.getLatitude(), mCurrentLocation.getLongitude());
-        mMap.addMarker(new MarkerOptions().position(current).title("My last position"));
+        currentPosition = new MarkerOptions().position(current).title("Current position");
+        mMap.addMarker(currentPosition);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(current));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));
     }
@@ -178,7 +192,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void setMap(Location location) {
 
         LatLng current = new LatLng(location.getLatitude(), location.getLongitude());
-        mMap.addMarker(new MarkerOptions().position(current).title("My position"));
+        currentPosition.position(current);
         mMap.moveCamera(CameraUpdateFactory.newLatLng(current));
         mMap.animateCamera(CameraUpdateFactory.zoomTo(17.0f));
     }
@@ -239,6 +253,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @SuppressLint("MissingPermission")
     private void startLocationUpdates() {
+
         mFusedLocationClient.requestLocationUpdates(mLocationRequest,
                 mLocationCallback,
                 null /* Looper */);
@@ -251,9 +266,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     private void stopLocationUpdates() {
+
         mFusedLocationClient.removeLocationUpdates(mLocationCallback);
     }
-// =============================================================================================
+    // =============================================================================================
     ////////////////////////////////
     // PERMISSIONS
     ///////////////////////////////
