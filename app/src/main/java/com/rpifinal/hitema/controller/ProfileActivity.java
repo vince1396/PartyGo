@@ -201,7 +201,7 @@ public class ProfileActivity extends BaseActivity {
 
     // Méthode de déconnexion (FirebaseAuth)
     private void signOutUserFromFirebase() {
-
+        UserHelper.updateIsConnected("false", getCurrentUser().getUid());
         AuthUI.getInstance()
                 .signOut(this)
                 .addOnSuccessListener(this, this.updateUIAfterRESTRequestsCompleted(SIGN_OUT_TASK));

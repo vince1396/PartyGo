@@ -4,6 +4,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.Query;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.rpifinal.hitema.model.User;
 
 public class UserHelper {
@@ -31,9 +34,9 @@ public class UserHelper {
         return UserHelper.getUsersCollection().document(uid).get();
     }
 
-    /*public static Task<DocumentSnapshot> getAllUser(){
-        return  UserHelper.getUsersCollection().whereEqualTo("isConnect","true");
-    }*/
+    public static Task<QuerySnapshot> getConnectedUsers(){
+        return  UserHelper.getUsersCollection().whereEqualTo("isConnected","true").get();
+    }
 
     // =============================================================================================
     // --- UPDATE ---
