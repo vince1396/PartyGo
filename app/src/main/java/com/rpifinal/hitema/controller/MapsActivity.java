@@ -4,6 +4,7 @@ import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
@@ -165,7 +166,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
         }
     }
-// =================================================================================================
+    // =================================================================================================
     ////////////////////////////////
     // UI
     ///////////////////////////////
@@ -214,7 +215,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         });
     }
 
-    protected void createLocationRequest() {
+    /*protected void createLocationRequest() {
 
         mLocationRequest = LocationRequest.create();
         mLocationRequest.setInterval(10000);
@@ -249,6 +250,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 }
             }
         });
+    }*/
+
+    @SuppressLint("MissingPermission")
+    protected void createLocationRequest() {
+
+        Intent intent = new Intent(this, GPSUpdateReceiver.class);
+
+        PendingIntent pending = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 60000, 150, pending);
     }
 
     @SuppressLint("MissingPermission")
@@ -302,7 +313,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
 
         switch (requestCode) {
-            case REQUEST_ACCESS_FINE_LOCATION: {
+            case REQUEST_ACCESS_FINE_LOCATION:
+            {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED)
                 {

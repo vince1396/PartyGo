@@ -145,7 +145,6 @@ public class UpdateUserActivity extends BaseActivity {
     }
     */
 
-
     // =============================================================================================
     // UI/UX
 

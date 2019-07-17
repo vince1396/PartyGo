@@ -49,8 +49,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <receiver android:name=".services.LocationService"
-                 android:process=":location"/>
     </application>
 
 </manifest>
