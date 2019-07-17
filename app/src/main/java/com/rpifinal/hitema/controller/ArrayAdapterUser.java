@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -45,8 +46,9 @@ public class ArrayAdapterUser extends ArrayAdapter<User> {
         user = liste_user.get(position);
         @SuppressLint("ViewHolder") View vueCustom_User = inflater.inflate(R.layout.activity_array_adapter_user, parent,false);
 
-        TextView textView_lastName = vueCustom_User.findViewById(R.id.tv_lastName);
-        TextView textView_firstName = vueCustom_User.findViewById(R.id.tv_firstName);
+
+        ImageView imageListViewProfile =vueCustom_User.findViewById(R.id.list_user_view_picture);
+        TextView textView_username = vueCustom_User.findViewById(R.id.tv_username);
         TextView textView_lvl = vueCustom_User.findViewById(R.id.tv_lvl);
         TextView textView_exp = vueCustom_User.findViewById(R.id.tv_exp);
 
@@ -56,10 +58,10 @@ public class ArrayAdapterUser extends ArrayAdapter<User> {
         Integer lvl = (user.getLvl());
         String s_lvl= lvl.toString();
 
-        textView_lastName.setText(user.getFirstName());
-        textView_firstName.setText(user.getLastName());
+        textView_username.setText(user.getUsername());
         textView_lvl.setText(s_lvl);
         textView_exp.setText(s_exp);
+        //imageListViewProfile.setImageURI(user.getUrlPicture());
         return vueCustom_User;
     }
     // =============================================================================================

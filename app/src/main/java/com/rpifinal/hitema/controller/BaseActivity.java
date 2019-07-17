@@ -45,7 +45,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     // Vérifie que l'utilisateur est bien connecté
     protected Boolean isCurrentUserLogged() {
-
         return (this.getCurrentUser() != null);
     }
 
