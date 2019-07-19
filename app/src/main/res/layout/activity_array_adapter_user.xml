@@ -1,29 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/list_background"
+    android:padding="@dimen/aaua_relative_layout_padding">
 
-    <TextView
-        android:id="@+id/tv_username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/aaua_main_linear_layout_height"
+            android:layout_gravity="center"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/tv_lvl"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/pa_card_view_layout_height">
 
-    <TextView
-        android:id="@+id/tv_exp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <ImageView
-        android:id="@+id/list_user_view_picture"
-        android:layout_gravity="center"
-        android:layout_width="@dimen/pa_profil_image_view_dimen"
-        android:layout_height="@dimen/pa_profil_image_view_dimen"
-        android:contentDescription="@string/desc_user_picture"
-        tools:srcCompat="@tools:sample/avatars" />
-</LinearLayout>
+                <LinearLayout
+                    android:baselineAligned="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="3">
+
+                    <!-- photo de profil du joueur -->
+                    <LinearLayout
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="@dimen/aaua_layout_width"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <ImageView
+                            android:id="@+id/list_user_view_picture"
+                            android:layout_width="@dimen/aaua_img_dimen"
+                            android:layout_height="@dimen/aaua_img_dimen"
+                            android:gravity="center"
+                            android:contentDescription="@string/desc_user_picture"
+                            tools:srcCompat="@tools:sample/avatars" />
+
+                    </LinearLayout>
+
+                    <!-- Infos du joueur : pseudo, niveau, et experience -->
+                    <LinearLayout
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="@dimen/aaua_layout_width"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/tv_username"
+                            android:layout_width="@dimen/aaua_main_linear_layout_height"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:layout_marginBottom="@dimen/aaua_text_view_layout_marginBottom"
+                            android:textColor="@color/colorPrimary"
+                            android:textSize="@dimen/aaua_username_text_size"
+                            android:textStyle="bold" />
+
+                        <!-- XP -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/aaua_text_linear_layout_height"
+                            android:orientation="horizontal">
+                        <!-- Niveau -->
+                        <TextView
+                            android:layout_width="@dimen/aaua_decription_text_view_layout_width"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:text="@string/aaua_lvl"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/aaua_minor_text_size"/>
+                        <TextView
+                            android:id="@+id/tv_lvl"
+                            android:layout_width="@dimen/aaua_value_text_layout_width"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/firstName_field"
+                            android:textSize="@dimen/aaua_minor_text_size"
+                            android:textColor="@color/colorAccent"/>
+                        </LinearLayout>
+
+                        <!-- XP -->
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/aaua_text_linear_layout_height"
+                            android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="@dimen/aaua_decription_text_view_layout_width"
+                            android:layout_height="wrap_content"
+                            android:gravity="start"
+                            android:text="@string/aaua_xp"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="@dimen/aaua_minor_text_size"/>
+                        <TextView
+                            android:id="@+id/tv_exp"
+                            android:layout_width="@dimen/aaua_value_text_layout_width"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textSize="@dimen/aaua_minor_text_size"
+                            android:textColor="@color/colorAccent" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Bouton de défi  -->
+                    <LinearLayout
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="@dimen/aaua_layout_width"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+                        <ImageView
+                            android:layout_width="@dimen/aaua_img_dimen"
+                            android:layout_height="@dimen/aaua_img_dimen"
+                            android:layout_gravity="end"
+                            android:contentDescription="@string/aaua_go_button_desc"
+                            android:layout_marginEnd="@dimen/aaua_go_button_layout_marginRight"
+                            android:src="@drawable/list_button" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+</RelativeLayout>

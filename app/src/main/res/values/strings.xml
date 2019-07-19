@@ -77,6 +77,11 @@
     <string name="error_update_firstname">Votre prénom doit contenir au moins 3 caratères et ne peut contenir que des lettres</string>
     <string name="error_update_lastname">Votre nom doit contenir au moins 3 caratères et ne peut contenir que des lettres</string>
 
+    <!-- ARRAY ADAPTER USER (LIST) ACTIVITY (aaua) -->
+    <string name="aaua_lvl">Niveau : </string>
+    <string name="aaua_xp">Expérience : </string>
+    <string name="aaua_go_button_desc">button go to challenge the player</string>
+
     <!-- ERRORS -->
     <string name="no_user_connected_error">Erreur : Aucun utilisateur connecté</string>
 
