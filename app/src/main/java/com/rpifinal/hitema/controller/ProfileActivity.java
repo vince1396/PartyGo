@@ -173,6 +173,7 @@ public class ProfileActivity extends BaseActivity {
                         .load(this.getCurrentUser().getPhotoUrl())
                         .apply(RequestOptions.circleCropTransform())
                         .into(mImageViewProfile);
+
             }
 
             // Récupération de l'email de l'utilisateur en vérifiant qu'il n'est pas NULL

@@ -2,6 +2,7 @@ package com.rpifinal.hitema.controller;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,8 +11,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.rpifinal.hitema.R;
 import com.rpifinal.hitema.model.User;
+
+import java.net.URI;
 import java.util.ArrayList;
 
 public class ArrayAdapterUser extends ArrayAdapter<User> {
@@ -56,6 +62,18 @@ public class ArrayAdapterUser extends ArrayAdapter<User> {
 
         Integer lvl = (user.getLvl());
         String s_lvl = lvl.toString();
+
+        Uri uripicture=Uri.parse(user.getUrlPicture());
+
+        // Si une l'utilisateur possède une photo
+
+        Glide.with(context)
+                .load(uripicture)
+                .apply(RequestOptions.circleCropTransform())
+                .into(imageListViewProfile);
+
+
+
 
         textView_username.setText(user.getUsername());
         textView_lvl.setText(s_lvl);
