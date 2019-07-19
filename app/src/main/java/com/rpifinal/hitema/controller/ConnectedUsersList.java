@@ -32,7 +32,7 @@ public class ConnectedUsersList extends AppCompatActivity {
 
             userAdapter = new ArrayAdapterUser(this, liste_user);
             laVueUser = findViewById(R.id.id_lavue);
-            laVueUser.setAdapter(userAdapter);}
-        );
+            laVueUser.setAdapter(userAdapter);
+        });
     }
 }

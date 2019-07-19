@@ -42,7 +42,9 @@ public class ArrayAdapterUser extends ArrayAdapter<User> {
 
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         user = liste_user.get(position);
-        @SuppressLint("ViewHolder") View vueCustom_User = inflater.inflate(R.layout.activity_array_adapter_user, parent,false);
+
+        @SuppressLint("ViewHolder")
+        View vueCustom_User = inflater.inflate(R.layout.activity_array_adapter_user, parent,false);
 
         ImageView imageListViewProfile = vueCustom_User.findViewById(R.id.list_user_view_picture);
         TextView textView_username = vueCustom_User.findViewById(R.id.tv_username);

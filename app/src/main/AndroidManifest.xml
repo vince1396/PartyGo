@@ -13,8 +13,9 @@
         android:roundIcon="@mipmap/partygo_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:icon,android:theme">
-        <activity android:name=".controller.ConnectedUsersList"></activity>
+        tools:replace="android:icon,android:theme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".controller.ConnectedUsersList" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -49,6 +50,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service
+            android:name=".services.CloudMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

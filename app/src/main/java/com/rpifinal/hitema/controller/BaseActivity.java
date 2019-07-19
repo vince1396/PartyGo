@@ -3,11 +3,14 @@ package com.rpifinal.hitema.controller;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 import com.rpifinal.hitema.R;
 import butterknife.ButterKnife;
 
@@ -21,12 +24,15 @@ import butterknife.ButterKnife;
 
 public abstract class BaseActivity extends AppCompatActivity {
 
+    protected String TOKEN;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         this.setContentView(this.getFragmentLayout());
         ButterKnife.bind(this); //Configure Butterknife
+        getInstanceToken();
     }
 
     /* Méthode abstraite :
@@ -52,5 +58,20 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected OnFailureListener onFailureListener() {
 
         return e -> Toast.makeText(getApplicationContext(), getString(R.string.error_unknown_error), Toast.LENGTH_LONG).show();
+    }
+
+    protected Task<InstanceIdResult> getInstanceToken() {
+
+       return FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(task -> {
+
+                    if (!task.isSuccessful())
+                    {
+                        Log.w("Token", "getInstanceId failed", task.getException());
+                        return;
+                    }
+
+                    // Get new Instance ID token
+                    this.TOKEN = task.getResult().getToken();
+                });
     }
 }

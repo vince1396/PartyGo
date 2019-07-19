@@ -93,7 +93,7 @@ public class MainActivity extends BaseActivity {
             int xp  = 0;
             String isConnected = "true";
 
-            UserHelper.createUser(uid, email, username, firstName, lastName, urlPicture, lvl, xp, isConnected)
+            UserHelper.createUser(uid, email, username, firstName, lastName, urlPicture, lvl, xp, isConnected, TOKEN)
                     .addOnFailureListener(this.onFailureListener());
         }
     }

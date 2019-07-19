@@ -13,6 +13,7 @@ public class User {
     private int mLvl;
     private int mXp;
     private String mIsConnected;
+    private String mToken;
 
     // =============================================================================================
     // Void constructor
@@ -20,7 +21,7 @@ public class User {
 
     // Parameters constructor
     public User(String uid, String email, String username, String firstName, String lastName,
-                @Nullable String urlPicture, int lvl, int xp, String isConnected) {
+                @Nullable String urlPicture, int lvl, int xp, String isConnected, String token) {
 
         this.mUid = uid;
         this.mEmail = email;
@@ -31,6 +32,7 @@ public class User {
         this.mLvl = lvl;
         this.mXp = xp;
         this.mIsConnected = isConnected;
+        this.mToken = token;
     }
     // =============================================================================================
     // --- GETTERS ---
@@ -71,6 +73,10 @@ public class User {
         return mIsConnected;
     }
 
+    public String getToken() {
+        return mToken;
+    }
+
     // =============================================================================================
     // --- SETTERS ---
     public void setUid(String mUid) {
@@ -107,5 +113,9 @@ public class User {
 
     public void setIsConnected(String mIsConnected) {
         this.mIsConnected = mIsConnected;
+    }
+
+    public void setToken(String mToken) {
+        this.mToken = mToken;
     }
 }
