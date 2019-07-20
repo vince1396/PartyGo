@@ -13,8 +13,9 @@
         android:roundIcon="@mipmap/partygo_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        tools:replace="android:icon,android:theme"
-        tools:ignore="GoogleAppIndexingWarning">
+        tools:ignore="GoogleAppIndexingWarning"
+        tools:replace="android:icon,android:theme">
+        <activity android:name=".controller.MainMenu"></activity>
         <activity android:name=".controller.ConnectedUsersList" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.

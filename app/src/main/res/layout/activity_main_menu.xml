@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".controller.MainMenu"
+        android:background="@drawable/background_app8"
+        android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="@dimen/party_go_title_width"
+        android:layout_height="@dimen/party_go_title_height"
+        android:background="@drawable/party_go_title_logo"
+        android:contentDescription="@string/party_go_logo_title"
+        android:layout_marginTop="40dp"
+        tools:ignore="HardcodedText"
+        android:layout_gravity="center_horizontal" />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/pa_card_view_layout_width"
+        android:layout_height="@dimen/pa_card_view_layout_height"
+        android:layout_marginTop="85dp"
+        android:layout_marginBottom="79dp"
+        android:layout_gravity="center">
+
+        <Button
+            android:id="@+id/play_text"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="293dp"
+            android:layout_height="95dp"
+            android:layout_gravity="center"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/round_button_white"
+            android:padding="@dimen/default_large_margin"
+            android:text="JOUER !"
+            android:textColor="@color/colorPrimary"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/play_img"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="220dp"
+            android:background="@drawable/play_button"
+            android:contentDescription="@string/party_go_logo_title"
+            tools:ignore="HardcodedText" />
+
+
+
+    </androidx.cardview.widget.CardView>
+
+
+    <Button
+        android:id="@+id/main_activity_button_login"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="@dimen/default_button_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/default_large_margin"
+        android:background="@drawable/round_button_orange"
+        android:padding="@dimen/default_large_margin"
+        android:text="MON PROFIL"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:textSize="@dimen/default_text_size"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="533dp" />
+
+    <Button
+        android:id="@+id/profile_activity_logout_button"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="@dimen/default_button_width"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/default_large_margin"
+        android:background="@drawable/round_button_red"
+        android:padding="@dimen/default_large_margin"
+        android:text="DECONNEXION"
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:textSize="@dimen/default_text_size"
+        tools:layout_editor_absoluteX="105dp"
+        tools:layout_editor_absoluteY="614dp" />
+
+</LinearLayout>
