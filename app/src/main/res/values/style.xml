@@ -42,6 +42,14 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- MAIN MENU ACTIVITY -->
+    <style name="MainMenuTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
     <!-- STYLE FOR MAIN ACTIVITY -->
     <style name="HomePageTheme.NoTitle" parent="HomePageTheme">
         <item name="windowNoTitle">true</item>

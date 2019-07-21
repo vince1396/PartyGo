@@ -82,6 +82,11 @@
     <string name="aaua_xp">Expérience : </string>
     <string name="aaua_go_button_desc">button go to challenge the player</string>
 
+    <!-- MAIN MENU ACTIVITY (mma) -->
+    <string name="mma_play">JOUER !</string>
+    <string name="mma_dc">DECONNEXION</string>
+    <string name="mma_profil">MON PROFIL</string>
+
     <!-- ERRORS -->
     <string name="no_user_connected_error">Erreur : Aucun utilisateur connecté</string>
 

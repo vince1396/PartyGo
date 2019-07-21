@@ -15,7 +15,6 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:icon,android:theme">
-        <activity android:name=".controller.MainMenu"></activity>
         <activity android:name=".controller.ConnectedUsersList" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -42,6 +41,11 @@
         <activity
             android:name=".controller.ProfileActivity"
             android:theme="@style/ProfilPageTheme" />
+
+        <activity
+            android:name=".controller.MainMenu"
+            android:theme="@style/MainMenuTheme" />
+
         <activity
             android:name=".controller.MainActivity"
             android:theme="@style/HomePageTheme">

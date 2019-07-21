@@ -89,13 +89,11 @@
     <dimen name="aaua_layout_width">0dp</dimen>
     <dimen name="aaua_img_dimen">70dp</dimen>
     <dimen name="aaua_text_view_layout_marginBottom">7dp</dimen>
-
-    <dimen name="aaua_username_text_size">14sp</dimen>
-    <dimen name="aaua_minor_text_size">12sp</dimen>
-
     <dimen name="aaua_text_linear_layout_height">15dp</dimen>
     <dimen name="aaua_decription_text_view_layout_width">70dp</dimen>
     <dimen name="aaua_value_text_layout_width">20dp</dimen>
+    <dimen name="aaua_username_text_size">14sp</dimen>
+    <dimen name="aaua_minor_text_size">12sp</dimen>
 
     <dimen name="aaua_go_button_layout_marginRight">10dp</dimen>
 </resources>

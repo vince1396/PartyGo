@@ -95,7 +95,8 @@ public class ProfileActivity extends BaseActivity {
 
         Intent update = new Intent(ProfileActivity.this, UpdateUserActivity.class);
         Intent userView = new Intent(ProfileActivity.this, ConnectedUsersList.class);
-        startActivity(userView);
+        Intent mainView = new Intent(ProfileActivity.this, MainMenu.class);
+        startActivity(mainView);
     }
 
     // Gestion du lancement du jeu choisi
