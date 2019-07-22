@@ -95,7 +95,7 @@ public class ProfileActivity extends BaseActivity {
     public void onClickUpdateButton() {
 
         Intent update = new Intent(ProfileActivity.this, UpdateUserActivity.class);
-        Intent userView = new Intent(ProfileActivity.this, User_view_list.class);
+        Intent userView = new Intent(ProfileActivity.this, ConnectedUsersList.class);
         startActivity(userView);
     }
 

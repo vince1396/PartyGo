@@ -19,7 +19,7 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
     }
 
-    @OnClick(R.id.main_activity_btn_login)
+    @OnClick(R.id.main_activity_btn_profil)
     public void onClickProfilButton() {
 
         Intent profil = new Intent(MainMenu.this, ProfileActivity.class);
