@@ -70,7 +70,10 @@ public class ProfileActivity extends BaseActivity {
     @OnClick(R.id.profile_activity_logout_button)
     public void onClickLogoutButton() {
 
-        this.signOutUserFromFirebase();
+        UserHelper.updateIsConnected("false", getCurrentUser().getUid()).addOnSuccessListener(aVoid -> {
+
+            this.signOutUserFromFirebase();
+        });
     }
 
     // Quand l'utilisateur clique sur suppression du compte
@@ -222,12 +225,13 @@ public class ProfileActivity extends BaseActivity {
     private OnSuccessListener<Void> updateUIAfterRESTRequestsCompleted(final int origin) {
 
         return aVoid -> {
+            Intent mainAct = new Intent(this, MainActivity.class);
             switch (origin){
                 case SIGN_OUT_TASK:
-                    finish();
+                    startActivity(mainAct);
                     break;
                 case DELETE_USER_TASK:
-                    finish();
+                    startActivity(mainAct);
                     break;
                 default:
                     break;
