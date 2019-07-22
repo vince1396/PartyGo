@@ -1,59 +1,45 @@
 package com.rpifinal.hitema.controller;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.rpifinal.hitema.R;
 import com.rpifinal.hitema.model.User;
-
-import java.net.URI;
 import java.util.ArrayList;
 
-public class ArrayAdapterUser extends ArrayAdapter<User> {
+import butterknife.BindView;
 
-    // =============================================================================================
-    // ATTRIBUTS MEMBRES
+public class ArrayAdapterUser extends ArrayAdapter<User> {
     private Context context;
     private ArrayList<User> liste_user;
     private User user;
-    // =============================================================================================
 
-    // =============================================================================================
-    public ArrayAdapterUser(Context context,int resource, ArrayList<User> objects) {
+    public ArrayAdapterUser(Context context, int resource, ArrayList<User> objects) {
 
         super(context,0,objects);
         this.context = context;
     }
 
-    public ArrayAdapterUser(Context context, ArrayList<User> objects) {
+    public ArrayAdapterUser(Context context, ArrayList<User> objects){
 
         super(context,0,objects);
         this.context = context;
         this.liste_user = objects;
     }
 
-    @NonNull
-    public View getView (int position, @Nullable View convertView, @Nullable ViewGroup parent) {
+    public View getView (int position, @Nullable View convertView, @Nullable ViewGroup parent){
 
-        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater =(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         user = liste_user.get(position);
-
-        @SuppressLint("ViewHolder")
         View vueCustom_User = inflater.inflate(R.layout.activity_array_adapter_user, parent,false);
 
-        ImageView imageListViewProfile = vueCustom_User.findViewById(R.id.list_user_view_picture);
-        TextView textView_username = vueCustom_User.findViewById(R.id.tv_username);
+        TextView textView_lastName = vueCustom_User.findViewById(R.id.tv_lastName);
+        TextView textView_firstName = vueCustom_User.findViewById(R.id.tv_firstName);
         TextView textView_lvl = vueCustom_User.findViewById(R.id.tv_lvl);
         TextView textView_exp = vueCustom_User.findViewById(R.id.tv_exp);
 
@@ -61,25 +47,14 @@ public class ArrayAdapterUser extends ArrayAdapter<User> {
         String s_exp = exp.toString();
 
         Integer lvl = (user.getLvl());
-        String s_lvl = lvl.toString();
+        String s_lvl= lvl.toString();
 
-        Uri uripicture=Uri.parse(user.getUrlPicture());
-
-        // Si une l'utilisateur possède une photo
-
-        Glide.with(context)
-                .load(uripicture)
-                .apply(RequestOptions.circleCropTransform())
-                .into(imageListViewProfile);
-
-
-
-
-        textView_username.setText(user.getUsername());
+        textView_lastName.setText(user.getFirstName());
+        textView_firstName.setText(user.getLastName());
         textView_lvl.setText(s_lvl);
         textView_exp.setText(s_exp);
-        //imageListViewProfile.setImageURI(user.getUrlPicture());
+
         return vueCustom_User;
     }
-    // =============================================================================================
+
 }

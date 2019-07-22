@@ -145,9 +145,11 @@ public class MainActivity extends BaseActivity {
                 // Affichage d'une SnackBar
                 UserHelper.updateIsConnected("true", getCurrentUser().getUid());
                 this.showSnackBar(this.coordinatorLayout, getString(R.string.connection_succeed));
+
                 Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
                 Intent map = new Intent(MainActivity.this, MapsActivity.class);
-                startActivity(profile);
+
+                startActivity(map);
             }
             else // En cas d'erreur
             {
