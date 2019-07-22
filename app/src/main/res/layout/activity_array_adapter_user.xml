@@ -67,7 +67,7 @@
                         android:orientation="horizontal">
                         <!-- Niveau -->
                         <TextView
-                            android:layout_width="77dp"
+                            android:layout_width="@dimen/aaua_decription_text_view_layout_width"
                             android:layout_height="wrap_content"
                             android:gravity="start"
                             android:text="@string/aaua_lvl"

@@ -20,7 +20,6 @@ public class MainMenu extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_main_menu);
     }
 
     @OnClick(R.id.main_activity_btn_profil)
@@ -28,5 +27,12 @@ public class MainMenu extends BaseActivity {
 
         Intent profil = new Intent(MainMenu.this, ProfileActivity.class);
         startActivity(profil);
+    }
+
+    @OnClick(R.id.play_text)
+    public void onClickPlauyButton() {
+
+        Intent userListe = new Intent(MainMenu.this, ConnectedUsersList.class);
+        startActivity(userListe);
     }
 }

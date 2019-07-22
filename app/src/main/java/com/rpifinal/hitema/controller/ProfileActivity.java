@@ -95,8 +95,7 @@ public class ProfileActivity extends BaseActivity {
     public void onClickUpdateButton() {
 
         Intent update = new Intent(ProfileActivity.this, UpdateUserActivity.class);
-        Intent userView = new Intent(ProfileActivity.this, ConnectedUsersList.class);
-        startActivity(userView);
+        startActivity(update);
     }
 
     @OnClick({R.id.profile_activity_game1, R.id.profile_activity_game2, R.id.profile_activity_game3, R.id.profile_activity_game4, R.id.profile_activity_game5})
