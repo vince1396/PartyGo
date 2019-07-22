@@ -61,7 +61,7 @@ public class MainActivity extends BaseActivity {
     // --------------------
 
     // Quand l'utilisateur clique sur le bouton connexion
-    @OnClick(R.id.main_activity_button_login)
+    @OnClick(R.id.main_activity_btn_login)
     public void onClickLoginButton() {
 
         // Démarrage de l'acitivité de connexion (FirebaseAuth)

@@ -49,7 +49,7 @@
 
             <!-- BUTTON LOGIN -->
             <Button
-                android:id="@+id/main_activity_button_login"
+                android:id="@+id/main_activity_btn_login"
                 style="?android:attr/borderlessButtonStyle"
                 android:layout_width="@dimen/default_button_width"
                 android:layout_height="wrap_content"
