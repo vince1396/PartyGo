@@ -148,8 +148,9 @@ public class MainActivity extends BaseActivity {
 
                 Intent profile = new Intent(MainActivity.this, ProfileActivity.class);
                 Intent map = new Intent(MainActivity.this, MapsActivity.class);
+                Intent mainMenu= new Intent(MainActivity.this, MainMenu.class);
 
-                startActivity(map);
+                startActivity(mainMenu);
             }
             else // En cas d'erreur
             {

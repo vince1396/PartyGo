@@ -38,8 +38,7 @@ public class ArrayAdapterUser extends ArrayAdapter<User> {
         user = liste_user.get(position);
         View vueCustom_User = inflater.inflate(R.layout.activity_array_adapter_user, parent,false);
 
-        TextView textView_lastName = vueCustom_User.findViewById(R.id.tv_lastName);
-        TextView textView_firstName = vueCustom_User.findViewById(R.id.tv_firstName);
+        TextView textView_userName = vueCustom_User.findViewById(R.id.tv_username);
         TextView textView_lvl = vueCustom_User.findViewById(R.id.tv_lvl);
         TextView textView_exp = vueCustom_User.findViewById(R.id.tv_exp);
 
@@ -49,8 +48,7 @@ public class ArrayAdapterUser extends ArrayAdapter<User> {
         Integer lvl = (user.getLvl());
         String s_lvl= lvl.toString();
 
-        textView_lastName.setText(user.getFirstName());
-        textView_firstName.setText(user.getLastName());
+        textView_userName.setText(user.getUsername());
         textView_lvl.setText(s_lvl);
         textView_exp.setText(s_exp);
 

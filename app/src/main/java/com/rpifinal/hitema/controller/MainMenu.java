@@ -9,14 +9,18 @@ import com.rpifinal.hitema.R;
 
 import butterknife.OnClick;
 
-public class MainMenu extends AppCompatActivity {
+public class MainMenu extends BaseActivity {
 
+    @Override
+    public int getFragmentLayout() {
+        return R.layout.activity_main_menu;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
+        //setContentView(R.layout.activity_main_menu);
     }
 
     @OnClick(R.id.main_activity_btn_profil)
