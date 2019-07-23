@@ -14,7 +14,6 @@ import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.rpifinal.hitema.R;
 import com.rpifinal.hitema.model.User;
-import java.util.Random;
 import api.UserHelper;
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -47,14 +46,15 @@ public class ProfileActivity extends BaseActivity {
     // Récupération de la vue correspondante à l'activité
     @Override
     public int getFragmentLayout() {
-        return R.layout.activity_profile;
 
+        return R.layout.activity_profile;
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
         // A la création de l'activité on met à jour la vue
         this.updateUIWhenCreating();
         this.getObjectCurrentUser();
@@ -70,10 +70,8 @@ public class ProfileActivity extends BaseActivity {
     @OnClick(R.id.profile_activity_logout_button)
     public void onClickLogoutButton() {
 
-        UserHelper.updateIsConnected("false", getCurrentUser().getUid()).addOnSuccessListener(aVoid -> {
-
-            this.signOutUserFromFirebase();
-        });
+        UserHelper.updateIsConnected("false", getCurrentUser().getUid()).addOnSuccessListener(aVoid ->
+                this.signOutUserFromFirebase());
     }
 
     // Quand l'utilisateur clique sur suppression du compte
@@ -89,7 +87,7 @@ public class ProfileActivity extends BaseActivity {
         builder.setNegativeButton("NON", (dialog, whichButton) -> dialog.cancel());
         //si la reponse est oui
         builder.setPositiveButton("OUI", (dialog, whichButton) -> deleteUserFromFirebase());
-
+        // Affichage
         builder.show();
     }
 

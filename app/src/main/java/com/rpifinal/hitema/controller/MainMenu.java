@@ -1,23 +1,20 @@
 package com.rpifinal.hitema.controller;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.rpifinal.hitema.R;
 import com.rpifinal.hitema.model.User;
-
 import api.UserHelper;
 import butterknife.OnClick;
 
 public class MainMenu extends BaseActivity {
+
+    // TODO : Regrouper onClick
+
     private static final int SIGN_OUT_TASK = 11;
     private User mUser;
-
-
 
     @Override
     public int getFragmentLayout() {
@@ -43,25 +40,25 @@ public class MainMenu extends BaseActivity {
         Intent userListe = new Intent(MainMenu.this, ConnectedUsersList.class);
         startActivity(userListe);
     }
+
     @OnClick(R.id.profile_activity_logout_button)
     public void onClickLogoutButton() {
 
-        UserHelper.updateIsConnected("false", getCurrentUser().getUid()).addOnSuccessListener(aVoid -> {
-
-            this.signOutUserFromFirebase();
-        });
-
+        UserHelper.updateIsConnected("false", getCurrentUser().getUid()).addOnSuccessListener(aVoid ->
+                this.signOutUserFromFirebase());
     }
+
     // Méthode de déconnexion (FirebaseAuth)
     private void signOutUserFromFirebase() {
         AuthUI.getInstance()
                 .signOut(this)
-                .addOnSuccessListener(this, this.updateUIAfterRESTRequestsCompleted(SIGN_OUT_TASK));
+                .addOnSuccessListener(this, this.updateUIAfterRESTRequestsCompleted());
     }
-    private OnSuccessListener<Void> updateUIAfterRESTRequestsCompleted(final int origin) {
+
+    private OnSuccessListener<Void> updateUIAfterRESTRequestsCompleted() {
 
         return aVoid -> {
-            switch (origin){
+            switch (MainMenu.SIGN_OUT_TASK){
                 case SIGN_OUT_TASK:
                     finish();
                     break;

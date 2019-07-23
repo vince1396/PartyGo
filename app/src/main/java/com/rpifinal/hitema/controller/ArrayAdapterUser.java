@@ -9,18 +9,15 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.rpifinal.hitema.R;
 import com.rpifinal.hitema.model.User;
-
-import java.net.URL;
 import java.util.ArrayList;
 
-import butterknife.BindView;
 
 public class ArrayAdapterUser extends ArrayAdapter<User> {
+
     private Context context;
     private ArrayList<User> liste_user;
     private User user;
@@ -31,22 +28,23 @@ public class ArrayAdapterUser extends ArrayAdapter<User> {
         this.context = context;
     }
 
-    public ArrayAdapterUser(Context context, ArrayList<User> objects){
+    public ArrayAdapterUser(Context context, ArrayList<User> objects) {
 
         super(context,0,objects);
         this.context = context;
         this.liste_user = objects;
     }
 
-    public View getView (int position, @Nullable View convertView, @Nullable ViewGroup parent){
+    public View getView (int position, @Nullable View convertView, @Nullable ViewGroup parent) {
 
-        LayoutInflater inflater =(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         user = liste_user.get(position);
         View vueCustom_User = inflater.inflate(R.layout.activity_array_adapter_user, parent,false);
 
-        String urluser= user.getUrlPicture();
-        Uri uri =  Uri.parse(urluser);
+        String urlUser = user.getUrlPicture();
+        Uri uri =  Uri.parse(urlUser);
         ImageView imgProfilListe = vueCustom_User.findViewById(R.id.list_user_view_picture);
+
         // Si une l'utilisateur possède une photo
         if (uri != null)
         {
@@ -73,5 +71,4 @@ public class ArrayAdapterUser extends ArrayAdapter<User> {
 
         return vueCustom_User;
     }
-
 }
