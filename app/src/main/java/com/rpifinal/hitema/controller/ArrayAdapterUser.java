@@ -2,6 +2,7 @@ package com.rpifinal.hitema.controller;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +15,6 @@ import com.bumptech.glide.request.RequestOptions;
 import com.rpifinal.hitema.R;
 import com.rpifinal.hitema.model.User;
 import java.util.ArrayList;
-
 
 public class ArrayAdapterUser extends ArrayAdapter<User> {
 
@@ -42,7 +42,11 @@ public class ArrayAdapterUser extends ArrayAdapter<User> {
         View vueCustom_User = inflater.inflate(R.layout.activity_array_adapter_user, parent,false);
 
         String urlUser = user.getUrlPicture();
-        Uri uri =  Uri.parse(urlUser);
+        Uri uri = null;
+
+        if(urlUser != null)
+            uri = Uri.parse(urlUser);
+
         ImageView imgProfilListe = vueCustom_User.findViewById(R.id.list_user_view_picture);
 
         // Si une l'utilisateur possède une photo
