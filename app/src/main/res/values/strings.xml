@@ -90,6 +90,11 @@
     <!-- ERRORS -->
     <string name="no_user_connected_error">Erreur : Aucun utilisateur connecté</string>
 
+    <!-- LABEL -->
+    <!--
+        <string name="users_list">Choisi ton adversaire !</string>
+    -->
+
     <!-- MAP ACTIVITY -->
     <string name="title_activity_maps">Map</string>
     <string name="positive_button_alert_dialog">OK</string>

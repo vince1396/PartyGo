@@ -17,11 +17,22 @@
             android:layout_height="@dimen/pa_linear_layout_height"
             android:background="@color/colorPrimary"
             android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/home_button"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginStart="13dp"
+                android:contentDescription="@string/button_logout_desc"
+
+                android:src="@drawable/button_home4" />
+
             <!-- PHOTO DE PROFIL -->
             <ImageView
                 android:id="@+id/profile_activity_view_picture"
                 android:layout_gravity="center"
-                android:layout_marginTop="@dimen/pa_profil_image_view_dimen"
+                android:layout_marginTop="50dp"
                 android:layout_width="@dimen/pa_profil_image_view_dimen"
                 android:layout_height="@dimen/pa_profil_image_view_dimen"
                 android:contentDescription="@string/desc_user_picture"

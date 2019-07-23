@@ -99,6 +99,13 @@ public class ProfileActivity extends BaseActivity {
         startActivity(update);
     }
 
+    @OnClick(R.id.home_button)
+    public void onClickHomeButton() {
+
+        Intent home = new Intent(ProfileActivity.this, MainMenu.class);
+        startActivity(home);
+    }
+
     @OnClick({R.id.profile_activity_game1, R.id.profile_activity_game2, R.id.profile_activity_game3, R.id.profile_activity_game4, R.id.profile_activity_game5})
     public void onClickGame(View view) {
 
