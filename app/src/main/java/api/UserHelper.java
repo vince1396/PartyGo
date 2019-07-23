@@ -35,6 +35,7 @@ public class UserHelper {
     public static Task<QuerySnapshot> getConnectedUsers() {
 
         return  UserHelper.getUsersCollection().whereEqualTo("isConnected","true").get();
+
     }
 
     // =============================================================================================

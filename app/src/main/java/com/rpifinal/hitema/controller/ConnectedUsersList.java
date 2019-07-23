@@ -29,8 +29,8 @@ public class ConnectedUsersList extends AppCompatActivity {
 
             list = QuerySnapshot.toObjects(User.class);
             liste_user = new ArrayList(list);
-
             userAdapter = new ArrayAdapterUser(this, liste_user);
+
             laVueUser = findViewById(R.id.id_lavue);
             laVueUser.setAdapter(userAdapter);
         });

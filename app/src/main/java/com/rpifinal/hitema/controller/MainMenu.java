@@ -2,6 +2,8 @@ package com.rpifinal.hitema.controller;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.rpifinal.hitema.R;
@@ -11,13 +13,12 @@ import butterknife.OnClick;
 
 public class MainMenu extends BaseActivity {
 
-    // TODO : Regrouper onClick
-
     private static final int SIGN_OUT_TASK = 11;
     private User mUser;
 
     @Override
     public int getFragmentLayout() {
+
         return R.layout.activity_main_menu;
     }
 
@@ -26,26 +27,25 @@ public class MainMenu extends BaseActivity {
 
         super.onCreate(savedInstanceState);
     }
-
-    @OnClick(R.id.main_activity_btn_profil)
-    public void onClickProfilButton() {
-
-        Intent profil = new Intent(MainMenu.this, ProfileActivity.class);
-        startActivity(profil);
-    }
-
-    @OnClick(R.id.play_text)
-    public void onClickPlauyButton() {
-
-        Intent userListe = new Intent(MainMenu.this, ConnectedUsersList.class);
-        startActivity(userListe);
+    @OnClick({R.id.main_activity_btn_profil,R.id.play_text,R.id.profile_activity_logout_button})
+    public void onClickMenu(View view){
+        Intent activity=new Intent();
+        switch (view.getId()){
+            case R.id.main_activity_btn_profil:
+                activity = new Intent(MainMenu.this, ProfileActivity.class);
+                break;
+            case R.id.play_text:
+                activity = new Intent(MainMenu.this, ConnectedUsersList.class);
+                break;
+        }
+        startActivity(activity);
     }
 
     @OnClick(R.id.profile_activity_logout_button)
     public void onClickLogoutButton() {
-
         UserHelper.updateIsConnected("false", getCurrentUser().getUid()).addOnSuccessListener(aVoid ->
                 this.signOutUserFromFirebase());
+
     }
 
     // Méthode de déconnexion (FirebaseAuth)

@@ -73,57 +73,29 @@ public class UpdateUserActivity extends BaseActivity {
         startActivity(profile);
     }
 
-    @OnClick(R.id.update_activity_username_submit)
-    public void onClickUsernameButton() {
-
-        String uid = getCurrentUser().getUid();
-        String username = mUsernameUpdateField.getText().toString();
-        checkDataEntry(UPDATE_USERNAME,username,uid);
-
-        //Hide keyboard when click on the update button
-        closeKeyboard();
-    }
-
-    @OnClick(R.id.update_activity_firstName_submit)
-    public void onClickFirstNameButton() {
-
-        String uid = getCurrentUser().getUid();
-        String firstName = mFirstnameUpdateField.getText().toString();
-        checkDataEntry(UPDATE_FIRSTNAME,firstName,uid);
-
-        //Hide keyboard when click on the update button
-        closeKeyboard();
-    }
-
-    @OnClick(R.id.update_activity_lastName_submit)
-    public void onClickLastNameButton() {
-
-        String uid = getCurrentUser().getUid();
-        String lastName = mLastnameUpdateField.getText().toString();
-        checkDataEntry(UPDATE_LASTNAME,lastName,uid);
-
-        //Hide keyboard when click on the update button
-        closeKeyboard();
-    }
-
-    //TODO : Finish this
     @OnClick({R.id.update_activity_username_submit, R.id.update_activity_firstName_submit, R.id.update_activity_lastName_submit})
     public void onClickUpdate(View view) {
-
+        String uid = getCurrentUser().getUid();
         switch(view.getId())
         {
             case R.id.update_activity_username_submit:
-
+                String username = mUsernameUpdateField.getText().toString();
+                checkDataEntry(UPDATE_USERNAME,username,uid);
                 break;
 
             case R.id.update_activity_firstName_submit:
+                String firstName = mFirstnameUpdateField.getText().toString();
+                checkDataEntry(UPDATE_FIRSTNAME,firstName,uid);
 
                 break;
 
             case R.id.update_activity_lastName_submit:
-
+                String lastName = mLastnameUpdateField.getText().toString();
+                checkDataEntry(UPDATE_LASTNAME,lastName,uid);
                 break;
         }
+        //Hide keyboard when click on the update button
+        closeKeyboard();
     }
 
     //Method closeKeyboard() that will close/hide the keyboard when click on the valid update button
