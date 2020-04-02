@@ -1,10 +1,9 @@
-package com.rpifinal.hitema.controller
+package com.rpifinal.hitema.partyGo.oldFiles
 
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import butterknife.ButterKnife
 import com.google.android.gms.tasks.OnFailureListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
@@ -12,6 +11,7 @@ import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.iid.FirebaseInstanceId
 import com.google.firebase.iid.InstanceIdResult
 import com.rpifinal.hitema.R
+//import butterknife.ButterKnife
 
 /*
     BASE ACTIVITY
@@ -20,12 +20,13 @@ import com.rpifinal.hitema.R
     Elle permettra la réutilisation de code souvent utilisée au sein du projet et
     hérite elle-même de AppCompatActivity.
 */
+
 abstract class BaseActivity : AppCompatActivity() {
     protected var TOKEN: String? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         this.setContentView(fragmentLayout)
-        ButterKnife.bind(this) //Configure Butterknife
+        //ButterKnife.bind(this) //Configure Butterknife
         instanceToken
     }
 

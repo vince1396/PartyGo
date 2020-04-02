@@ -1,4 +1,4 @@
-package com.rpifinal.hitema.controller
+package com.rpifinal.hitema.partyGo.oldFiles
 
 import android.content.Context
 import android.net.Uri
@@ -11,7 +11,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.rpifinal.hitema.R
-import com.rpifinal.hitema.model.User
+import com.rpifinal.hitema.partyGo.oldFiles.model.User
 import java.util.*
 
 class ArrayAdapterUser : ArrayAdapter<User?> {

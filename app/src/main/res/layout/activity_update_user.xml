@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    tools:context=".controller.ProfileActivity"
+    tools:context=".partyGo.oldFiles.ProfileActivity"
     android:background="@drawable/background_app3"
     android:orientation="vertical">
 

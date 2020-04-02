@@ -1,11 +1,11 @@
-package api
+package com.rpifinal.hitema.partyGo.oldFiles.api
 
-import api.UserHelper.usersCollection
+import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.usersCollection
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
-import com.rpifinal.hitema.model.Registration
+import com.rpifinal.hitema.partyGo.oldFiles.model.Registration
 
 object RegistrationHelper {
     private const val COLLECTION_NAME = "registration"

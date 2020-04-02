@@ -1,11 +1,11 @@
-package api
+package com.rpifinal.hitema.partyGo.oldFiles.api
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
-import com.rpifinal.hitema.model.User
+import com.rpifinal.hitema.partyGo.oldFiles.model.User
 
 object UserHelper {
     private const val COLLECTION_NAME = "users"

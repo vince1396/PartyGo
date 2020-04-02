@@ -1,4 +1,4 @@
-package com.rpifinal.hitema.model
+package com.rpifinal.hitema.partyGo.oldFiles.model
 
 data class User (
         var uid: String?,

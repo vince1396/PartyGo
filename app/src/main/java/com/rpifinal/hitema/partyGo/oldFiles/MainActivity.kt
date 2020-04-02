@@ -1,13 +1,11 @@
-package com.rpifinal.hitema.controller
+package com.rpifinal.hitema.partyGo.oldFiles
 
 import android.app.Activity
 import android.content.Intent
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import api.UserHelper.createUser
-import api.UserHelper.getUser
-import api.UserHelper.updateIsConnected
-import butterknife.BindView
-import butterknife.OnClick
+import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.createUser
+import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.getUser
+import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.updateIsConnected
 import com.crashlytics.android.Crashlytics
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.AuthUI.IdpConfig.EmailBuilder
@@ -17,13 +15,13 @@ import com.firebase.ui.auth.IdpResponse
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.DocumentSnapshot
 import com.rpifinal.hitema.R
-import com.rpifinal.hitema.interfaces.UsernameCallback
+import com.rpifinal.hitema.partyGo.oldFiles.interfaces.UsernameCallback
 
 @Suppress("UNUSED_VARIABLE")
 class MainActivity : BaseActivity() {
     // Récupération des éléments de la vue au sein du code Java
     @JvmField
-    @BindView(R.id.main_activity_coordinator_layout)
+    //@BindView(R.id.main_activity_coordinator_layout)
     var coordinatorLayout: CoordinatorLayout? = null
 
     // Récupération de la vue correspondante à l'acitivité
@@ -46,12 +44,12 @@ class MainActivity : BaseActivity() {
     // ACTIONS
     // --------------------
     // Quand l'utilisateur clique sur le bouton connexion
-    @OnClick(R.id.main_activity_btn_login)
+    //@OnClick(R.id.main_activity_btn_login)
     fun onClickLoginButton() { // Démarrage de l'acitivité de connexion (FirebaseAuth)
         startSignInActivity()
     }
 
-    @OnClick(R.id.main_activity_button_crash)
+    //@OnClick(R.id.main_activity_button_crash)
     fun onClickCrashButton() {
         Crashlytics.getInstance().crash()
     }

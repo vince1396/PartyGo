@@ -1,7 +1,7 @@
-package com.rpifinal.hitema.services
+package com.rpifinal.hitema.partyGo.oldFiles.services
 
 import android.util.Log
-import api.UserHelper.updateToken
+import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.updateToken
 import com.google.firebase.messaging.FirebaseMessagingService
 
 class CloudMessagingService : FirebaseMessagingService() {

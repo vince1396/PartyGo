@@ -1,20 +1,19 @@
-package com.rpifinal.hitema.controller
+package com.rpifinal.hitema.partyGo.oldFiles
 
 import android.content.Intent
 import android.view.View
-import api.UserHelper.updateIsConnected
-import butterknife.OnClick
+import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.updateIsConnected
 import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.tasks.OnSuccessListener
 import com.rpifinal.hitema.R
-import com.rpifinal.hitema.model.User
+import com.rpifinal.hitema.partyGo.oldFiles.model.User
 
 class MainMenu : BaseActivity() {
     private val mUser: User? = null
     override val fragmentLayout: Int
         get() = R.layout.activity_main_menu
 
-    @OnClick(R.id.main_activity_btn_profil, R.id.play_text, R.id.profile_activity_logout_button)
+    //@OnClick(R.id.main_activity_btn_profil, R.id.play_text, R.id.profile_activity_logout_button)
     fun onClickMenu(view: View) {
         var activity = Intent()
         when (view.id) {
@@ -24,7 +23,7 @@ class MainMenu : BaseActivity() {
         startActivity(activity)
     }
 
-    @OnClick(R.id.profile_activity_logout_button)
+    //@OnClick(R.id.profile_activity_logout_button)
     fun onClickLogoutButton() {
         updateIsConnected("false", currentUser!!.uid).addOnSuccessListener { signOutUserFromFirebase() }
     }

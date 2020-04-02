@@ -1,4 +1,4 @@
-package com.rpifinal.hitema.controller
+package com.rpifinal.hitema.partyGo.oldFiles
 
 import android.app.AlertDialog
 import android.content.DialogInterface
@@ -8,11 +8,9 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import api.UserHelper.deleteUser
-import api.UserHelper.getUser
-import api.UserHelper.updateIsConnected
-import butterknife.BindView
-import butterknife.OnClick
+import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.deleteUser
+import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.getUser
+import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.updateIsConnected
 import com.SACGGames.PartyGoMiniGames.UnityPlayerActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -20,19 +18,19 @@ import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.DocumentSnapshot
 import com.rpifinal.hitema.R
-import com.rpifinal.hitema.model.User
+import com.rpifinal.hitema.partyGo.oldFiles.model.User
 
 class ProfileActivity : BaseActivity() {
     private var mUser: User? = null
     // Récupération des éléments de la vue au sein du code Java
     @JvmField
-    @BindView(R.id.profile_activity_view_picture)
+    //@BindView(R.id.profile_activity_view_picture)
     var mImageViewProfile: ImageView? = null
     @JvmField
-    @BindView(R.id.profile_activity_view_name)
+    //@BindView(R.id.profile_activity_view_name)
     var mTextViewName: TextView? = null
     @JvmField
-    @BindView(R.id.profile_activity_view_email)
+    //@BindView(R.id.profile_activity_view_email)
     var mTextViewEmail: TextView? = null
 
     // =============================================================================================
@@ -53,13 +51,13 @@ class ProfileActivity : BaseActivity() {
 // ACTIONS
 //Boutton de retour de la page update vers la page profil
 // Quand l'utilisateur clique sur déconnexion
-    @OnClick(R.id.profile_activity_logout_button)
+    //@OnClick(R.id.profile_activity_logout_button)
     fun onClickLogoutButton() {
         updateIsConnected("false", currentUser!!.uid).addOnSuccessListener { signOutUserFromFirebase() }
     }
 
     // Quand l'utilisateur clique sur suppression du compte
-    @OnClick(R.id.profile_activity_delete_button)
+    //@OnClick(R.id.profile_activity_delete_button)
     fun onClickDeleteButton() {
         val builder = AlertDialog.Builder(this@ProfileActivity)
         builder.setCancelable(true)
@@ -74,19 +72,19 @@ class ProfileActivity : BaseActivity() {
     }
 
     // Quand l'utilisateur clique sur Modifier informations
-    @OnClick(R.id.profile_activity_update_button)
+    //@OnClick(R.id.profile_activity_update_button)
     fun onClickUpdateButton() {
         val update = Intent(this@ProfileActivity, UpdateUserActivity::class.java)
         startActivity(update)
     }
 
-    @OnClick(R.id.home_button)
+    //@OnClick(R.id.home_button)
     fun onClickHomeButton() {
         val home = Intent(this@ProfileActivity, MainMenu::class.java)
         startActivity(home)
     }
 
-    @OnClick(R.id.profile_activity_game1, R.id.profile_activity_game2, R.id.profile_activity_game3, R.id.profile_activity_game4, R.id.profile_activity_game5)
+    //@OnClick(R.id.profile_activity_game1, R.id.profile_activity_game2, R.id.profile_activity_game3, R.id.profile_activity_game4, R.id.profile_activity_game5)
     fun onClickGame(view: View) {
         when (view.id) {
             R.id.profile_activity_game1 -> lauchGame(GAME1)
@@ -123,7 +121,7 @@ class ProfileActivity : BaseActivity() {
             }
             // Récupération de l'email de l'utilisateur en vérifiant qu'il n'est pas NULL
             val email: String = if (TextUtils.isEmpty(
-                            currentUser!!.email)) getString(R.string.info_no_email_found) else currentUser!!.email
+                            currentUser!!.email)) getString(R.string.info_no_email_found) else currentUser!!.email.toString()
             val name = currentUser!!.displayName
             // Insertion de l'email dans la vue
             mTextViewEmail!!.text = email
@@ -151,8 +149,7 @@ class ProfileActivity : BaseActivity() {
     // Méthode de suppression de compte (FirebaseAuth)
     private fun deleteUserFromFirebase() {
         if (this.currentUser != null) {
-            deleteUser(currentUser!!
-                    .uid
+            deleteUser(currentUser!!.uid)
                     //TODO : Fix this motherfucker
                     // .addOnFailureListener(onFailureListener())
             AuthUI.getInstance()
