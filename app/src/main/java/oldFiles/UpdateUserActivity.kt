@@ -1,4 +1,4 @@
-package com.rpifinal.hitema.partyGo.oldFiles
+package oldFiles
 
 import android.content.Context
 import android.content.Intent
@@ -9,14 +9,14 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.getUser
-import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.updateFirstName
-import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.updateLastName
-import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.updateUsername
+import oldFiles.api.UserHelper.getUser
+import oldFiles.api.UserHelper.updateFirstName
+import oldFiles.api.UserHelper.updateLastName
+import oldFiles.api.UserHelper.updateUsername
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.DocumentSnapshot
 import com.rpifinal.hitema.R
-import com.rpifinal.hitema.partyGo.oldFiles.model.User
+import oldFiles.model.User
 
 //TODO : Optimisation REGEX
 class UpdateUserActivity : BaseActivity() {

@@ -1,4 +1,4 @@
-package com.rpifinal.hitema.partyGo.oldFiles.model
+package oldFiles.model
 
 class Registration {
     var uid: String? = null

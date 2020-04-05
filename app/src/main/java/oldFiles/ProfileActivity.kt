@@ -1,4 +1,4 @@
-package com.rpifinal.hitema.partyGo.oldFiles
+package oldFiles
 
 import android.app.AlertDialog
 import android.content.DialogInterface
@@ -8,9 +8,9 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.deleteUser
-import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.getUser
-import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.updateIsConnected
+import oldFiles.api.UserHelper.deleteUser
+import oldFiles.api.UserHelper.getUser
+import oldFiles.api.UserHelper.updateIsConnected
 import com.SACGGames.PartyGoMiniGames.UnityPlayerActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -18,7 +18,7 @@ import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.DocumentSnapshot
 import com.rpifinal.hitema.R
-import com.rpifinal.hitema.partyGo.oldFiles.model.User
+import oldFiles.model.User
 
 class ProfileActivity : BaseActivity() {
     private var mUser: User? = null

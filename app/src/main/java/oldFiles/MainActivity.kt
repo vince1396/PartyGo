@@ -1,11 +1,11 @@
-package com.rpifinal.hitema.partyGo.oldFiles
+package oldFiles
 
 import android.app.Activity
 import android.content.Intent
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.createUser
-import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.getUser
-import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.updateIsConnected
+import oldFiles.api.UserHelper.createUser
+import oldFiles.api.UserHelper.getUser
+import oldFiles.api.UserHelper.updateIsConnected
 import com.crashlytics.android.Crashlytics
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.AuthUI.IdpConfig.EmailBuilder
@@ -15,7 +15,7 @@ import com.firebase.ui.auth.IdpResponse
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.DocumentSnapshot
 import com.rpifinal.hitema.R
-import com.rpifinal.hitema.partyGo.oldFiles.interfaces.UsernameCallback
+import oldFiles.interfaces.UsernameCallback
 
 @Suppress("UNUSED_VARIABLE")
 class MainActivity : BaseActivity() {

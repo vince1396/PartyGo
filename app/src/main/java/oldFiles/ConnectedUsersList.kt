@@ -1,12 +1,12 @@
-package com.rpifinal.hitema.partyGo.oldFiles
+package oldFiles
 
 import android.os.Bundle
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.connectedUsers
+import oldFiles.api.UserHelper.connectedUsers
 import com.google.firebase.firestore.QuerySnapshot
 import com.rpifinal.hitema.R
-import com.rpifinal.hitema.partyGo.oldFiles.model.User
+import oldFiles.model.User
 import java.util.*
 
 class ConnectedUsersList : AppCompatActivity() {

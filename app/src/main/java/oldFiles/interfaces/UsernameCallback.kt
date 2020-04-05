@@ -1,4 +1,4 @@
-package com.rpifinal.hitema.partyGo.oldFiles.interfaces
+package oldFiles.interfaces
 
 interface UsernameCallback {
     fun onCallback(userExists: Boolean)

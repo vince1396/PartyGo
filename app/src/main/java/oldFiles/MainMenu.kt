@@ -1,12 +1,12 @@
-package com.rpifinal.hitema.partyGo.oldFiles
+package oldFiles
 
 import android.content.Intent
 import android.view.View
-import com.rpifinal.hitema.partyGo.oldFiles.api.UserHelper.updateIsConnected
+import oldFiles.api.UserHelper.updateIsConnected
 import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.tasks.OnSuccessListener
 import com.rpifinal.hitema.R
-import com.rpifinal.hitema.partyGo.oldFiles.model.User
+import oldFiles.model.User
 
 class MainMenu : BaseActivity() {
     private val mUser: User? = null

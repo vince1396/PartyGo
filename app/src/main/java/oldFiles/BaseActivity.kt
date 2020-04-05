@@ -1,4 +1,4 @@
-package com.rpifinal.hitema.partyGo.oldFiles
+package oldFiles
 
 import android.os.Bundle
 import android.util.Log
