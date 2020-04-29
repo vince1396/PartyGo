@@ -4,11 +4,13 @@ import android.util.Log
 import com.rpifinal.hitema.partyGo.data.dataSources.LoginDataSource
 import com.rpifinal.hitema.partyGo.data.model.LoggedInUser
 import javax.inject.Inject
+import javax.inject.Singleton
 
 /**
  * Class that requests authentication and user information from the remote data source and
  * maintains an in-memory cache of login status and user credentials information.
  */
+@Singleton
 class LoginRepository @Inject constructor(private val dataSource: LoginDataSource)
 {
     private val TAG = "LoginRepository"
@@ -29,7 +31,7 @@ class LoginRepository @Inject constructor(private val dataSource: LoginDataSourc
     fun logout() {
         Log.d(TAG, "Logout")
         user = null
-        dataSource.logout()
+        //dataSource.logout()
     }
 
     fun login(): LoggedInUser {
