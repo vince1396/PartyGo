@@ -17,6 +17,9 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:icon,android:theme">
         <activity
+            android:name=".ui.login.LoginActivity"
+            android:label="@string/title_activity_login"></activity>
+        <activity
             android:name=".partyGo.MainActivity"
             android:label="@string/title_activity_login">
             <intent-filter>
