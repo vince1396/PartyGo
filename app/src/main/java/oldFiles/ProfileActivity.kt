@@ -8,9 +8,9 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import oldFiles.api.UserHelper.deleteUser
+/*import oldFiles.api.UserHelper.deleteUser
 import oldFiles.api.UserHelper.getUser
-import oldFiles.api.UserHelper.updateIsConnected
+import oldFiles.api.UserHelper.updateIsConnected*/
 import com.SACGGames.PartyGoMiniGames.UnityPlayerActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
@@ -20,6 +20,7 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.rpifinal.hitema.R
 import oldFiles.model.User
 
+/*
 class ProfileActivity : BaseActivity() {
     private var mUser: User? = null
     // Récupération des éléments de la vue au sein du code Java
@@ -184,4 +185,4 @@ class ProfileActivity : BaseActivity() {
         private const val GAME4 = 400
         private const val GAME5 = 500
     }
-}
+}*/

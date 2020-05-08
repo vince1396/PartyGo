@@ -9,16 +9,17 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import oldFiles.api.UserHelper.getUser
+/*import oldFiles.api.UserHelper.getUser
 import oldFiles.api.UserHelper.updateFirstName
 import oldFiles.api.UserHelper.updateLastName
-import oldFiles.api.UserHelper.updateUsername
+import oldFiles.api.UserHelper.updateUsername*/
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.DocumentSnapshot
 import com.rpifinal.hitema.R
 import oldFiles.model.User
 
 //TODO : Optimisation REGEX
+/*
 class UpdateUserActivity : BaseActivity() {
     // Binding UI
     @JvmField
@@ -95,12 +96,14 @@ class UpdateUserActivity : BaseActivity() {
     }
 
     //Hide keyboard when click outside the screen
+*/
 /*
     public void hideKeyboard(View view) {
         InputMethodManager inn = (InputMethodManager) getSystemService(Activity.INPUT_METHOD_SERVICE);
         inn.hideSoftInputFromWindow(view.getWindowToken(),0);
     }
-    */
+    *//*
+
     // =============================================================================================
     // UI/UX
     fun checkDataEntry(code: Int, data: String, uid: String?) {
@@ -173,4 +176,4 @@ class UpdateUserActivity : BaseActivity() {
         private const val UPDATE_FIRSTNAME = 20
         private const val UPDATE_LASTNAME = 30
     }
-}
+}*/

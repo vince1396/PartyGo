@@ -6,6 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
+import com.google.firebase.firestore.FirebaseFirestore
+import com.rpifinal.hitema.partyGo.data.model.LoggedInUser
+import com.rpifinal.hitema.partyGo.data.model.UserHelper
 import javax.inject.Inject
 
 class MainActivity @Inject constructor(): BaseActivity() {
@@ -28,11 +31,6 @@ class MainActivity @Inject constructor(): BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         startLogin()
-    }
-
-    override fun getFragmentLayout(): Int {
-        // This function shouldn't be implemented here
-        return 0
     }
     // =============================================================================================
     // /////////////////////////////////////////////////////////////////////////////////////////////
@@ -60,7 +58,7 @@ class MainActivity @Inject constructor(): BaseActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 // Successfully signed in
                 Log.d(TAG, "Successfully signed in")
-                // TODO : Next activity
+                createUserInFirestore()
             } else {
                 if (response == null) {
                     Log.w(TAG, "Login Canceled")
@@ -78,4 +76,39 @@ class MainActivity @Inject constructor(): BaseActivity() {
     // =============================================================================================
     // /////////////////////////////////////////////////////////////////////////////////////////////
     // =============================================================================================
+    private fun createUserInFirestore() {
+        fun create() {
+            Log.d(TAG, "Creating User")
+
+            val user = LoggedInUser(
+                    userId = getCurrentUser()!!.uid,
+                    displayName = getCurrentUser()!!.displayName,
+                    email = getCurrentUser()!!.email,
+                    phoneNumber = getCurrentUser()!!.phoneNumber,
+                    photoUrl = getCurrentUser()!!.photoUrl.toString(),
+                    firstName = null,
+                    lastName = null)
+
+            UserHelper.createUser(user)
+        }
+
+        val db = FirebaseFirestore.getInstance()
+        val docRef = db.collection("users").document(getCurrentUser()!!.uid)
+        docRef.get()
+                .addOnSuccessListener { document ->
+                    val intent = Intent(this, PocActivity::class.java)
+                    if (document.exists()) {
+                        Log.d(TAG, "DocumentSnapshot data: ${document.data}")
+                        startActivity(intent)
+                    } else {
+                        Log.d(TAG, getCurrentUser()!!.uid)
+                        Log.d(TAG, "No such document")
+                        create()
+                        startActivity(intent)
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.d(TAG, "get failed with ", exception)
+                }
+    }
 }

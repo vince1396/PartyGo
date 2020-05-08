@@ -3,9 +3,9 @@ package oldFiles
 import android.app.Activity
 import android.content.Intent
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import oldFiles.api.UserHelper.createUser
+/*import oldFiles.api.UserHelper.createUser
 import oldFiles.api.UserHelper.getUser
-import oldFiles.api.UserHelper.updateIsConnected
+import oldFiles.api.UserHelper.updateIsConnected*/
 import com.crashlytics.android.Crashlytics
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.AuthUI.IdpConfig.EmailBuilder
@@ -17,7 +17,8 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.rpifinal.hitema.R
 import oldFiles.interfaces.UsernameCallback
 
-@Suppress("UNUSED_VARIABLE")
+//@Suppress("UNUSED_VARIABLE")
+/*
 class MainActivity : BaseActivity() {
     // Récupération des éléments de la vue au sein du code Java
     @JvmField
@@ -55,10 +56,12 @@ class MainActivity : BaseActivity() {
     }
 
     // =============================================================================================
-    /*
+    */
+/*
         Création de l'utilisateur dans Firestore en récupérant
         les informations depuis FireAuth
-     */
+     *//*
+
     private fun createUserInFirestore() {
         if (this.currentUser != null) {
             val uid = currentUser!!.uid
@@ -148,4 +151,4 @@ class MainActivity : BaseActivity() {
     // Code de vérification de connexion
         private const val RC_SIGN_IN = 123
     }
-}
+}*/

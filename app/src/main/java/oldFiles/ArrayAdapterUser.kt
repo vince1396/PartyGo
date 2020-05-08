@@ -14,6 +14,7 @@ import com.rpifinal.hitema.R
 import oldFiles.model.User
 import java.util.*
 
+/*
 class ArrayAdapterUser : ArrayAdapter<User?> {
     @get:JvmName("getContext_")var context: Context
     var liste_user: ArrayList<User>? = null
@@ -55,4 +56,4 @@ class ArrayAdapterUser : ArrayAdapter<User?> {
         textView_exp.text = s_exp
         return vueCustom_User
     }
-}
+}*/

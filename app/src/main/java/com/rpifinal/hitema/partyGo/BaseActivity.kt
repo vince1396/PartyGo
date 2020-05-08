@@ -13,8 +13,6 @@ abstract class BaseActivity: AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
     }
 
-    protected abstract fun getFragmentLayout(): Int
-
     protected fun getCurrentUser() = FirebaseAuth.getInstance().currentUser
 
     protected fun isCurrentUserLogged(): Boolean = getCurrentUser() != null

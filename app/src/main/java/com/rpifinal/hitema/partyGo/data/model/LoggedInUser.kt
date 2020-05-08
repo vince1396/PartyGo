@@ -11,5 +11,10 @@ data class LoggedInUser @Inject constructor(
         val displayName: String?,
         val email: String?,
         val phoneNumber: String?,
-        val photoUrl: Uri?
+        val photoUrl: String?,
+        val firstName: String?,
+        val lastName: String?,
+        val lvl: Int = 1,
+        val userName: String? = null,
+        val xp: Int = 0
 )

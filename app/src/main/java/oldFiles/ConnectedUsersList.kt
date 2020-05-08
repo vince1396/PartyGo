@@ -3,12 +3,13 @@ package oldFiles
 import android.os.Bundle
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-import oldFiles.api.UserHelper.connectedUsers
+//import oldFiles.api.UserHelper.connectedUsers
 import com.google.firebase.firestore.QuerySnapshot
 import com.rpifinal.hitema.R
 import oldFiles.model.User
 import java.util.*
 
+/*
 class ConnectedUsersList : AppCompatActivity() {
     private var listeUser: ArrayList<User>? = null
     private var list: List<User?>? = null
@@ -28,4 +29,4 @@ class ConnectedUsersList : AppCompatActivity() {
             laVueUser.adapter = userAdapter
         }
     }
-}
+}*/

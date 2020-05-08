@@ -5,67 +5,67 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
+import com.rpifinal.hitema.partyGo.data.model.LoggedInUser
 import oldFiles.model.User
 
-object UserHelper {
-    private const val COLLECTION_NAME = "users"
-    // =============================================================================================
-    // --- COLLECTION REFERENCE ---
-    @JvmStatic
-    val usersCollection: CollectionReference
-        get() = FirebaseFirestore.getInstance().collection(COLLECTION_NAME)
+class UserHelper {
+    companion object {
+        // =========================================================================================
+        // //////////////////////////////////////// ATTRIBUTES /////////////////////////////////////
+        // =========================================================================================
+        private const val COLLECTION_NAME = "users"
 
-    // =============================================================================================
-    // --- CREATE ---
-    @JvmStatic
-    fun createUser(uid: String?, email: String?, username: String?, firstName: String?,
-                   lastName: String?, urlPicture: String?, lvl: Int, xp: Int, isConnected: String?, token: String?): Task<Void> {
-        val userToCreate = User(uid, email, username, firstName, lastName, urlPicture, lvl, xp, isConnected, token)
-        return usersCollection.document(uid!!).set(userToCreate)
-    }
+        private val usersCollection: CollectionReference
+            get() = FirebaseFirestore.getInstance().collection(COLLECTION_NAME)
 
-    // =============================================================================================
-    // --- READ ---
-    @JvmStatic
-    fun getUser(uid: String?): Task<DocumentSnapshot> {
-        return usersCollection.document(uid!!).get()
-    }
+        val connectedUsers: Task<QuerySnapshot>
+            get() = usersCollection.whereEqualTo("isConnected", "true").get()
+        // =========================================================================================
+        // /////////////////////////////////////////////////////////////////////////////////////////
+        // =========================================================================================
+        fun createUser(uid: String?, email: String?, firstName: String?, lastName: String?,
+                       urlPicture: String?, isConnected: String?, token: String?, username: String? = null,  lvl: Int = 1, xp: Int = 0): Task<Void>
+        {
+            val userToCreate = User(uid, email, username, firstName, lastName, urlPicture, lvl, xp, isConnected, token)
+            return usersCollection.document(uid!!).set(userToCreate)
+        }
 
-    @JvmStatic
-    val connectedUsers: Task<QuerySnapshot>
-        get() = usersCollection.whereEqualTo("isConnected", "true").get()
+        fun createUser(user: LoggedInUser): Task<Void> {
+            return usersCollection.document(user.userId).set(user)
+        }
+        // =========================================================================================
+        // --- READ ---
+        fun getUser(uid: String?): Task<DocumentSnapshot> {
+            return usersCollection.document(uid!!).get()
+        }
+        // =========================================================================================
+        // --- UPDATE ---
+        fun updateUsername(username: String?, uid: String?): Task<Void> {
+            return usersCollection.document(uid!!).update("username", username)
+        }
 
-    // =============================================================================================
-    // --- UPDATE ---
-    @JvmStatic
-    fun updateUsername(username: String?, uid: String?): Task<Void> {
-        return usersCollection.document(uid!!).update("username", username)
-    }
+        fun updateFirstName(firstName: String?, uid: String?): Task<Void> {
+            return usersCollection.document(uid!!).update("firstName", firstName)
+        }
 
-    @JvmStatic
-    fun updateFirstName(firstName: String?, uid: String?): Task<Void> {
-        return usersCollection.document(uid!!).update("firstName", firstName)
-    }
+        fun updateLastName(lastName: String?, uid: String?): Task<Void> {
+            return usersCollection.document(uid!!).update("lastName", lastName)
+        }
 
-    @JvmStatic
-    fun updateLastName(lastName: String?, uid: String?): Task<Void> {
-        return usersCollection.document(uid!!).update("lastName", lastName)
-    }
+        fun updateIsConnected(isConnected: String?, uid: String?): Task<Void> {
+            return usersCollection.document(uid!!).update("isConnected", isConnected)
+        }
 
-    @JvmStatic
-    fun updateIsConnected(isConnected: String?, uid: String?): Task<Void> {
-        return usersCollection.document(uid!!).update("isConnected", isConnected)
-    }
-
-    @JvmStatic
-    fun updateToken(token: String?, uid: String?): Task<Void> {
-        return usersCollection.document(uid!!).update("token", token)
-    }
-
-    // =============================================================================================
-    // --- DELETE ---
-    @JvmStatic
-    fun deleteUser(uid: String?): Task<Void> {
-        return usersCollection.document(uid!!).delete()
+        fun updateToken(token: String?, uid: String?): Task<Void> {
+            return usersCollection.document(uid!!).update("token", token)
+        }
+        // =========================================================================================
+        // --- DELETE ---
+        fun deleteUser(uid: String?): Task<Void> {
+            return usersCollection.document(uid!!).delete()
+        }
+        // =========================================================================================
+        // /////////////////////////////////////////////////////////////////////////////////////////
+        // =========================================================================================
     }
 }

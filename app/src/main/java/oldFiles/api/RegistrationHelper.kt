@@ -1,6 +1,6 @@
 package oldFiles.api
 
-import oldFiles.api.UserHelper.usersCollection
+//import oldFiles.api.UserHelper.usersCollection
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentSnapshot
@@ -35,7 +35,7 @@ object RegistrationHelper {
 
     // =============================================================================================
     // --- DELETE ---
-    fun deleteRegistration(uid: String?): Task<Void> {
-        return usersCollection.document(uid!!).delete()
-    }
+/*    fun deleteRegistration(uid: String?): Task<Void> {
+        //return usersCollection.document(uid!!).delete()
+    }*/
 }

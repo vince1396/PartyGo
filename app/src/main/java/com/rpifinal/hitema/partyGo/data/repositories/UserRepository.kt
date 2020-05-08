@@ -1,7 +1,6 @@
 package com.rpifinal.hitema.partyGo.data.repositories
 
 import android.util.Log
-import com.rpifinal.hitema.partyGo.data.dataSources.LoginDataSource
 import com.rpifinal.hitema.partyGo.data.model.LoggedInUser
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -11,7 +10,7 @@ import javax.inject.Singleton
  * maintains an in-memory cache of user credentials information.
  */
 @Singleton
-class LoginRepository @Inject constructor(private val dataSource: LoginDataSource)
+class UserRepository @Inject constructor()
 {
     private val TAG = "LoginRepository"
     // in-memory cache of the loggedInUser object

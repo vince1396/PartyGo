@@ -2,12 +2,13 @@ package oldFiles
 
 import android.content.Intent
 import android.view.View
-import oldFiles.api.UserHelper.updateIsConnected
+//import oldFiles.api.UserHelper.updateIsConnected
 import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.tasks.OnSuccessListener
 import com.rpifinal.hitema.R
 import oldFiles.model.User
 
+/*
 class MainMenu : BaseActivity() {
     private val mUser: User? = null
     override val fragmentLayout: Int
@@ -48,4 +49,4 @@ class MainMenu : BaseActivity() {
     companion object {
         private const val SIGN_OUT_TASK = 11
     }
-}
+}*/
