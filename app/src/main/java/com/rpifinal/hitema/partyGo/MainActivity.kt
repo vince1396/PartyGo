@@ -7,8 +7,8 @@ import android.util.Log
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.firestore.FirebaseFirestore
-import com.rpifinal.hitema.partyGo.data.model.LoggedInUser
-import com.rpifinal.hitema.partyGo.data.model.UserHelper
+import com.rpifinal.hitema.partyGo.data.user.model.User
+import com.rpifinal.hitema.partyGo.data.user.model.UserDAO
 import javax.inject.Inject
 
 class MainActivity @Inject constructor(): BaseActivity() {
@@ -80,16 +80,15 @@ class MainActivity @Inject constructor(): BaseActivity() {
         fun create() {
             Log.d(TAG, "Creating User")
 
-            val user = LoggedInUser(
-                    userId = getCurrentUser()!!.uid,
-                    displayName = getCurrentUser()!!.displayName,
-                    email = getCurrentUser()!!.email,
+            val user = User(
+                    uid = getCurrentUser()!!.uid,
+                    email = getCurrentUser()?.email!!,
                     phoneNumber = getCurrentUser()!!.phoneNumber,
                     photoUrl = getCurrentUser()!!.photoUrl.toString(),
                     firstName = null,
                     lastName = null)
 
-            UserHelper.createUser(user)
+            UserDAO.createUser(user)
         }
 
         val db = FirebaseFirestore.getInstance()
@@ -111,4 +110,7 @@ class MainActivity @Inject constructor(): BaseActivity() {
                     Log.d(TAG, "get failed with ", exception)
                 }
     }
+    // =============================================================================================
+    // /////////////////////////////////////////////////////////////////////////////////////////////
+    // =============================================================================================
 }

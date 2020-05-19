@@ -1,4 +1,4 @@
-package com.rpifinal.hitema.partyGo.data.model
+package com.rpifinal.hitema.partyGo.data.user.model
 
 import android.util.Log
 import com.google.android.gms.tasks.Task
@@ -8,9 +8,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
 import oldFiles.model.User
 
-class UserHelper {
+class UserDAO {
     companion object {
-        val TAG = "UserHelper"
+        private const val TAG = "UserHelper"
         // =========================================================================================
         // //////////////////////////////////////// ATTRIBUTES /////////////////////////////////////
         // =========================================================================================
@@ -31,9 +31,9 @@ class UserHelper {
             return usersCollection.document(uid!!).set(userToCreate)
         }
 
-        fun createUser(user: LoggedInUser): Task<Void> {
+        fun createUser(user: com.rpifinal.hitema.partyGo.data.user.model.User): Task<Void> {
             Log.d(TAG, "Upload user")
-            return usersCollection.document(user.userId).set(user)
+            return usersCollection.document(user.uid!!).set(user)
         }
         // =========================================================================================
         // --- READ ---

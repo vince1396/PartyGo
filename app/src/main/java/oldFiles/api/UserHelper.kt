@@ -5,8 +5,7 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
-import com.rpifinal.hitema.partyGo.data.model.LoggedInUser
-import oldFiles.model.User
+import com.rpifinal.hitema.partyGo.data.user.model.User
 
 class UserHelper {
     companion object {
@@ -23,15 +22,14 @@ class UserHelper {
         // =========================================================================================
         // /////////////////////////////////////////////////////////////////////////////////////////
         // =========================================================================================
-        fun createUser(uid: String?, email: String?, firstName: String?, lastName: String?,
-                       urlPicture: String?, isConnected: String?, token: String?, username: String? = null,  lvl: Int = 1, xp: Int = 0): Task<Void>
+        fun createUser(uid: String, email: String): Task<Void>
         {
-            val userToCreate = User(uid, email, username, firstName, lastName, urlPicture, lvl, xp, isConnected, token)
-            return usersCollection.document(uid!!).set(userToCreate)
+            val userToCreate = User(uid, email)
+            return usersCollection.document(uid).set(userToCreate)
         }
 
-        fun createUser(user: LoggedInUser): Task<Void> {
-            return usersCollection.document(user.userId).set(user)
+        fun createUser(user: com.rpifinal.hitema.partyGo.data.user.model.User): Task<Void> {
+            return usersCollection.document(user.uid!!).set(user)
         }
         // =========================================================================================
         // --- READ ---

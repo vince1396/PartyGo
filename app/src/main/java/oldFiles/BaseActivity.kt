@@ -46,7 +46,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     // Méthode qui retournera un message en cas d'erreur d'un traitement
     protected fun onFailureListener(): OnFailureListener {
-        return OnFailureListener { e: Exception? -> Toast.makeText(applicationContext, getString(R.string.error_unknown_error), Toast.LENGTH_LONG).show() }
+        return OnFailureListener { Toast.makeText(applicationContext, getString(R.string.error_unknown_error), Toast.LENGTH_LONG).show() }
     }
 
     // Get new Instance ID token

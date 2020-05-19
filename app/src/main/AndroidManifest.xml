@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
-        android:name=".partyGo.daggerComponents.PartyGo"
+        android:name=".partyGo.dagger.PartyGo"
         android:allowBackup="true"
         android:fullBackupContent="@xml/backup_descriptor"
         android:icon="@mipmap/partygo_logo"
@@ -16,10 +16,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:icon,android:theme">
-        <activity android:name=".partyGo.PocActivity"></activity>
-        <activity
-            android:name=".ui.login.LoginActivity"
-            android:label="@string/title_activity_login" />
+        <activity android:name=".partyGo.PocActivity" />
         <activity
             android:name=".partyGo.MainActivity"
             android:label="@string/title_activity_login">
@@ -29,7 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="oldFiles.ConnectedUsersList" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -41,20 +37,6 @@
         <meta-data
             android:name="com.snapchat.kit.sdk.clientId"
             android:value="3918eca7-74c5-42d0-a910-9eee29f22c84" />
-
-        <activity
-            android:name="oldFiles.UpdateUserActivity"
-            android:theme="@style/UpdateProfilPageTheme" />
-        <activity
-            android:name="oldFiles.ProfileActivity"
-            android:theme="@style/ProfilPageTheme" />
-        <activity
-            android:name="oldFiles.MainMenu"
-            android:theme="@style/MainMenuTheme" />
-        <activity
-            android:name="oldFiles.MainActivity"
-            android:theme="@style/HomePageTheme" />
-
         <service
             android:name="oldFiles.services.CloudMessagingService"
             android:exported="false">
