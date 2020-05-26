@@ -17,7 +17,7 @@ class MainActivity @Inject constructor(): BaseActivity() {
     // =============================================================================================
     private val TAG = "MainActivity"
 
-    private var RC_SIGN_IN = 123
+    private var RC_SIGN_IN = 123 // Random code for authentication
 
     // Choose authentication providers
     private val providers = arrayListOf(
@@ -26,15 +26,14 @@ class MainActivity @Inject constructor(): BaseActivity() {
             AuthUI.IdpConfig.GoogleBuilder().build()
     )
     // =============================================================================================
-    // /////////////////////////////////////////////////////////////////////////////////////////////
+    // //////////////////////////////////////// METHODS ////////////////////////////////////////////
     // =============================================================================================
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         startLogin()
     }
     // =============================================================================================
-    // /////////////////////////////////////////////////////////////////////////////////////////////
-    // =============================================================================================
+    // Start Firebase authentication process. Calls onActivityResult() as callback
     private fun startLogin() {
         Log.d(TAG, "Starting login")
         startActivityForResult(
@@ -45,8 +44,7 @@ class MainActivity @Inject constructor(): BaseActivity() {
                 RC_SIGN_IN)
     }
     // =============================================================================================
-    // /////////////////////////////////////////////////////////////////////////////////////////////
-    // =============================================================================================
+    // Callback function for startActivityForResult()
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
@@ -74,8 +72,6 @@ class MainActivity @Inject constructor(): BaseActivity() {
         }
     }
     // =============================================================================================
-    // /////////////////////////////////////////////////////////////////////////////////////////////
-    // =============================================================================================
     private fun createUserInFirestore() {
         fun create() {
             Log.d(TAG, "Creating User")
@@ -90,27 +86,30 @@ class MainActivity @Inject constructor(): BaseActivity() {
 
             UserDAO.createUser(user)
         }
-
         val db = FirebaseFirestore.getInstance()
+
+        // Fetch in the database a user with current user's uid
         val docRef = db.collection("users").document(getCurrentUser()!!.uid)
+
+        // We try to get the user previously fetched
         docRef.get()
-                .addOnSuccessListener { document ->
+                .addOnSuccessListener { document -> // On succes
                     val intent = Intent(this, PocActivity::class.java)
-                    if (document.exists()) {
+                    if (document.exists()) { // If current user already exists in DB
                         Log.d(TAG, "DocumentSnapshot data: ${document.data}")
                         startActivity(intent)
-                    } else {
+                    } else { // If current user doesn't exist in DB
                         Log.d(TAG, getCurrentUser()!!.uid)
                         Log.d(TAG, "No such document")
                         create()
                         startActivity(intent)
                     }
                 }
-                .addOnFailureListener { exception ->
+                .addOnFailureListener { exception -> // On failure
                     Log.d(TAG, "get failed with ", exception)
                 }
     }
     // =============================================================================================
-    // /////////////////////////////////////////////////////////////////////////////////////////////
+    // /////////////////////////////////////////// END /////////////////////////////////////////////
     // =============================================================================================
 }

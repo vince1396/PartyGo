@@ -18,13 +18,13 @@ data class User @Inject constructor(
         val userName: String? = null,
         val lvl: Int = 1,
         val xp: Int = 0
-)  {
+) {
     constructor() : this(
             null,
             null,
             null,
             null,
-            null ,
+            null,
             null,
             null,
             1,
