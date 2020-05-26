@@ -9,10 +9,10 @@ import javax.inject.Inject
  */
 @Entity
 data class User @Inject constructor(
-        @PrimaryKey val uid: String? = null,
-        val email: String? = null,
+        @PrimaryKey val uid: String? = null, // Provided by FirebaseAuth
+        val email: String? = null, // Provided by FirebaseAuth
         val phoneNumber: String? = null,
-        val photoUrl: String? = null,
+        val photoUrl: String? = null, // Provided by FirebaseAuth
         val firstName: String? = null,
         val lastName: String? = null,
         val userName: String? = null,

@@ -3,7 +3,6 @@ package com.rpifinal.hitema.partyGo.dagger
 import android.app.Application
 import com.rpifinal.hitema.partyGo.PocActivity
 import com.rpifinal.hitema.partyGo.ProfileFragment
-import com.rpifinal.hitema.partyGo.UpdateUserFragment
 import com.rpifinal.hitema.partyGo.data.user.repositories.UserRepository
 import com.rpifinal.hitema.partyGo.data.user.viewModel.UserViewModel
 import dagger.Component
@@ -14,7 +13,6 @@ interface AppComponent {
     fun inject(userViewModel: UserViewModel)
     fun inject(userRepository: UserRepository)
     fun inject(profileFragment: ProfileFragment)
-    fun inject(updateUserFragment: UpdateUserFragment)
 }
 
 // appComponent lives in the Application class to share its lifecycle

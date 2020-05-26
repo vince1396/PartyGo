@@ -33,7 +33,7 @@
              You need a different API key for each encryption key, including the release key that is used to
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
-        -->
+             -->
         <meta-data
             android:name="com.snapchat.kit.sdk.clientId"
             android:value="3918eca7-74c5-42d0-a910-9eee29f22c84" />
