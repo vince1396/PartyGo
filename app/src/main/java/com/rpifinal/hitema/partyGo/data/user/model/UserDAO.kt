@@ -1,15 +1,32 @@
 package com.rpifinal.hitema.partyGo.data.user.model
 
-import android.util.Log
-import com.google.android.gms.tasks.Task
-import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.DocumentSnapshot
-import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.firestore.QuerySnapshot
-import oldFiles.model.User
+import androidx.lifecycle.LiveData
+import androidx.room.*
 
-class UserDAO {
-    companion object {
+@Dao
+interface UserDAO {
+    // =============================================================================================
+    @Query("SELECT * FROM user")
+    fun getAll(): LiveData<List<User>>
+    // =============================================================================================
+    @Query("SELECT * FROM user WHERE uid in (:userIds)")
+    fun loadAllByIds(userIds: IntArray): LiveData<List<User>>
+    // =============================================================================================
+    @Query("SELECT * FROM user WHERE userName = (:pseudo)")
+    fun findByPseudo(pseudo: String): LiveData<User>
+    // =============================================================================================
+    @Insert
+    fun insertAll(vararg users: User)
+    // =============================================================================================
+    @Delete
+    fun delete(user: User)
+    // =============================================================================================
+    @Update
+    fun updateUsers(vararg users: User)
+    // =============================================================================================
+}
+
+/*    companion object {
         private const val TAG = "UserHelper"
         // =========================================================================================
         // //////////////////////////////////////// ATTRIBUTES /////////////////////////////////////
@@ -68,6 +85,4 @@ class UserDAO {
         }
         // =========================================================================================
         // /////////////////////////////////////////////////////////////////////////////////////////
-        // =========================================================================================
-    }
-}
+        // =========================================================================================*/
