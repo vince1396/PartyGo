@@ -84,7 +84,8 @@ class MainActivity @Inject constructor(): BaseActivity() {
                     firstName = null,
                     lastName = null)
 
-            UserDAO.createUser(user)
+            //TODO : Create user
+            // UserDAO.createUser(user)
         }
         val db = FirebaseFirestore.getInstance()
 
