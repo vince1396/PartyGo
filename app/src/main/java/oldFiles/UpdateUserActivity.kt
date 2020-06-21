@@ -9,10 +9,10 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-/*import oldFiles.api.UserHelper.getUser
-import oldFiles.api.UserHelper.updateFirstName
-import oldFiles.api.UserHelper.updateLastName
-import oldFiles.api.UserHelper.updateUsername*/
+/*import com.rpifinal.hitema.partyGo.data.user.model.UserHelper.getUser
+import com.rpifinal.hitema.partyGo.data.user.model.UserHelper.updateFirstName
+import com.rpifinal.hitema.partyGo.data.user.model.UserHelper.updateLastName
+import com.rpifinal.hitema.partyGo.data.user.model.UserHelper.updateUsername*/
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.firestore.DocumentSnapshot
 import com.rpifinal.hitema.R

@@ -4,8 +4,8 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.rpifinal.hitema.partyGo.data.user.model.User
+import com.rpifinal.hitema.partyGo.data.user.model.UserHelper
 import kotlinx.coroutines.awaitAll
-import oldFiles.api.UserHelper
 import javax.inject.Inject
 
 /**

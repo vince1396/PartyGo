@@ -3,9 +3,9 @@ package oldFiles
 import android.app.Activity
 import android.content.Intent
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-/*import oldFiles.api.UserHelper.createUser
-import oldFiles.api.UserHelper.getUser
-import oldFiles.api.UserHelper.updateIsConnected*/
+/*import com.rpifinal.hitema.partyGo.data.user.model.UserHelper.createUser
+import com.rpifinal.hitema.partyGo.data.user.model.UserHelper.getUser
+import com.rpifinal.hitema.partyGo.data.user.model.UserHelper.updateIsConnected*/
 import com.crashlytics.android.Crashlytics
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.AuthUI.IdpConfig.EmailBuilder

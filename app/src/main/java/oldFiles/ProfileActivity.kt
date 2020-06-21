@@ -8,9 +8,9 @@ import android.text.TextUtils
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-/*import oldFiles.api.UserHelper.deleteUser
-import oldFiles.api.UserHelper.getUser
-import oldFiles.api.UserHelper.updateIsConnected*/
+/*import com.rpifinal.hitema.partyGo.data.user.model.UserHelper.deleteUser
+import com.rpifinal.hitema.partyGo.data.user.model.UserHelper.getUser
+import com.rpifinal.hitema.partyGo.data.user.model.UserHelper.updateIsConnected*/
 import com.SACGGames.PartyGoMiniGames.UnityPlayerActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions

@@ -2,7 +2,7 @@ package oldFiles
 
 import android.content.Intent
 import android.view.View
-//import oldFiles.api.UserHelper.updateIsConnected
+//import com.rpifinal.hitema.partyGo.data.user.model.UserHelper.updateIsConnected
 import com.firebase.ui.auth.AuthUI
 import com.google.android.gms.tasks.OnSuccessListener
 import com.rpifinal.hitema.R

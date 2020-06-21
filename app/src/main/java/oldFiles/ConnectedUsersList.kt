@@ -3,7 +3,7 @@ package oldFiles
 import android.os.Bundle
 import android.widget.ListView
 import androidx.appcompat.app.AppCompatActivity
-//import oldFiles.api.UserHelper.connectedUsers
+//import com.rpifinal.hitema.partyGo.data.user.model.UserHelper.connectedUsers
 import com.google.firebase.firestore.QuerySnapshot
 import com.rpifinal.hitema.R
 import oldFiles.model.User

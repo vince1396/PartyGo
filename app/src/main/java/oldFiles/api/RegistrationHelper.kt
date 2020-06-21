@@ -1,6 +1,6 @@
 package oldFiles.api
 
-//import oldFiles.api.UserHelper.usersCollection
+//import com.rpifinal.hitema.partyGo.data.user.model.UserHelper.usersCollection
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentSnapshot

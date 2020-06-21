@@ -1,11 +1,10 @@
-package oldFiles.api
+package com.rpifinal.hitema.partyGo.data.user.model
 
 import com.google.android.gms.tasks.Task
 import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.QuerySnapshot
-import com.rpifinal.hitema.partyGo.data.user.model.User
 
 class UserHelper {
     companion object {
