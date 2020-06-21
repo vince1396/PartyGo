@@ -4,4 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".partyGo.PocActivity"/>
+    tools:context=".partyGo.PocActivity">
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.rpifinal.hitema.partyGo.MainMenuFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="162dp"
+        tools:layout_editor_absoluteY="212dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>
