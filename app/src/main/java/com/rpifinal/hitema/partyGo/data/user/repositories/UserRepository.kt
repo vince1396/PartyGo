@@ -15,19 +15,10 @@ import javax.inject.Inject
 class UserRepository @Inject constructor()
 {
     private val TAG = "UserRepository"
-    private val user: MutableLiveData<User> = MutableLiveData<User>()
 
-    fun getUser(uid: String): LiveData<User> {
-        if(getInfoUser(uid)){
-            Log.d(TAG, "User before return : " + user.value.toString())
-            Log.d(TAG, user.toString())
-            return user
-        }
-        return user
-    }
-
-    fun getInfoUser( uid : String) : Boolean{
-        return UserHelper.getUser(uid).addOnSuccessListener {
+    fun getUser( uid : String ) : LiveData<User> {
+        val user: MutableLiveData<User> = MutableLiveData<User>()
+        UserHelper.getUser(uid).addOnSuccessListener {
             Log.d(TAG, uid)
             Log.d(TAG, it.toString())
             if(it.exists()) {
@@ -38,6 +29,9 @@ class UserRepository @Inject constructor()
             } else {
                 Log.d(TAG, "Document doesn't exist")
             }
-        }.isSuccessful()
+        }
+        Log.d(TAG, "User before return : " + user.value.toString())
+        Log.d(TAG, user.toString())
+        return user
     }
 }
