@@ -22,11 +22,14 @@ class UserRepository @Inject constructor()
             Log.d(TAG, it.toString())
             if(it.exists()) {
                 Log.d(TAG, "Document exists")
+                Log.d(TAG, it.data.toString())
                 user.value = it.toObject(User::class.java)
             } else {
                 Log.d(TAG, "Document doesn't exist")
             }
         }
+        Log.d(TAG, "User before return : " + user.value.toString())
+        Log.d(TAG, user.toString())
         return user
     }
 }

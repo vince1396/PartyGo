@@ -12,13 +12,14 @@ class UserViewModel @Inject constructor(userRepository: UserRepository): ViewMod
 
     private val TAG = "UserViewModel"
 
-    private val _user = userRepository.getUser(FirebaseAuth.getInstance().currentUser!!.uid)
+    private val _user: LiveData<User> = userRepository.getUser(FirebaseAuth.getInstance().currentUser!!.uid)
     val user: LiveData<User>
         get() = _user
 
     init {
         Log.d(TAG, "UserViewModel created !")
-        Log.d(TAG, _user.toString())
+        Log.d(TAG, _user.value.toString())
+        Log.d(TAG, user.value.toString())
     }
 
     override fun onCleared() {
