@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.rpifinal.hitema.partyGo.MainMenuFragment"
+        android:name="com.rpifinal.hitema.partyGo.GameHubFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="162dp"

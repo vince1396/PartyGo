@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_app"
+    tools:context=".partyGo.PocActivity"
     >
 
     <ImageView
@@ -27,7 +28,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
+        android:id="@+id/fragmentHolder"
         android:layout_width="match_parent"
         android:layout_height="267dp"
         android:layout_marginStart="32dp"
@@ -37,6 +38,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2">
 
+        <fragment
+            android:id="@+id/fragment3"
+            android:name="com.rpifinal.hitema.partyGo.GameUserFragment"
+            android:layout_width="match_parent"
+            android:layout_height="80dp" />
     </RelativeLayout>
 
     <Button
@@ -47,5 +53,5 @@
         android:text="Jouer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/fragmentHolder" />
 </androidx.constraintlayout.widget.ConstraintLayout>

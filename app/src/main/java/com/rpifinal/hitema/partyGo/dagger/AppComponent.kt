@@ -15,6 +15,8 @@ interface AppComponent {
     fun inject(newUserFragment: NewUserFragment)
     fun inject(mainMenuFragment: MainMenuFragment)
     fun inject(headerFragment: HeaderFragment)
+    fun inject(gameHubFragment: GameHubFragment)
+    fun inject(gameUserFragment: GameUserFragment)
 }
 
 // appComponent lives in the Application class to share its lifecycle
