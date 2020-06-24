@@ -3,6 +3,7 @@ package com.rpifinal.hitema.partyGo.data.user.repositories
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.firebase.auth.FirebaseAuth
 import com.rpifinal.hitema.partyGo.data.user.model.User
 import com.rpifinal.hitema.partyGo.data.user.model.UserHelper
 import kotlinx.coroutines.awaitAll
@@ -15,9 +16,14 @@ import javax.inject.Inject
 class UserRepository @Inject constructor()
 {
     private val TAG = "UserRepository"
+    lateinit var requestedUser: LiveData<User>
 
-    fun getUser( uid : String ) : LiveData<User> {
-        val user: MutableLiveData<User> = MutableLiveData<User>()
+    init {
+        getUser(FirebaseAuth.getInstance().uid.toString())
+    }
+
+    private fun fetchUser(uid: String, callback: IgetUserCallback) {
+        val user: MutableLiveData<User> = MutableLiveData()
         UserHelper.getUser(uid).addOnSuccessListener {
             Log.d(TAG, uid)
             Log.d(TAG, it.toString())
@@ -30,8 +36,14 @@ class UserRepository @Inject constructor()
                 Log.d(TAG, "Document doesn't exist")
             }
         }
-        Log.d(TAG, "User before return : " + user.value.toString())
-        Log.d(TAG, user.toString())
-        return user
+        callback.onCallback(user)
+    }
+
+    private fun getUser(uid: String) {
+        fetchUser(uid, object: IgetUserCallback {
+            override fun onCallback(value: MutableLiveData<User>) {
+                requestedUser = value
+            }
+        })
     }
 }

@@ -27,7 +27,7 @@ class ProfileFragment : Fragment() {
 
         Log.d(TAG, "Profile fragment created")
 
-        viewModel.user.observe(this, Observer { user ->
+        viewModel.user?.observe(this, Observer { user ->
             Log.d(TAG, user.toString())
             updateUserUI(user)
         })
