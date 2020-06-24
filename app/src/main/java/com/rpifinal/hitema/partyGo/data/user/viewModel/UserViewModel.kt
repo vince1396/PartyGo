@@ -12,8 +12,8 @@ class UserViewModel @Inject constructor(userRepository: UserRepository): ViewMod
 
     private val TAG = "UserViewModel"
 
-    private val _user = userRepository.getUser(FirebaseAuth.getInstance().currentUser!!.uid)
-    val user: LiveData<User>
+    private val _user: LiveData<User>? = userRepository.requestedUser
+    val user: LiveData<User>?
         get() = _user
 
     init {
